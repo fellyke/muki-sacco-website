@@ -1,0 +1,799 @@
+
+/* ==========================================
+   MUKI SACCO — DIGITAL BANKING PAGE
+   Teal: #60B4AC | Blue: #2196C7
+========================================== */
+
+.db-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #263b43;
+}
+
+.db-page *,
+.db-page *::before,
+.db-page *::after {
+  box-sizing: border-box;
+}
+
+.db-page a {
+  text-decoration: none;
+}
+
+/* ==========================================
+   TYPOGRAPHY
+========================================== */
+
+.db-page .db-eyebrow {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #2196c7;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.db-page .db-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: 55px;
+  min-height: 540px;
+  padding: 75px max(24px, calc((100% - 1180px) / 2));
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(255, 255, 255, 0.14),
+      transparent 30%
+    ),
+    linear-gradient(120deg, #187ca9 0%, #2196c7 55%, #60b4ac 100%);
+  color: #ffffff;
+}
+
+.db-page .db-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 610px;
+}
+
+.db-page .db-hero .db-eyebrow {
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.db-page .db-hero h1 {
+  margin: 0 0 22px;
+  color: #ffffff;
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -1.8px;
+}
+
+.db-page .db-hero-content > p {
+  max-width: 570px;
+  margin: 0 0 29px;
+  color: rgba(255, 255, 255, 0.93);
+  font-size: 1.04rem;
+  line-height: 1.85;
+}
+
+.db-page .db-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  min-height: 50px;
+  padding: 14px 23px;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #187ca9;
+  font-size: 0.92rem;
+  font-weight: 800;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.db-page .db-primary-btn:hover {
+  transform: translateY(-3px);
+  background: #eaf7f5;
+  box-shadow: 0 12px 28px rgba(15, 51, 67, 0.2);
+}
+
+.db-page .db-hero-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.89rem;
+}
+
+.db-page .db-hero-note svg {
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   HERO IMAGE
+========================================== */
+
+.db-page .db-hero-image {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 350px;
+}
+
+.db-page .db-hero-image::before {
+  content: "";
+  position: absolute;
+  width: min(100%, 420px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+}
+
+.db-page .db-hero-image::after {
+  content: "";
+  position: absolute;
+  width: min(80%, 330px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 50%;
+}
+
+.db-page .db-hero-image > img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  height: 340px;
+  border: 5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 22px;
+  background: #eaf7f5;
+  object-fit: cover;
+  box-shadow: 0 25px 60px rgba(13, 61, 81, 0.22);
+  transform: rotate(2deg);
+  transition: transform 0.35s ease;
+}
+
+.db-page .db-hero-image > img:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.db-page .db-floating-card {
+  position: absolute;
+  z-index: 2;
+  right: -8px;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  max-width: 290px;
+  padding: 17px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 12px;
+  background: #ffffff;
+  color: #2196c7;
+  box-shadow: 0 14px 35px rgba(13, 61, 81, 0.16);
+}
+
+.db-page .db-floating-card > svg {
+  flex-shrink: 0;
+}
+
+.db-page .db-floating-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.db-page .db-floating-card strong {
+  color: #187ca9;
+  font-size: 0.93rem;
+  font-weight: 800;
+}
+
+.db-page .db-floating-card span {
+  color: #657780;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   INTRODUCTION
+========================================== */
+
+.db-page .db-intro {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 85px 24px 45px;
+  text-align: center;
+}
+
+.db-page .db-intro h2 {
+  margin: 0 0 17px;
+  color: #187ca9;
+  font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+}
+
+.db-page .db-intro > p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #657780;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   SERVICE GRID
+========================================== */
+
+.db-page .db-services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding-bottom: 90px;
+}
+
+/* ==========================================
+   SERVICE CARD
+========================================== */
+
+.db-page .db-service-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #dcebe9;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(32, 85, 100, 0.055);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.db-page .db-service-card:hover {
+  transform: translateY(-5px);
+  border-color: #60b4ac;
+  box-shadow: 0 18px 40px rgba(32, 85, 100, 0.11);
+}
+
+/* ==========================================
+   SERVICE IMAGE
+========================================== */
+
+.db-page .db-image-wrap {
+  position: relative;
+  height: 235px;
+  overflow: hidden;
+  background: #eaf7f5;
+}
+
+.db-page .db-image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(17, 59, 77, 0.03),
+    rgba(17, 59, 77, 0.2)
+  );
+  pointer-events: none;
+}
+
+.db-page .db-image-wrap > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.db-page .db-service-card:hover .db-image-wrap > img {
+  transform: scale(1.045);
+}
+
+.db-page .db-number {
+  position: absolute;
+  z-index: 1;
+  top: 18px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #187ca9;
+  font-size: 0.9rem;
+  font-weight: 800;
+  box-shadow: 0 5px 18px rgba(17, 59, 77, 0.1);
+}
+
+/* ==========================================
+   SERVICE CARD CONTENT
+========================================== */
+
+.db-page .db-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px;
+}
+
+.db-page .db-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 53px;
+  height: 53px;
+  margin-top: -54px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+  border: 4px solid #ffffff;
+  border-radius: 13px;
+  background: #eaf7f5;
+  color: #2196c7;
+}
+
+.db-page .db-subtitle {
+  margin: 0 0 9px;
+  color: #439d95;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+}
+
+.db-page .db-card-content h3 {
+  margin: 0 0 14px;
+  color: #187ca9;
+  font-size: 1.42rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.db-page .db-description {
+  margin: 0 0 22px;
+  color: #657780;
+  font-size: 0.93rem;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   PAYBILL NUMBER
+========================================== */
+
+.db-page .db-paybill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
+  margin: 0 0 23px;
+  padding: 17px;
+  border: 1px solid #cde8e3;
+  border-radius: 10px;
+  background: #f0faf8;
+}
+
+.db-page .db-paybill > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.db-page .db-paybill > div > span {
+  color: #657780;
+  font-size: 0.77rem;
+  font-weight: 600;
+}
+
+.db-page .db-paybill > div > strong {
+  color: #187ca9;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.db-page .db-paybill > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 9px 13px;
+  border: 1px solid #2196c7;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #187ca9;
+  font-family: inherit;
+  font-size: 0.83rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.db-page .db-paybill > button:hover {
+  border-color: #187ca9;
+  background: #2196c7;
+  color: #ffffff;
+}
+
+.db-page .db-paybill > button:focus-visible {
+  outline: 3px solid rgba(33, 150, 199, 0.3);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   FEATURE LIST
+========================================== */
+
+.db-page .db-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  width: 100%;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.db-page .db-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #526a74;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.db-page .db-feature-list li svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: #60b4ac;
+}
+
+/* ==========================================
+   DISCLAIMER
+========================================== */
+
+.db-page .db-disclaimer {
+  width: 100%;
+  margin: 0 0 22px;
+  padding: 13px 15px;
+  border-left: 3px solid #60b4ac;
+  border-radius: 0 7px 7px 0;
+  background: #f0faf8;
+  color: #526a74;
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+/* ==========================================
+   SERVICE LINKS
+========================================== */
+
+.db-page .db-card-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 19px;
+  border-top: 1px solid #e4eeec;
+  color: #187ca9;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+}
+
+.db-page .db-card-link svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.db-page .db-card-link:hover {
+  color: #439d95;
+}
+
+.db-page .db-card-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   SECURITY SECTION
+========================================== */
+
+.db-page .db-security {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto 70px;
+  padding: 32px;
+  border: 1px solid #cfe8e4;
+  border-radius: 14px;
+  background: #f0faf8;
+}
+
+.db-page .db-security-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #2196c7;
+  box-shadow: 0 5px 18px rgba(32, 85, 100, 0.06);
+}
+
+.db-page .db-security-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.db-page .db-security-content h2 {
+  margin: 0 0 10px;
+  color: #187ca9;
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.db-page .db-security-content p {
+  margin: 0;
+  color: #657780;
+  font-size: 0.91rem;
+  line-height: 1.8;
+}
+
+.db-page .db-security > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  flex-shrink: 0;
+  padding: 13px 17px;
+  border-radius: 7px;
+  background: #2196c7;
+  color: #ffffff;
+  font-size: 0.87rem;
+  font-weight: 800;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.db-page .db-security > a:hover {
+  transform: translateY(-2px);
+  background: #187ca9;
+}
+
+/* ==========================================
+   BACK TO HOME
+========================================== */
+
+.db-page .db-back-home {
+  padding: 0 24px 35px;
+  text-align: center;
+}
+
+.db-page .db-back-home > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #187ca9;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.db-page .db-back-home > a:hover {
+  color: #439d95;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 950px) {
+  .db-page .db-hero {
+    gap: 30px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .db-page .db-hero-image > img {
+    height: 290px;
+  }
+
+  .db-page .db-floating-card {
+    right: -5px;
+  }
+
+  .db-page .db-services {
+    gap: 22px;
+  }
+
+  .db-page .db-card-content {
+    padding: 23px;
+  }
+
+  .db-page .db-security {
+    flex-wrap: wrap;
+  }
+
+  .db-page .db-security-content {
+    flex-basis: calc(100% - 100px);
+  }
+
+  .db-page .db-security > a {
+    margin-left: 89px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+  .db-page .db-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+    min-height: auto;
+    padding: 60px 20px 45px;
+  }
+
+  .db-page .db-hero h1 {
+    font-size: clamp(2.7rem, 11vw, 3.6rem);
+    letter-spacing: -1.2px;
+  }
+
+  .db-page .db-hero-content > p {
+    font-size: 0.96rem;
+    line-height: 1.8;
+  }
+
+  .db-page .db-hero-image {
+    min-height: 310px;
+    margin: 0 5px;
+  }
+
+  .db-page .db-hero-image > img {
+    width: 100%;
+    max-width: 380px;
+    height: 275px;
+  }
+
+  .db-page .db-floating-card {
+    right: -2px;
+    bottom: 5px;
+    max-width: 260px;
+    padding: 14px 16px;
+  }
+
+  .db-page .db-intro {
+    padding: 60px 20px 35px;
+  }
+
+  .db-page .db-intro h2 {
+    font-size: 1.9rem;
+  }
+
+  .db-page .db-services {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    width: calc(100% - 32px);
+    padding-bottom: 60px;
+  }
+
+  .db-page .db-image-wrap {
+    height: 225px;
+  }
+
+  .db-page .db-card-content {
+    padding: 24px;
+  }
+
+  .db-page .db-card-content h3 {
+    font-size: 1.32rem;
+  }
+
+  .db-page .db-security {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    width: calc(100% - 32px);
+    margin-bottom: 50px;
+    padding: 24px;
+  }
+
+  .db-page .db-security-content {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .db-page .db-security > a {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+  .db-page .db-hero {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .db-page .db-hero h1 {
+    font-size: 2.45rem;
+  }
+
+  .db-page .db-card-content {
+    padding: 20px;
+  }
+
+  .db-page .db-paybill {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .db-page .db-paybill > button {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .db-page *,
+  .db-page *::before,
+  .db-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,3037 @@
+
+/* =========================================================
+   MUKI SACCO WEBSITE — GLOBAL DESIGN SYSTEM
+   Brand: Teal #60B4AC | Blue #2196C7 | White #FFFFFF
+   Shared across homepage and internal pages
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Official brand palette */
+  --teal: #60B4AC;
+  --teal-dark: #439D95;
+  --teal-light: #EAF7F5;
+  --blue: #2196C7;
+  --blue-dark: #187CA9;
+  --blue-light: #EAF5FA;
+  --white: #FFFFFF;
+
+  /* Neutral colours */
+  --text: #263B43;
+  --muted: #657780;
+  --border: #DDEBEA;
+  --background: #F5FAFA;
+  --surface: #FFFFFF;
+
+  /* Compatibility with your existing homepage CSS */
+  --navy: #2196C7;
+  --navy-dark: #187CA9;
+  --green: #60B4AC;
+  --green-dark: #439D95;
+  --light-blue: #EAF5FA;
+  --light-green: #EAF7F5;
+
+  --shadow: 0 12px 35px rgba(32, 85, 100, 0.09);
+  --shadow-hover: 0 20px 45px rgba(32, 85, 100, 0.15);
+  --radius: 14px;
+  --radius-small: 8px;
+  --transition: 0.25s ease;
+}
+
+/* =========================================================
+   1. RESET AND GLOBAL ELEMENTS
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--white);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'DM Sans', sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  font-size: inherit;
+}
+
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Manrope', sans-serif;
+  color: var(--blue);
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.75;
+}
+
+ul {
+  padding-left: 22px;
+}
+
+::selection {
+  background: var(--teal);
+  color: var(--white);
+}
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.container {
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.section,
+.section-pad {
+  padding: 82px 0;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 12px 0;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.section-heading > span,
+.eyebrow {
+  display: inline-block;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   2. SHARED BUTTONS
+========================================================= */
+
+.button,
+.primary-button,
+.hero-button,
+.membership-button,
+.learn-more-button,
+.db-primary-btn {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 21px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 700;
+  text-align: center;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.button:hover,
+.primary-button:hover,
+.hero-button:hover,
+.membership-button:hover,
+.learn-more-button:hover,
+.db-primary-btn:hover {
+  background: var(--teal-dark);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(67, 157, 149, 0.2);
+}
+
+.button-blue,
+.button-outline-blue {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.button-blue:hover,
+.button-outline-blue:hover {
+  background: var(--blue-dark);
+  color: var(--white);
+}
+
+.button-outline,
+.outline-button {
+  border: 1px solid var(--teal);
+  background: transparent;
+  color: var(--teal-dark);
+}
+
+.button-outline:hover,
+.outline-button:hover {
+  background: var(--teal);
+  color: var(--white);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+}
+
+/* =========================================================
+   3. TOP BAR AND NAVIGATION
+   Supports Navbar.jsx and existing homepage navigation
+========================================================= */
+
+.topbar,
+.top-bar {
+  background: var(--blue);
+  color: var(--white);
+  font-size: 12px;
+}
+
+.topbar-inner,
+.top-bar-content {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.topbar-links,
+.top-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.topbar a,
+.top-bar a {
+  transition: opacity var(--transition);
+}
+
+.topbar a:hover,
+.top-bar a:hover {
+  opacity: 0.75;
+}
+
+.navbar,
+.site-header {
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+.navbar-inner,
+.nav-container {
+  display: flex;
+  width: min(1240px, calc(100% - 40px));
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto;
+}
+
+.brand,
+.logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 11px;
+}
+
+.brand-mark,
+.logo-symbol {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--blue);
+  color: var(--white);
+  font-weight: 800;
+}
+
+.brand-name,
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  color: var(--blue);
+  font-family: 'Manrope', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.brand-name small,
+.logo-text small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-links,
+.navigation,
+.main-nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 23px;
+}
+
+.nav-links a,
+.navigation a,
+.main-nav a {
+  position: relative;
+  padding: 10px 0;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  transition: color var(--transition);
+}
+
+.nav-links a::after,
+.navigation a::after,
+.main-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 3px;
+  left: 0;
+  height: 2px;
+  background: var(--teal);
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.nav-links a:hover,
+.navigation a:hover,
+.main-nav a:hover,
+.nav-links a.active,
+.navigation a.active,
+.main-nav a.active {
+  color: var(--blue);
+}
+
+.nav-links a:hover::after,
+.navigation a:hover::after,
+.main-nav a:hover::after,
+.nav-links a.active::after,
+.navigation a.active::after,
+.main-nav a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-cta,
+.login-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 17px;
+  border-radius: 7px;
+  background: var(--teal);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  transition: background var(--transition);
+}
+
+.nav-cta:hover,
+.login-button:hover {
+  background: var(--teal-dark);
+  color: var(--white);
+}
+
+/* =========================================================
+   4. HOMEPAGE HERO
+========================================================= */
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: 590px;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--blue-dark);
+  background-position: center;
+  background-size: cover;
+  color: var(--white);
+}
+
+.hero::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(24, 124, 169, 0.94),
+    rgba(33, 150, 199, 0.58)
+  );
+  content: '';
+}
+
+.hero-inner,
+.hero-container {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 48px));
+  margin-inline: auto;
+  padding: 90px 0 110px;
+}
+
+.hero-content {
+  max-width: 690px;
+  color: var(--white);
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-content .eyebrow,
+.hero-label {
+  color: var(--white);
+}
+
+.hero-content h1,
+.hero-content h2 {
+  margin: 20px 0;
+  color: var(--white);
+  font-size: clamp(38px, 5.5vw, 65px);
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+
+.hero-content p,
+.hero-description {
+  max-width: 570px;
+  margin: 0 0 28px;
+  color: rgba(255, 255, 255, 0.93);
+  font-size: 17px;
+}
+
+.hero-actions,
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-card {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.13);
+  backdrop-filter: blur(12px);
+}
+
+.hero-controls {
+  position: absolute;
+  right: 0;
+  bottom: 34px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-controls button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  transition: background var(--transition);
+}
+
+.hero-controls button:hover {
+  background: var(--teal);
+}
+
+.hero-dots {
+  display: flex;
+  gap: 7px;
+}
+
+.hero-dots button {
+  width: 9px;
+  height: 9px;
+  min-height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.hero-dots button.active {
+  width: 25px;
+  background: var(--white);
+}
+
+/* =========================================================
+   5. HOMEPAGE HIGHLIGHTS AND STATISTICS
+========================================================= */
+
+.highlights {
+  position: relative;
+  z-index: 3;
+  margin-top: -42px;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.highlight-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 25px 20px;
+}
+
+.highlight-card + .highlight-card {
+  border-left: 1px solid var(--border);
+}
+
+.highlight-icon,
+.service-icon,
+.loan-icon,
+.saving-icon {
+  display: grid;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--teal-light);
+  color: var(--blue);
+}
+
+.highlight-card h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.highlight-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.statistics-section {
+  padding: 66px 0;
+  background: var(--blue-light);
+}
+
+.statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  text-align: center;
+}
+
+.statistic-item h3,
+.stat-card h3 {
+  margin: 0 0 8px;
+  color: var(--blue);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 800;
+}
+
+.statistic-item p,
+.stat-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* =========================================================
+   6. SHARED CARDS AND SERVICES
+========================================================= */
+
+.services-section,
+.loans-section,
+.savings-section,
+.about-section {
+  padding: 85px 0;
+}
+
+.services-grid,
+.service-grid,
+.loans-grid,
+.savings-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.service-card,
+.loan-card,
+.saving-card,
+.product-card,
+.stat-card,
+.partner-logo-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.service-card,
+.loan-card,
+.saving-card,
+.product-card {
+  padding: 25px 22px;
+}
+
+.service-card:hover,
+.loan-card:hover,
+.saving-card:hover,
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(96, 180, 172, 0.7);
+  box-shadow: var(--shadow-hover);
+}
+
+.service-icon,
+.loan-icon,
+.saving-icon {
+  margin-bottom: 19px;
+}
+
+.service-card h3,
+.loan-card h3,
+.saving-card h3,
+.product-card h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+}
+
+.service-card p,
+.loan-card p,
+.saving-card p,
+.product-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.service-card a,
+.loan-card a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.loans-section,
+.about-section,
+.news-section {
+  background: var(--background);
+}
+
+.section-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+.cta {
+  padding: 65px 0;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.cta-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.cta h2,
+.cta p {
+  color: var(--white);
+}
+
+/* =========================================================
+   7. ABOUT PAGE
+========================================================= */
+
+.page-hero {
+  position: relative;
+  padding: 75px 24px;
+  overflow: hidden;
+  background: linear-gradient(120deg, var(--blue), var(--blue-dark));
+  color: var(--white);
+  text-align: center;
+}
+
+.page-hero h1 {
+  margin: 12px 0;
+  color: var(--white);
+  font-size: clamp(34px, 5vw, 52px);
+}
+
+.page-hero p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.about-grid,
+.about-history-grid,
+.digital-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.about-visual {
+  position: relative;
+  min-height: 410px;
+}
+
+.about-visual img {
+  width: 100%;
+  height: 410px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.about-stamp {
+  position: absolute;
+  right: -12px;
+  bottom: 25px;
+  max-width: 200px;
+  padding: 22px;
+  border-radius: 12px;
+  background: var(--teal);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.about-stamp strong {
+  display: block;
+  margin-bottom: 6px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 25px;
+}
+
+.about-stamp span {
+  font-size: 12px;
+}
+
+.about-copy h2,
+.about-history-grid h2 {
+  margin: 15px 0 20px;
+  font-size: clamp(28px, 3.5vw, 40px);
+  letter-spacing: -1px;
+}
+
+.about-copy > p,
+.about-history-grid p {
+  color: var(--muted);
+}
+
+.about-list {
+  display: grid;
+  gap: 13px;
+  margin: 25px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.about-list svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: var(--teal-dark);
+}
+
+.milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.milestone-card {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.milestone-card h3 {
+  color: var(--blue);
+}
+
+/* =========================================================
+   8. LOANS PAGE — IMAGE CARDS AND DETAILS
+   Complements src/pages/Loans.css
+========================================================= */
+
+.loans-page {
+  background: var(--background);
+}
+
+.loans-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 40px;
+  padding: 70px max(24px, calc((100% - 1180px) / 2));
+  overflow: hidden;
+  background: linear-gradient(120deg, var(--blue), var(--blue-dark));
+  color: var(--white);
+}
+
+.loans-hero h1,
+.loans-hero h2 {
+  color: var(--white);
+}
+
+.loans-hero p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.loans-hero-content {
+  max-width: 650px;
+  animation: fadeUp 0.7s ease both;
+}
+
+.loans-hero-visual img {
+  width: 100%;
+  max-height: 380px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.loan-list-section {
+  padding: 75px 0;
+}
+
+.loan-search {
+  display: flex;
+  width: min(520px, 100%);
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 35px;
+  padding: 0 15px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--white);
+}
+
+.loan-search input {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+.loans-page .loans-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.loans-page .loan-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.loan-poster {
+  position: relative;
+  min-height: 190px;
+  overflow: hidden;
+  background: var(--blue-light);
+}
+
+.loan-poster img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.loan-card:hover .loan-poster img {
+  transform: scale(1.045);
+}
+
+.loan-card-body {
+  padding: 23px;
+}
+
+.loan-card-body h3 {
+  color: var(--blue);
+}
+
+.loan-card-body p {
+  color: var(--muted);
+}
+
+.learn-more-button {
+  margin-top: 12px;
+}
+
+.loan-benefits {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.loan-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.loan-benefits svg {
+  flex-shrink: 0;
+  color: var(--teal-dark);
+}
+
+.loan-modal {
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 24px;
+  background: rgba(20, 43, 52, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.loan-modal-content {
+  width: min(650px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 30px;
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow-hover);
+}
+
+/* =========================================================
+   9. SAVINGS PAGE
+========================================================= */
+
+.savings-page {
+  background: var(--background);
+}
+
+.savings-hero,
+.savings-page .page-hero {
+  background: linear-gradient(120deg, var(--blue), var(--blue-dark));
+  color: var(--white);
+}
+
+.savings-hero h1,
+.savings-hero h2 {
+  color: var(--white);
+}
+
+.savings-products,
+.savings-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.savings-product-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.savings-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.savings-product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.savings-product-card > div {
+  padding: 23px;
+}
+
+/* =========================================================
+   10. DIGITAL BANKING PAGE — db-* CLASSES
+========================================================= */
+
+.db-page {
+  overflow: hidden;
+  background: var(--background);
+}
+
+.db-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 55px;
+  padding: 70px max(24px, calc((100% - 1180px) / 2));
+  background: linear-gradient(120deg, var(--blue), var(--blue-dark));
+  color: var(--white);
+}
+
+.db-hero-content {
+  animation: fadeUp 0.7s ease both;
+}
+
+.db-eyebrow {
+  display: inline-block;
+  color: var(--teal-light);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.db-hero h1 {
+  margin: 16px 0;
+  color: var(--white);
+  font-size: clamp(38px, 5vw, 58px);
+  letter-spacing: -1.5px;
+}
+
+.db-hero p {
+  color: rgba(255, 255, 255, 0.91);
+}
+
+.db-primary-btn {
+  margin-top: 12px;
+  background: var(--teal);
+}
+
+.db-hero-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+  color: var(--white);
+  font-size: 13px;
+}
+
+.db-hero-image {
+  position: relative;
+}
+
+.db-hero-image > img {
+  width: 100%;
+  height: 390px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.db-floating-card {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--blue);
+  box-shadow: var(--shadow);
+}
+
+.db-floating-card div {
+  display: grid;
+  gap: 4px;
+}
+
+.db-floating-card span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.db-intro {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 70px 24px 35px;
+  text-align: center;
+}
+
+.db-intro h2 {
+  margin: 12px 0;
+  font-size: clamp(28px, 4vw, 40px);
+}
+
+.db-intro p {
+  color: var(--muted);
+}
+
+.db-services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 20px 0 75px;
+}
+
+.db-service-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.db-service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.db-image-wrap {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+  background: var(--blue-light);
+}
+
+.db-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.db-service-card:hover .db-image-wrap img {
+  transform: scale(1.04);
+}
+
+.db-number {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--teal);
+  color: var(--white);
+  font-weight: 800;
+}
+
+.db-card-content {
+  padding: 25px;
+}
+
+.db-card-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 15px;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--teal-light);
+  color: var(--blue);
+}
+
+.db-subtitle {
+  margin: 0 0 6px;
+  color: var(--teal-dark);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.db-card-content h3 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+.db-description,
+.db-disclaimer {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.db-paybill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--teal-light);
+}
+
+.db-paybill div {
+  display: grid;
+  gap: 5px;
+}
+
+.db-paybill span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.db-paybill strong {
+  color: var(--blue);
+  font-size: 25px;
+}
+
+.db-paybill button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 13px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.db-feature-list {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.db-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.db-feature-list svg {
+  flex-shrink: 0;
+  color: var(--teal-dark);
+}
+
+.db-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.db-card-link:hover {
+  color: var(--teal-dark);
+}
+
+.db-security {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto 60px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.db-security-icon {
+  display: grid;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 14px;
+  background: var(--teal-light);
+  color: var(--blue);
+}
+
+.db-security h2 {
+  margin: 0 0 8px;
+}
+
+.db-security p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.db-security > a {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  color: var(--blue);
+  font-weight: 700;
+}
+
+.db-back-home {
+  padding: 0 24px 35px;
+  text-align: center;
+}
+
+.db-back-home a {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* =========================================================
+   11. MEMBERSHIP PAGE
+========================================================= */
+
+.membership-page {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.membership-hero {
+  padding: 65px 7%;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.membership-hero h1 {
+  max-width: 700px;
+  margin: 12px 0 18px;
+  color: var(--white);
+  font-size: clamp(36px, 5vw, 58px);
+}
+
+.membership-hero p {
+  max-width: 650px;
+  color: rgba(255, 255, 255, 0.93);
+}
+
+.membership-container {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 30px;
+  max-width: 1150px;
+  margin: 45px auto;
+  padding: 0 24px 50px;
+}
+
+.membership-info,
+.membership-form-card {
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: 0 8px 30px rgba(38, 59, 67, 0.05);
+}
+
+.membership-info h2,
+.membership-form-card h2 {
+  margin-top: 0;
+  font-size: 25px;
+}
+
+.membership-info p,
+.membership-info li,
+.membership-form-card > p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.membership-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.membership-benefit svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: var(--teal-dark);
+}
+
+.membership-form {
+  display: grid;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.membership-field {
+  display: grid;
+  gap: 8px;
+}
+
+.membership-field label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.membership-field input,
+.membership-field select,
+.membership-field textarea {
+  width: 100%;
+  min-height: 47px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  outline: none;
+  background: var(--white);
+  color: var(--text);
+  font: inherit;
+}
+
+.membership-field input:focus,
+.membership-field select:focus,
+.membership-field textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(33, 150, 199, 0.1);
+}
+
+.membership-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.membership-consent input {
+  margin-top: 5px;
+  accent-color: var(--blue);
+}
+
+.membership-notice,
+.membership-success {
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--teal-light);
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.membership-success svg {
+  color: var(--teal-dark);
+}
+
+/* =========================================================
+   12. INSURANCE PAGE
+   Shared styles for insurance-* classes
+========================================================= */
+
+.insurance-page {
+  background: var(--white);
+  color: var(--text);
+}
+
+.insurance-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 45px;
+  padding: 70px max(24px, calc((100% - 1180px) / 2));
+  background: linear-gradient(120deg, var(--blue), var(--blue-dark));
+  color: var(--white);
+}
+
+.insurance-hero h1,
+.insurance-hero h2 {
+  color: var(--white);
+}
+
+.insurance-hero p {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.insurance-hero img,
+.insurance-image img,
+.insurance-detail img {
+  width: 100%;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.insurance-hero img {
+  height: 370px;
+}
+
+.insurance-section {
+  padding: 75px 0;
+}
+
+.insurance-intro,
+.insurance-section-heading {
+  max-width: 760px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.insurance-intro p,
+.insurance-section-heading p {
+  color: var(--muted);
+}
+
+.insurance-grid,
+.insurance-services,
+.insurance-products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.insurance-card,
+.insurance-service-card,
+.insurance-product-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.insurance-card:hover,
+.insurance-service-card:hover,
+.insurance-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.insurance-card img,
+.insurance-service-card img,
+.insurance-product-card img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.insurance-card-content,
+.insurance-service-content,
+.insurance-product-content {
+  padding: 23px;
+}
+
+.insurance-card h3,
+.insurance-service-card h3,
+.insurance-product-card h3,
+.insurance-detail h2 {
+  color: var(--blue);
+}
+
+.insurance-card p,
+.insurance-service-card p,
+.insurance-product-card p,
+.insurance-detail p {
+  color: var(--muted);
+}
+
+.insurance-illustration {
+  display: grid;
+  min-height: 190px;
+  place-items: center;
+  background: var(--teal-light);
+  color: var(--blue);
+}
+
+.insurance-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 55px 0;
+}
+
+.insurance-detail:nth-child(even) {
+  background: var(--background);
+}
+
+.insurance-detail ul {
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+}
+
+.insurance-cta {
+  padding: 55px 24px;
+  background: var(--blue);
+  color: var(--white);
+  text-align: center;
+}
+
+.insurance-cta h2,
+.insurance-cta p {
+  color: var(--white);
+}
+
+/* =========================================================
+   13. TEAM PAGE
+   Directors and management profile cards
+========================================================= */
+
+.team-page {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.team-hero {
+  padding: 65px 24px;
+  background: linear-gradient(120deg, var(--blue), var(--blue-dark));
+  color: var(--white);
+  text-align: center;
+}
+
+.team-hero h1,
+.team-hero h2 {
+  color: var(--white);
+}
+
+.team-hero p {
+  max-width: 720px;
+  margin-inline: auto;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.team-container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 55px 0;
+}
+
+.team-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.team-tabs button,
+.team-tab {
+  padding: 12px 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  color: var(--text);
+  font-weight: 700;
+  transition: background var(--transition), color var(--transition);
+}
+
+.team-tabs button:hover,
+.team-tabs button.active,
+.team-tab.active {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: var(--white);
+}
+
+.team-search {
+  display: block;
+  width: min(450px, 100%);
+  min-height: 47px;
+  margin: 0 auto 35px;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--white);
+  outline: none;
+}
+
+.team-grid,
+.team-members,
+.team-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.team-card,
+.team-member-card,
+.team-profile {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.team-card:hover,
+.team-member-card:hover,
+.team-profile:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.team-card img,
+.team-member-card img,
+.team-profile img,
+.team-photo {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center top;
+  background: var(--teal-light);
+}
+
+.team-card-content,
+.team-member-info,
+.team-profile-info {
+  padding: 22px;
+  text-align: center;
+}
+
+.team-card h3,
+.team-member-card h3,
+.team-profile h3 {
+  margin: 0 0 7px;
+  color: var(--blue);
+}
+
+.team-card p,
+.team-member-card p,
+.team-profile p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================================================
+   14. GALLERY PAGE
+========================================================= */
+
+.gallery-page {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.gallery-hero {
+  padding: 65px 24px;
+  background: linear-gradient(120deg, var(--blue), var(--blue-dark));
+  color: var(--white);
+  text-align: center;
+}
+
+.gallery-hero h1,
+.gallery-hero h2 {
+  color: var(--white);
+}
+
+.gallery-hero p {
+  max-width: 720px;
+  margin-inline: auto;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.gallery-container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 55px 0 75px;
+}
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.gallery-filters button {
+  padding: 10px 17px;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  background: var(--white);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.gallery-filters button.active,
+.gallery-filters button:hover {
+  border-color: var(--teal);
+  background: var(--teal);
+  color: var(--white);
+}
+
+.gallery-grid,
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.gallery-item,
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--blue-light);
+  box-shadow: 0 4px 18px rgba(32, 85, 100, 0.06);
+}
+
+.gallery-item img,
+.gallery-card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.gallery-item:hover img,
+.gallery-card:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-caption {
+  padding: 16px;
+  background: var(--white);
+}
+
+.gallery-caption h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+.gallery-caption p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================================================
+   15. CONTACT PAGE
+========================================================= */
+
+.contact-page {
+  background: var(--background);
+}
+
+.contact-hero {
+  padding: 65px 24px;
+  background: linear-gradient(120deg, var(--blue), var(--blue-dark));
+  color: var(--white);
+  text-align: center;
+}
+
+.contact-hero h1,
+.contact-hero h2 {
+  color: var(--white);
+}
+
+.contact-hero p {
+  max-width: 720px;
+  margin-inline: auto;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 30px;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 55px 0 75px;
+}
+
+.contact-info,
+.contact-form-card,
+.contact-form,
+.contact-card {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: 0 8px 25px rgba(32, 85, 100, 0.05);
+}
+
+.contact-info h2,
+.contact-form-card h2 {
+  margin-top: 0;
+}
+
+.contact-info p,
+.contact-card p {
+  color: var(--muted);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.contact-item svg {
+  flex-shrink: 0;
+  color: var(--blue);
+}
+
+.contact-item h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.contact-item p {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.contact-form {
+  display: grid;
+  gap: 17px;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--white);
+  color: var(--text);
+  outline: none;
+}
+
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(33, 150, 199, 0.1);
+}
+
+.contact-map,
+.contact-map iframe {
+  width: 100%;
+  min-height: 350px;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+/* =========================================================
+   16. BRANCHES AND NEWS
+========================================================= */
+
+.branch-section,
+.branches-strip {
+  padding: 40px 0;
+  background: var(--teal-light);
+}
+
+.branches-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.branches-inner h2 {
+  margin: 0 0 8px;
+  font-size: 23px;
+}
+
+.branches-inner p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.branch-grid,
+.branches-grid,
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.branch-card,
+.news-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.branch-card:hover,
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.branch-card img,
+.news-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.branch-card-content,
+.news-card-content {
+  padding: 22px;
+}
+
+.branch-card p,
+.news-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* =========================================================
+   17. DIGITAL HOMEPAGE PREVIEW
+========================================================= */
+
+.digital-section {
+  padding: 85px 0;
+  overflow: hidden;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.digital-copy h2 {
+  margin: 15px 0 20px;
+  color: var(--white);
+  font-size: clamp(30px, 4vw, 43px);
+}
+
+.digital-copy > p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.digital-copy .eyebrow {
+  color: var(--white);
+}
+
+.digital-features {
+  display: grid;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.digital-feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-size: 14px;
+}
+
+.digital-feature svg {
+  color: var(--teal-light);
+}
+
+.digital-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-frame {
+  width: 260px;
+  min-height: 450px;
+  padding: 14px;
+  border: 7px solid #DDEBEA;
+  border-radius: 34px;
+  background: var(--white);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+}
+
+.phone-screen {
+  min-height: 410px;
+  overflow: hidden;
+  padding: 20px 15px;
+  border-radius: 20px;
+  background: var(--background);
+  color: var(--text);
+}
+
+.phone-notch {
+  width: 75px;
+  height: 15px;
+  margin: -12px auto 25px;
+  border-radius: 0 0 12px 12px;
+  background: var(--blue);
+}
+
+.phone-logo {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 15px;
+  object-fit: contain;
+}
+
+.phone-screen h3 {
+  margin: 0 0 8px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.phone-screen > p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 12px;
+}
+
+.phone-balance {
+  margin-bottom: 18px;
+  padding: 18px;
+  border-radius: 12px;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.phone-balance span {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.phone-balance strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 23px;
+}
+
+.phone-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.phone-shortcut {
+  padding: 15px 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  text-align: center;
+  font-size: 11px;
+}
+
+/* =========================================================
+   18. PARTNERS AND SHARED ICON TREATMENT
+========================================================= */
+
+.partners-section {
+  padding: 60px 0;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.partner-logo-card {
+  display: flex;
+  min-height: 85px;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   19. SHARED FORM STYLES
+========================================================= */
+
+form {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea {
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  accent-color: var(--blue);
+}
+
+.form-error,
+.error-message {
+  color: #B42318;
+  font-size: 13px;
+}
+
+.form-success,
+.success-message {
+  padding: 13px 15px;
+  border: 1px solid var(--teal);
+  border-radius: 8px;
+  background: var(--teal-light);
+  color: var(--text);
+  font-size: 13px;
+}
+
+/* =========================================================
+   20. FOOTER
+========================================================= */
+
+.footer,
+.site-footer {
+  padding: 60px 0 0;
+  background: var(--blue-dark);
+  color: var(--white);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 35px;
+  padding-bottom: 40px;
+}
+
+.footer h3,
+.footer h4,
+.site-footer h3,
+.site-footer h4 {
+  margin-top: 0;
+  color: var(--white);
+}
+
+.footer p,
+.site-footer p {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+}
+
+.footer a,
+.site-footer a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--transition);
+}
+
+.footer a:hover,
+.site-footer a:hover {
+  color: var(--teal);
+}
+
+.footer-brand,
+.footer-logo {
+  color: var(--white);
+}
+
+.footer-grid ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* =========================================================
+   21. WHATSAPP AND CHAT WIDGETS
+========================================================= */
+
+.whatsapp-float,
+.chat-widget {
+  position: fixed;
+  z-index: 900;
+  right: 22px;
+  bottom: 22px;
+}
+
+.whatsapp-float {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--teal);
+  color: var(--white);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), background var(--transition);
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px);
+  background: var(--teal-dark);
+}
+
+.chat-widget {
+  max-width: min(360px, calc(100vw - 32px));
+}
+
+/* =========================================================
+   22. GENERAL IMAGE AND CONTENT HELPERS
+========================================================= */
+
+.card-image,
+.content-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.card-image img,
+.content-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.bg-light {
+  background: var(--background);
+}
+
+.bg-teal {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.bg-blue {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.rounded {
+  border-radius: var(--radius);
+}
+
+.shadow {
+  box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   23. ANIMATIONS
+========================================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(96, 180, 172, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(96, 180, 172, 0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s ease both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s ease both;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.7s ease both;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.7s ease both;
+}
+
+.animate-float {
+  animation: softFloat 4s ease-in-out infinite;
+}
+
+/* Subtle animation on common content blocks */
+.section-heading,
+.db-intro {
+  animation: fadeUp 0.65s ease both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .service-card,
+  .loan-card,
+  .saving-card,
+  .product-card,
+  .team-card,
+  .gallery-item,
+  .news-card,
+  .branch-card,
+  .insurance-card,
+  .db-service-card {
+    animation: fadeUp 0.55s ease both;
+  }
+}
+
+/* =========================================================
+   24. TABLES AND DATA
+========================================================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 13px 15px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  background: var(--blue-light);
+  color: var(--blue);
+  font-weight: 800;
+}
+
+tr:hover td {
+  background: #F8FCFC;
+}
+
+/* =========================================================
+   25. RESPONSIVE TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+  .highlights-grid,
+  .services-grid,
+  .service-grid,
+  .loans-grid,
+  .savings-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .loans-page .loans-grid,
+  .db-services {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .statistics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 35px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .about-grid,
+  .about-history-grid,
+  .digital-grid,
+  .db-hero,
+  .insurance-hero {
+    gap: 35px;
+  }
+
+  .insurance-grid,
+  .insurance-services,
+  .insurance-products,
+  .team-grid,
+  .team-members,
+  .team-cards,
+  .gallery-grid,
+  .gallery-images,
+  .news-grid,
+  .branch-grid,
+  .branches-grid,
+  .savings-products,
+  .savings-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .membership-container,
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .nav-links,
+  .navigation,
+  .main-nav {
+    gap: 14px;
+  }
+}
+
+/* =========================================================
+   26. RESPONSIVE MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .container,
+  .hero-inner,
+  .hero-container {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .section,
+  .section-pad {
+    padding: 60px 0;
+  }
+
+  .topbar-inner,
+  .top-bar-content {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+    padding: 9px 0;
+  }
+
+  .topbar-links,
+  .top-links {
+    gap: 12px;
+  }
+
+  .navbar-inner,
+  .nav-container {
+    width: calc(100% - 28px);
+    min-height: 70px;
+    gap: 12px;
+  }
+
+  .brand-mark,
+  .logo-symbol {
+    width: 39px;
+    height: 39px;
+  }
+
+  .brand-name,
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .nav-links,
+  .navigation,
+  .main-nav {
+    gap: 10px;
+  }
+
+  .nav-links a,
+  .navigation a,
+  .main-nav a {
+    font-size: 12px;
+  }
+
+  .nav-cta,
+  .login-button {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 550px;
+  }
+
+  .hero-inner,
+  .hero-container {
+    padding: 70px 0 100px;
+  }
+
+  .hero-content h1,
+  .hero-content h2 {
+    font-size: clamp(35px, 9vw, 48px);
+    letter-spacing: -1.4px;
+  }
+
+  .hero-content p,
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-actions,
+  .hero-buttons {
+    align-items: stretch;
+    flex-direction: column;
+    max-width: 310px;
+  }
+
+  .hero-controls {
+    right: 0;
+    bottom: 22px;
+  }
+
+  .highlights {
+    margin-top: -20px;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .highlight-card {
+    gap: 10px;
+    padding: 18px 12px;
+  }
+
+  .highlight-card + .highlight-card {
+    border-left: 0;
+  }
+
+  .highlight-card:nth-child(even) {
+    border-left: 1px solid var(--border);
+  }
+
+  .highlight-card:nth-child(n + 3) {
+    border-top: 1px solid var(--border);
+  }
+
+  .highlight-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .highlight-card h3 {
+    font-size: 13px;
+  }
+
+  .highlight-card p {
+    font-size: 11px;
+  }
+
+  .services-grid,
+  .service-grid,
+  .loans-grid,
+  .savings-grid,
+  .loans-page .loans-grid,
+  .db-services,
+  .insurance-grid,
+  .insurance-services,
+  .insurance-products,
+  .team-grid,
+  .team-members,
+  .team-cards,
+  .gallery-grid,
+  .gallery-images,
+  .news-grid,
+  .branch-grid,
+  .branches-grid,
+  .savings-products,
+  .savings-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .service-card,
+  .loan-card,
+  .saving-card,
+  .product-card {
+    padding: 19px 14px;
+  }
+
+  .service-card h3,
+  .loan-card h3,
+  .saving-card h3 {
+    font-size: 15px;
+  }
+
+  .service-card p,
+  .loan-card p,
+  .saving-card p {
+    font-size: 12px;
+  }
+
+  .about-grid,
+  .about-history-grid,
+  .digital-grid,
+  .db-hero,
+  .insurance-hero,
+  .insurance-detail {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-visual,
+  .about-visual img {
+    min-height: 280px;
+    height: 280px;
+  }
+
+  .about-stamp {
+    right: -5px;
+    bottom: 12px;
+    max-width: 165px;
+    padding: 15px;
+  }
+
+  .about-stamp strong {
+    font-size: 21px;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .branches-inner,
+  .cta-container {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .statistics-section {
+    padding: 45px 0;
+  }
+
+  .loans-hero,
+  .db-hero,
+  .insurance-hero {
+    padding: 48px 20px;
+  }
+
+  .loans-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .loans-hero-visual img,
+  .db-hero-image > img,
+  .insurance-hero img {
+    height: 270px;
+  }
+
+  .db-services {
+    width: calc(100% - 32px);
+    padding-bottom: 50px;
+  }
+
+  .db-image-wrap {
+    height: 175px;
+  }
+
+  .db-card-content {
+    padding: 18px;
+  }
+
+  .db-card-content h3 {
+    font-size: 18px;
+  }
+
+  .db-paybill {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .db-security {
+    align-items: flex-start;
+    flex-direction: column;
+    width: calc(100% - 32px);
+    padding: 22px;
+  }
+
+  .db-security > a {
+    margin-left: 0;
+  }
+
+  .membership-container,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: calc(100% - 32px);
+    padding: 0 0 45px;
+  }
+
+  .membership-hero {
+    padding: 48px 22px;
+  }
+
+  .membership-info,
+  .membership-form-card,
+  .contact-info,
+  .contact-form-card {
+    padding: 22px;
+  }
+
+  .team-container,
+  .gallery-container {
+    width: calc(100% - 32px);
+    padding: 38px 0 50px;
+  }
+
+  .team-card img,
+  .team-member-card img,
+  .team-profile img,
+  .team-photo {
+    height: 220px;
+  }
+
+  .gallery-item img,
+  .gallery-card img {
+    height: 200px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .contact-map,
+  .contact-map iframe {
+    min-height: 280px;
+  }
+}
+
+/* =========================================================
+   27. SMALL PHONES
+========================================================= */
+
+@media (max-width: 420px) {
+  .services-grid,
+  .service-grid,
+  .loans-grid,
+  .savings-grid,
+  .loans-page .loans-grid,
+  .db-services,
+  .insurance-grid,
+  .insurance-services,
+  .insurance-products,
+  .team-grid,
+  .team-members,
+  .team-cards,
+  .gallery-grid,
+  .gallery-images,
+  .news-grid,
+  .branch-grid,
+  .branches-grid,
+  .savings-products,
+  .savings-product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1,
+  .hero-content h2 {
+    font-size: 34px;
+  }
+
+  .section-heading h2 {
+    font-size: 27px;
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card img,
+  .team-member-card img,
+  .team-profile img,
+  .team-photo {
+    height: 300px;
+  }
+
+  .gallery-item img,
+  .gallery-card img {
+    height: 240px;
+  }
+}
+
+/* =========================================================
+   28. ACCESSIBILITY: REDUCE MOTION WHEN REQUESTED
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

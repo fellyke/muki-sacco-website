@@ -1,0 +1,620 @@
+
+/* =========================================
+   MUKI SACCO — ABOUT PAGE
+   Brand: Teal #60B4AC | Blue #2196C7
+========================================= */
+
+.about-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #263b43;
+}
+
+.about-page * {
+  box-sizing: border-box;
+}
+
+.about-page .container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* =========================================
+   PAGE HERO
+========================================= */
+
+.about-page .page-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 390px;
+  padding: 90px 0;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(24, 124, 169, 0.96),
+      rgba(33, 150, 199, 0.88),
+      rgba(96, 180, 172, 0.83)
+    );
+  color: #ffffff;
+}
+
+.about-page .page-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(255, 255, 255, 0.15),
+      transparent 35%
+    );
+  pointer-events: none;
+}
+
+.about-page .page-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.about-page .eyebrow {
+  display: inline-block;
+  margin-bottom: 16px;
+  color: #2196c7;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.about-page .page-hero .eyebrow {
+  color: #ffffff;
+  opacity: 0.92;
+}
+
+.about-page .page-hero h1 {
+  max-width: 820px;
+  margin: 0 0 20px;
+  color: #ffffff;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+}
+
+.about-page .page-hero p {
+  max-width: 660px;
+  margin: 0 0 30px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.08rem;
+  line-height: 1.85;
+}
+/* Vision and Mission */
+.about-purpose {
+  background: #f7fbfc;
+}
+
+.purpose-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: 36px 0 60px;
+}
+
+.purpose-card {
+  padding: 32px;
+  background: #fff;
+  border: 1px solid #e3eeee;
+  border-top: 4px solid #60b4ac;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(22, 58, 67, 0.06);
+  transition: transform 0.25s ease;
+}
+
+.purpose-card:nth-child(2) {
+  border-top-color: #2196c7;
+}
+
+.purpose-card:hover,
+.core-value-card:hover {
+  transform: translateY(-5px);
+}
+
+.purpose-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 18px;
+  color: #2196c7;
+  background: rgba(96, 180, 172, 0.16);
+  border-radius: 12px;
+}
+
+.purpose-card h3 {
+  margin: 0 0 12px;
+  color: #163a43;
+  font-size: 1.35rem;
+}
+
+.purpose-card p {
+  margin: 0;
+  color: #647780;
+  line-height: 1.8;
+}
+
+/* Core Values */
+.values-heading {
+  margin-bottom: 30px;
+}
+
+.core-values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.core-value-card {
+  padding: 28px 22px;
+  background: #fff;
+  border: 1px solid #e3eeee;
+  border-radius: 14px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.core-value-card:hover {
+  box-shadow: 0 10px 28px rgba(22, 58, 67, 0.08);
+}
+
+.core-value-card svg {
+  margin-bottom: 15px;
+  color: #2196c7;
+}
+
+.core-value-card h3 {
+  margin: 0;
+  color: #163a43;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* Motto */
+.about-motto {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 55px;
+  padding: 32px;
+  color: #fff;
+  background: #163a43;
+  border-radius: 16px;
+}
+
+.about-motto > svg {
+  flex-shrink: 0;
+  color: #60b4ac;
+}
+
+.about-motto span {
+  color: #60b4ac;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.about-motto h2 {
+  margin: 8px 0 0;
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .purpose-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .core-values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .purpose-card {
+    padding: 25px;
+  }
+
+  .core-value-card {
+    padding: 22px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .core-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-motto {
+    padding: 24px 20px;
+  }
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.about-page .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 13px 23px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.about-page .button:hover {
+  transform: translateY(-2px);
+}
+
+.about-page .button-white {
+  background: #ffffff;
+  color: #187ca9;
+  box-shadow: 0 8px 22px rgba(14, 53, 69, 0.12);
+}
+
+.about-page .button-white:hover {
+  background: #eaf7f5;
+  color: #187ca9;
+  box-shadow: 0 12px 28px rgba(14, 53, 69, 0.18);
+}
+
+/* =========================================
+   GENERAL SECTIONS
+========================================= */
+
+.about-page .section {
+  padding: 88px 0;
+}
+
+.about-page .section-heading {
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.about-page .text-center {
+  text-align: center;
+}
+
+.about-page .section-heading h2,
+.about-page .about-history-copy h2 {
+  margin: 0 0 20px;
+  color: #187ca9;
+  font-size: clamp(1.8rem, 3.5vw, 2.65rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+
+.about-page .section-heading p {
+  margin: 0;
+  color: #657780;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* =========================================
+   HISTORY SECTION
+========================================= */
+
+.about-page .about-history-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: 64px;
+}
+
+.about-page .about-history-image {
+  position: relative;
+  min-height: 460px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #eaf7f5;
+  box-shadow: 0 18px 45px rgba(32, 85, 100, 0.12);
+}
+
+.about-page .about-history-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(96, 180, 172, 0.2);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.about-page .about-history-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.about-page .about-history-image:hover img {
+  transform: scale(1.04);
+}
+
+.about-page .about-history-copy {
+  min-width: 0;
+}
+
+.about-page .about-history-copy h2 {
+  max-width: 570px;
+  margin-bottom: 24px;
+}
+
+.about-page .about-history-copy p {
+  margin: 0 0 17px;
+  color: #657780;
+  font-size: 0.97rem;
+  line-height: 1.9;
+}
+
+.about-page .about-history-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   HISTORY MILESTONES
+========================================= */
+
+.about-page .history-milestones {
+  background: #f5fafa;
+}
+
+.about-page .milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.about-page .milestone-card {
+  position: relative;
+  padding: 32px 28px;
+  border: 1px solid #ddebea;
+  border-radius: 13px;
+  background: #ffffff;
+  box-shadow: 0 8px 28px rgba(32, 85, 100, 0.045);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.about-page .milestone-card:hover {
+  transform: translateY(-6px);
+  border-color: #60b4ac;
+  box-shadow: 0 18px 35px rgba(32, 85, 100, 0.1);
+}
+
+.about-page .milestone-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  background: #eaf7f5;
+  color: #2196c7;
+}
+
+.about-page .milestone-year {
+  display: block;
+  margin-bottom: 10px;
+  color: #439d95;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.about-page .milestone-card h3 {
+  margin: 0 0 14px;
+  color: #187ca9;
+  font-size: 1.22rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.about-page .milestone-card p {
+  margin: 0;
+  color: #657780;
+  font-size: 0.93rem;
+  line-height: 1.8;
+}
+
+/* =========================================
+   MEMBERSHIP CALL TO ACTION
+========================================= */
+
+.about-page .membership-section {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0;
+  background: linear-gradient(110deg, #187ca9, #2196c7 58%, #60b4ac);
+  color: #ffffff;
+}
+
+.about-page .membership-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  border: 50px solid rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.about-page .membership-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.about-page .membership-inner > div {
+  max-width: 720px;
+}
+
+.about-page .eyebrow-light {
+  color: #ffffff;
+}
+
+.about-page .membership-inner h2 {
+  margin: 0 0 15px;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.about-page .membership-inner p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.91);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+.about-page .membership-inner > .button {
+  flex-shrink: 0;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 900px) {
+  .about-page .about-history-grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .about-page .about-history-image {
+    min-height: 360px;
+  }
+
+  .about-page .about-history-image img {
+    min-height: 360px;
+    max-height: 460px;
+  }
+
+  .about-page .milestones-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-page .membership-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 600px) {
+  .about-page .container {
+    width: calc(100% - 32px);
+  }
+
+  .about-page .page-hero {
+    min-height: auto;
+    padding: 68px 0;
+  }
+
+  .about-page .page-hero h1 {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+    letter-spacing: -0.8px;
+  }
+
+  .about-page .page-hero p {
+    font-size: 0.97rem;
+    line-height: 1.75;
+  }
+
+  .about-page .section {
+    padding: 60px 0;
+  }
+
+  .about-page .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .about-page .about-history-grid {
+    gap: 30px;
+  }
+
+  .about-page .about-history-image,
+  .about-page .about-history-image img {
+    min-height: 280px;
+  }
+
+  .about-page .about-history-copy h2,
+  .about-page .section-heading h2 {
+    font-size: 1.85rem;
+  }
+
+  .about-page .milestones-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .about-page .milestone-card {
+    padding: 26px 23px;
+  }
+
+  .about-page .membership-section {
+    padding: 56px 0;
+  }
+
+  .about-page .membership-inner h2 {
+    font-size: 1.85rem;
+  }
+
+  .about-page .membership-inner > .button {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-page *,
+  .about-page *::before,
+  .about-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

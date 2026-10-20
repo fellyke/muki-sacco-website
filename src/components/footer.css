@@ -1,0 +1,220 @@
+.muki-footer-logo {
+  display: block;
+  width: 170px;
+  max-width: 100%;
+  height: 65px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.muki-footer {
+  background: #ffffff;
+  color: #50646c;
+}
+
+.muki-footer-main {
+  padding: 65px 0 45px;
+  border-top: 4px solid #60b4ac;
+  background: #f3faf9;
+}
+
+.muki-footer-grid {
+  display: grid;
+  grid-template-columns: 1.45fr 0.85fr 0.95fr 1.3fr;
+  gap: 38px;
+}
+
+.muki-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #2196c7;
+  text-decoration: none;
+}
+
+.muki-footer-brand-symbol {
+  display: grid;
+  width: 45px;
+  height: 45px;
+  place-items: center;
+  border-radius: 12px 12px 12px 3px;
+  background: #60b4ac;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.muki-footer-brand > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.muki-footer-brand strong {
+  font-size: 22px;
+  letter-spacing: 1.2px;
+}
+
+.muki-footer-brand small {
+  color: #60777d;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.muki-footer-about > p {
+  max-width: 340px;
+  margin: 20px 0 0;
+  color: #60737a;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.muki-footer-about .muki-footer-motto {
+  margin-top: 10px;
+  color: #2196c7;
+  font-weight: 700;
+}
+
+.muki-footer-socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.muki-footer-socials a {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid #d8eae7;
+  border-radius: 9px;
+  background: #ffffff;
+  color: #2196c7;
+  transition: color 0.25s ease, background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.muki-footer-socials a:hover {
+  transform: translateY(-3px);
+  border-color: #60b4ac;
+  background: #60b4ac;
+  color: #ffffff;
+}
+
+.muki-footer-column {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.muki-footer-column h3 {
+  position: relative;
+  margin: 4px 0 9px;
+  padding-bottom: 12px;
+  color: #2196c7;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.muki-footer-column h3::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 38px;
+  height: 3px;
+  border-radius: 3px;
+  background: #60b4ac;
+  content: "";
+}
+
+.muki-footer-column > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #60737a;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.muki-footer-column > a:hover {
+  color: #2196c7;
+  transform: translateX(3px);
+}
+
+.muki-footer-contact p,
+.muki-footer-contact > a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+.muki-footer-contact svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #60b4ac;
+}
+
+.muki-footer-bottom {
+  background: #2196c7;
+  color: #ffffff;
+}
+
+.muki-footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  min-height: 65px;
+}
+
+.muki-footer-bottom p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.muki-footer-bottom-inner > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.muki-footer-bottom a {
+  color: #ffffff;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.muki-footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 950px) {
+  .muki-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 35px;
+  }
+}
+
+@media (max-width: 560px) {
+  .muki-footer-main {
+    padding: 45px 0 35px;
+  }
+
+  .muki-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .muki-footer-bottom-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px 0;
+  }
+}

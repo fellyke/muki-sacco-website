@@ -1,0 +1,1062 @@
+
+/* =========================================
+   MUKI SACCO — LOANS PAGE
+   Brand colours: Teal, Blue, White
+========================================= */
+
+.loans-page {
+  --loan-teal: #60B4AC;
+  --loan-blue: #2196C7;
+  --loan-white: #FFFFFF;
+  --loan-teal-soft: rgba(96, 180, 172, 0.13);
+  --loan-blue-soft: rgba(33, 150, 199, 0.08);
+  --loan-border: rgba(33, 150, 199, 0.2);
+
+  background: var(--loan-white);
+  color: var(--loan-blue);
+  overflow: hidden;
+}
+
+.loans-page *,
+.loans-page *::before,
+.loans-page *::after {
+  box-sizing: border-box;
+}
+
+.loans-page img {
+  display: block;
+  max-width: 100%;
+}
+
+.loans-page button,
+.loans-page input {
+  font: inherit;
+}
+
+.loans-page a {
+  text-decoration: none;
+}
+
+.loans-page button:focus-visible,
+.loans-page a:focus-visible,
+.loans-page input:focus-visible {
+  outline: 3px solid var(--loan-teal);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.loans-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 0.92fr;
+  align-items: center;
+  gap: 65px;
+  padding: 85px max(5%, calc((100% - 1180px) / 2));
+  background:
+    radial-gradient(
+      circle at 15% 90%,
+      rgba(96, 180, 172, 0.14),
+      transparent 35%
+    ),
+    var(--loan-white);
+}
+
+.loans-hero-content {
+  animation: loans-slide-in-left 0.75s ease both;
+}
+
+.loans-eyebrow,
+.loans-section-label {
+  display: inline-block;
+  color: var(--loan-teal);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.15em;
+}
+
+.loans-eyebrow {
+  margin-bottom: 24px;
+  padding: 10px 14px;
+  background: var(--loan-teal-soft);
+  border-radius: 5px;
+}
+
+.loans-hero h1 {
+  margin: 0 0 23px;
+  color: var(--loan-blue);
+  font-size: clamp(42px, 5vw, 65px);
+  font-weight: 850;
+  line-height: 1.09;
+  letter-spacing: -0.045em;
+}
+
+.loans-hero-content > p {
+  max-width: 540px;
+  margin: 0 0 27px;
+  color: var(--loan-blue);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.loans-hero-btn {
+  display: inline-flex;
+  min-height: 53px;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 15px 23px;
+  border: 1px solid var(--loan-blue);
+  border-radius: 7px;
+  background: var(--loan-blue);
+  color: var(--loan-white);
+  font-size: 13px;
+  font-weight: 750;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.loans-hero-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--loan-teal);
+  background: var(--loan-teal);
+  box-shadow: 0 12px 25px rgba(33, 150, 199, 0.17);
+}
+
+.loans-hero-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.loans-hero-btn:hover svg {
+  transform: translateX(4px);
+}
+
+.loans-hero-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 25px;
+  color: var(--loan-blue);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.loans-hero-note svg {
+  flex-shrink: 0;
+  color: var(--loan-teal);
+}
+
+.loans-hero-image {
+  position: relative;
+  min-height: 400px;
+  overflow: hidden;
+  border: 1px solid var(--loan-border);
+  border-radius: 17px;
+  background: var(--loan-teal-soft);
+  box-shadow: 0 25px 60px rgba(33, 150, 199, 0.13);
+  animation: loans-slide-in-right 0.75s ease both;
+}
+
+.loans-hero-image > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s ease;
+}
+
+.loans-hero-image:hover > img {
+  transform: scale(1.05);
+}
+
+.loans-hero-image-caption {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 10px;
+  background: rgba(33, 150, 199, 0.94);
+  color: var(--loan-white);
+}
+
+.loans-hero-image-caption span {
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+}
+
+.loans-hero-image-caption strong {
+  font-size: 23px;
+  font-weight: 800;
+}
+
+/* =========================================
+   INTRODUCTION
+========================================= */
+
+.loans-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 65px 24px 35px;
+  text-align: center;
+}
+
+.loans-section-label {
+  margin-bottom: 15px;
+}
+
+.loans-intro h2 {
+  margin: 0 0 15px;
+  color: var(--loan-blue);
+  font-size: clamp(30px, 4vw, 43px);
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+.loans-intro p {
+  margin: 0;
+  color: var(--loan-blue);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   CATALOGUE AND FILTERS
+========================================= */
+
+.loans-catalog {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 30px 0 90px;
+  scroll-margin-top: 100px;
+}
+
+.loans-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 24px;
+}
+
+.loans-search {
+  width: min(340px, 100%);
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 15px;
+  border: 1px solid var(--loan-border);
+  border-radius: 7px;
+  background: var(--loan-white);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.loans-search:focus-within {
+  border-color: var(--loan-teal);
+  box-shadow: 0 0 0 3px rgba(96, 180, 172, 0.12);
+}
+
+.loans-search > svg {
+  flex-shrink: 0;
+  color: var(--loan-teal);
+}
+
+.loans-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--loan-blue);
+  font-size: 13px;
+}
+
+.loans-search input::placeholder {
+  color: var(--loan-blue);
+  opacity: 0.7;
+}
+
+.loans-search input:focus-visible {
+  outline: none;
+}
+
+.loans-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.loans-filter {
+  min-height: 40px;
+  padding: 10px 15px;
+  border: 1px solid var(--loan-border);
+  border-radius: 6px;
+  background: var(--loan-white);
+  color: var(--loan-blue);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 750;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.loans-filter:hover {
+  border-color: var(--loan-teal);
+  transform: translateY(-1px);
+}
+
+.loans-filter.active {
+  border-color: var(--loan-blue);
+  background: var(--loan-blue);
+  color: var(--loan-white);
+}
+
+.loans-results-count {
+  margin-bottom: 22px;
+  color: var(--loan-blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* =========================================
+   LOAN CARDS
+========================================= */
+
+.loans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.loan-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--loan-border);
+  border-radius: 12px;
+  background: var(--loan-white);
+  box-shadow: 0 5px 20px rgba(33, 150, 199, 0.035);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  animation: loans-card-appear 0.45s ease both;
+}
+
+.loan-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--loan-teal);
+  box-shadow: 0 18px 40px rgba(33, 150, 199, 0.12);
+}
+
+.loan-card-image {
+  position: relative;
+  width: 100%;
+  height: 215px;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: var(--loan-teal-soft);
+  cursor: pointer;
+  text-align: left;
+}
+
+.loan-card-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.loan-card:hover .loan-card-image > img {
+  transform: scale(1.07);
+}
+
+.loan-category-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 5px;
+  background: var(--loan-blue);
+  color: var(--loan-white);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.loan-image-arrow {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  width: 41px;
+  height: 41px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  background: var(--loan-white);
+  color: var(--loan-blue);
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.loan-card:hover .loan-image-arrow {
+  transform: rotate(-35deg);
+  background: var(--loan-teal);
+  color: var(--loan-white);
+}
+
+.loan-card-body {
+  padding: 24px 22px 22px;
+}
+
+.loan-number {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--loan-teal);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+}
+
+.loan-card-body h3 {
+  margin: 0 0 12px;
+  color: var(--loan-blue);
+  font-size: 20px;
+  font-weight: 850;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.loan-card-body > p {
+  min-height: 88px;
+  margin: 0 0 21px;
+  color: var(--loan-blue);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.loan-details-btn {
+  width: 100%;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0 0;
+  border: 0;
+  border-top: 1px solid var(--loan-border);
+  background: transparent;
+  color: var(--loan-blue);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.loan-details-btn svg {
+  color: var(--loan-teal);
+  transition: transform 0.2s ease;
+}
+
+.loan-details-btn:hover {
+  color: var(--loan-teal);
+}
+
+.loan-details-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* =========================================
+   NO SEARCH RESULTS
+========================================= */
+
+.loans-empty {
+  padding: 65px 20px;
+  border: 1px dashed var(--loan-border);
+  border-radius: 12px;
+  background: var(--loan-blue-soft);
+  text-align: center;
+}
+
+.loans-empty > svg {
+  margin: 0 auto 18px;
+  color: var(--loan-teal);
+}
+
+.loans-empty h3 {
+  margin: 0 0 10px;
+  color: var(--loan-blue);
+  font-size: 22px;
+}
+
+.loans-empty p {
+  margin: 0 0 20px;
+  color: var(--loan-blue);
+  font-size: 13px;
+}
+
+.loans-empty button {
+  padding: 12px 18px;
+  border: 1px solid var(--loan-blue);
+  border-radius: 6px;
+  background: var(--loan-blue);
+  color: var(--loan-white);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 750;
+  transition: background 0.2s ease;
+}
+
+.loans-empty button:hover {
+  border-color: var(--loan-teal);
+  background: var(--loan-teal);
+}
+
+/* =========================================
+   CONTACT CTA
+========================================= */
+
+.loans-cta {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto 60px;
+  padding: 38px 42px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border-radius: 12px;
+  background: linear-gradient(
+    115deg,
+    var(--loan-blue),
+    var(--loan-teal)
+  );
+  color: var(--loan-white);
+}
+
+.loans-cta-icon {
+  width: 62px;
+  height: 62px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  color: var(--loan-blue);
+  background: var(--loan-white);
+}
+
+.loans-cta-content {
+  flex: 1;
+}
+
+.loans-cta-content h2 {
+  margin: 0 0 10px;
+  color: var(--loan-white);
+  font-size: 24px;
+  font-weight: 850;
+}
+
+.loans-cta-content p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--loan-white);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.loans-contact-btn {
+  min-height: 49px;
+  flex-shrink: 0;
+  padding: 14px 19px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--loan-white);
+  border-radius: 6px;
+  background: var(--loan-white);
+  color: var(--loan-blue);
+  font-size: 12px;
+  font-weight: 800;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.loans-contact-btn:hover {
+  transform: translateY(-3px);
+  background: var(--loan-teal);
+  color: var(--loan-white);
+}
+
+/* =========================================
+   BACK HOME
+========================================= */
+
+.loans-back-home {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 0 35px;
+}
+
+.loans-back-home > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--loan-blue);
+  font-size: 12px;
+  font-weight: 750;
+  transition: color 0.2s ease;
+}
+
+.loans-back-home > a:hover {
+  color: var(--loan-teal);
+}
+
+/* =========================================
+   LOAN DETAILS MODAL
+========================================= */
+
+.loan-modal-backdrop {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow-y: auto;
+  background: rgba(33, 150, 199, 0.68);
+  backdrop-filter: blur(6px);
+  animation: loans-fade-in 0.2s ease both;
+}
+
+.loan-modal {
+  position: relative;
+  width: min(780px, 100%);
+  max-height: calc(100vh - 48px);
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  overflow: auto;
+  border: 1px solid var(--loan-white);
+  border-radius: 15px;
+  background: var(--loan-white);
+  box-shadow: 0 25px 80px rgba(33, 150, 199, 0.24);
+  animation: loans-modal-enter 0.3s ease both;
+}
+
+.loan-modal-close {
+  position: absolute;
+  z-index: 2;
+  top: 13px;
+  right: 13px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--loan-border);
+  border-radius: 50%;
+  background: var(--loan-white);
+  color: var(--loan-blue);
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.loan-modal-close:hover {
+  transform: rotate(90deg);
+  border-color: var(--loan-teal);
+  background: var(--loan-teal);
+  color: var(--loan-white);
+}
+
+.loan-modal-image {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  object-fit: cover;
+  background: var(--loan-teal-soft);
+}
+
+.loan-modal-content {
+  padding: 42px 30px 30px;
+}
+
+.loan-section-label {
+  display: inline-block;
+  margin-bottom: 13px;
+  color: var(--loan-teal);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+
+.loan-modal-content h2 {
+  margin: 0 0 16px;
+  color: var(--loan-blue);
+  font-size: 29px;
+  font-weight: 850;
+  line-height: 1.2;
+}
+
+.loan-modal-content > p {
+  color: var(--loan-blue);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.loan-modal-content h3 {
+  margin: 24px 0 14px;
+  color: var(--loan-blue);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.loan-modal-benefits {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+  list-style: none;
+}
+
+.loan-modal-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--loan-blue);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.loan-modal-benefits li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--loan-teal);
+}
+
+.loan-modal-content .loan-modal-disclaimer {
+  margin-top: 24px;
+  padding: 14px;
+  border-left: 3px solid var(--loan-teal);
+  background: var(--loan-blue-soft);
+  font-size: 11px;
+}
+
+.loan-modal-cta {
+  width: 100%;
+  min-height: 49px;
+  margin-top: 12px;
+  padding: 13px 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--loan-blue);
+  border-radius: 6px;
+  background: var(--loan-blue);
+  color: var(--loan-white) !important;
+  font-size: 12px;
+  font-weight: 800;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.loan-modal-cta:hover {
+  transform: translateY(-2px);
+  border-color: var(--loan-teal);
+  background: var(--loan-teal);
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes loans-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes loans-slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes loans-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loans-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loans-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 1000px) {
+  .loans-hero {
+    gap: 35px;
+    padding: 70px 4%;
+  }
+
+  .loans-hero h1 {
+    font-size: clamp(38px, 5vw, 54px);
+  }
+
+  .loans-hero-image {
+    min-height: 350px;
+  }
+
+  .loans-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .loans-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .loans-search {
+    width: 100%;
+  }
+
+  .loans-filters {
+    justify-content: flex-start;
+  }
+
+  .loans-cta {
+    padding: 30px;
+    gap: 18px;
+  }
+
+  .loan-modal {
+    width: min(700px, 100%);
+  }
+
+  .loan-modal-content {
+    padding: 42px 24px 25px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 680px) {
+  .loans-hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 60px 22px;
+  }
+
+  .loans-hero h1 {
+    font-size: clamp(38px, 9vw, 51px);
+  }
+
+  .loans-hero-content > p {
+    font-size: 14px;
+  }
+
+  .loans-hero-image {
+    min-height: 300px;
+  }
+
+  .loans-intro {
+    padding: 50px 20px 25px;
+  }
+
+  .loans-intro h2 {
+    font-size: 31px;
+  }
+
+  .loans-catalog {
+    width: calc(100% - 32px);
+    padding-top: 25px;
+    padding-bottom: 65px;
+  }
+
+  .loans-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .loans-filter {
+    width: 100%;
+  }
+
+  .loans-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .loan-card-image {
+    height: 230px;
+  }
+
+  .loan-card-body {
+    padding: 23px 20px 20px;
+  }
+
+  .loan-card-body h3 {
+    font-size: 21px;
+  }
+
+  .loan-card-body > p {
+    min-height: auto;
+  }
+
+  .loans-cta {
+    width: calc(100% - 32px);
+    margin-bottom: 40px;
+    padding: 27px 22px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .loans-cta-content h2 {
+    font-size: 23px;
+  }
+
+  .loans-contact-btn {
+    width: 100%;
+  }
+
+  .loans-back-home {
+    width: calc(100% - 32px);
+  }
+
+  .loan-modal-backdrop {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .loan-modal {
+    width: 100%;
+    max-height: calc(100dvh - 24px);
+    margin: auto 0;
+    grid-template-columns: 1fr;
+  }
+
+  .loan-modal-image {
+    height: 190px;
+    min-height: 190px;
+  }
+
+  .loan-modal-content {
+    padding: 26px 21px 23px;
+  }
+
+  .loan-modal-content h2 {
+    padding-right: 25px;
+    font-size: 26px;
+  }
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+  .loans-hero {
+    padding-inline: 17px;
+  }
+
+  .loans-hero h1 {
+    font-size: 36px;
+  }
+
+  .loans-hero-btn {
+    width: 100%;
+    padding-inline: 13px;
+  }
+
+  .loans-catalog,
+  .loans-cta,
+  .loans-back-home {
+    width: calc(100% - 28px);
+  }
+
+  .loans-hero-image-caption {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    padding: 16px;
+  }
+
+  .loans-hero-image-caption strong {
+    font-size: 20px;
+  }
+}
+
+/* Respect reduced motion settings */
+
+@media (prefers-reduced-motion: reduce) {
+  .loans-page *,
+  .loans-page *::before,
+  .loans-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

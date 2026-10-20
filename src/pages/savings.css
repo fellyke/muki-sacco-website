@@ -1,0 +1,1102 @@
+
+/* ==========================================
+   MUKI SACCO — SAVINGS & INVESTMENTS PAGE
+   Brand colours: Teal, Blue, White
+========================================== */
+
+.si-page {
+  --si-teal: #60B4AC;
+  --si-blue: #2196C7;
+  --si-white: #FFFFFF;
+  --si-text: #23444D;
+  --si-muted: #647D84;
+  --si-border: rgba(96, 180, 172, 0.28);
+
+  width: 100%;
+  overflow: hidden;
+  background: var(--si-white);
+  color: var(--si-text);
+  font-family: inherit;
+}
+
+.si-page *,
+.si-page *::before,
+.si-page *::after {
+  box-sizing: border-box;
+}
+
+.si-page a {
+  text-decoration: none;
+}
+
+.si-page button,
+.si-page input {
+  font: inherit;
+}
+
+.si-page .si-eyebrow {
+  display: inline-block;
+  color: var(--si-blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.si-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 55px;
+  min-height: 570px;
+  padding: 85px max(6%, calc((100% - 1180px) / 2));
+  background:
+    radial-gradient(
+      circle at 82% 35%,
+      rgba(96, 180, 172, 0.19),
+      transparent 34%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(33, 150, 199, 0.07),
+      rgba(96, 180, 172, 0.13)
+    );
+}
+
+.si-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  animation: siSlideUp 0.7s ease both;
+}
+
+.si-hero-content > .si-eyebrow {
+  margin-bottom: 24px;
+  padding: 9px 15px;
+  border: 1px solid rgba(33, 150, 199, 0.23);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.si-hero-content h1 {
+  margin: 0 0 24px;
+  color: var(--si-teal);
+  font-size: clamp(42px, 5vw, 67px);
+  font-weight: 850;
+  line-height: 1.1;
+  letter-spacing: -2.5px;
+}
+
+.si-hero-content > p {
+  max-width: 550px;
+  margin: 0;
+  color: var(--si-muted);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.si-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.si-btn-primary,
+.si-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  min-height: 50px;
+  padding: 14px 22px;
+  border: 1px solid var(--si-blue);
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.si-btn-primary {
+  background: var(--si-blue);
+  color: var(--si-white);
+  box-shadow: 0 8px 22px rgba(33, 150, 199, 0.16);
+}
+
+.si-btn-primary:hover {
+  transform: translateY(-3px);
+  border-color: var(--si-teal);
+  background: var(--si-teal);
+  box-shadow: 0 12px 26px rgba(33, 150, 199, 0.2);
+}
+
+.si-btn-outline {
+  background: var(--si-white);
+  color: var(--si-blue);
+}
+
+.si-btn-outline:hover {
+  transform: translateY(-3px);
+  border-color: var(--si-teal);
+  background: var(--si-teal);
+  color: var(--si-white);
+}
+
+.si-btn-primary:focus-visible,
+.si-btn-outline:focus-visible,
+.si-card-link:focus-visible,
+.si-back-home a:focus-visible {
+  outline: 3px solid rgba(96, 180, 172, 0.55);
+  outline-offset: 4px;
+}
+
+.si-trust-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  color: var(--si-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.si-trust-note svg {
+  flex-shrink: 0;
+  color: var(--si-teal);
+}
+
+/* ==========================================
+   HERO VISUAL
+========================================== */
+
+.si-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 400px;
+  animation: siFadeIn 1s ease both;
+}
+
+.si-visual-orbit {
+  position: absolute;
+  border: 1px solid rgba(33, 150, 199, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.si-orbit-one {
+  width: 350px;
+  height: 350px;
+  animation: siOrbit 22s linear infinite;
+}
+
+.si-orbit-two {
+  width: 280px;
+  height: 280px;
+  border-color: rgba(96, 180, 172, 0.38);
+  animation: siOrbit 18s linear infinite reverse;
+}
+
+.si-visual-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(300px, 76%);
+  min-height: 300px;
+  padding: 32px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 30px;
+  background: linear-gradient(
+    145deg,
+    var(--si-teal),
+    var(--si-blue)
+  );
+  box-shadow: 0 28px 70px rgba(33, 150, 199, 0.2);
+  color: var(--si-white);
+  text-align: center;
+  transform: rotate(-2deg);
+  transition: transform 0.35s ease;
+}
+
+.si-visual-main:hover {
+  transform: rotate(0deg) translateY(-5px);
+}
+
+.si-visual-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 94px;
+  height: 94px;
+  margin-bottom: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--si-white);
+}
+
+.si-visual-main > span {
+  margin-bottom: 9px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.si-visual-main > strong {
+  max-width: 220px;
+  color: var(--si-white);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.si-growth-line {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 7px;
+  height: 38px;
+  margin-top: 22px;
+}
+
+.si-growth-line span {
+  display: block;
+  width: 12px;
+  border-radius: 4px 4px 1px 1px;
+  background: rgba(255, 255, 255, 0.88);
+  animation: siBarPulse 1.5s ease-in-out infinite alternate;
+}
+
+.si-growth-line span:nth-child(1) {
+  height: 12px;
+}
+
+.si-growth-line span:nth-child(2) {
+  height: 18px;
+  animation-delay: 0.15s;
+}
+
+.si-growth-line span:nth-child(3) {
+  height: 15px;
+  animation-delay: 0.3s;
+}
+
+.si-growth-line span:nth-child(4) {
+  height: 24px;
+  animation-delay: 0.45s;
+}
+
+.si-growth-line span:nth-child(5) {
+  height: 21px;
+  animation-delay: 0.6s;
+}
+
+.si-growth-line span:nth-child(6) {
+  height: 31px;
+  animation-delay: 0.75s;
+}
+
+.si-growth-line span:nth-child(7) {
+  height: 37px;
+  animation-delay: 0.9s;
+}
+
+.si-floating-label {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 175px;
+  padding: 15px 17px;
+  border: 1px solid var(--si-border);
+  border-radius: 13px;
+  background: var(--si-white);
+  box-shadow: 0 15px 38px rgba(33, 150, 199, 0.12);
+  animation: siFloat 4s ease-in-out infinite;
+}
+
+.si-floating-label > svg {
+  flex-shrink: 0;
+  color: var(--si-blue);
+}
+
+.si-floating-label > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.si-floating-label strong {
+  color: var(--si-teal);
+  font-size: 14px;
+}
+
+.si-floating-label span {
+  color: var(--si-muted);
+  font-size: 11px;
+}
+
+.si-floating-top {
+  top: 38px;
+  right: -5px;
+}
+
+.si-floating-bottom {
+  bottom: 35px;
+  left: -10px;
+  animation-delay: -2s;
+}
+
+/* ==========================================
+   INTRODUCTION
+========================================== */
+
+.si-intro {
+  max-width: 790px;
+  margin: 0 auto;
+  padding: 88px 24px 45px;
+  text-align: center;
+}
+
+.si-intro .si-eyebrow {
+  margin-bottom: 15px;
+}
+
+.si-intro h2 {
+  margin: 0 0 17px;
+  color: var(--si-teal);
+  font-size: clamp(29px, 3.5vw, 42px);
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+}
+
+.si-intro > p {
+  max-width: 680px;
+  margin: 0 auto;
+  color: var(--si-muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* ==========================================
+   PRODUCT SECTIONS
+========================================== */
+
+.si-product-section,
+.si-investment-section {
+  padding: 45px max(6%, calc((100% - 1180px) / 2)) 85px;
+  scroll-margin-top: 30px;
+}
+
+.si-investment-section {
+  background: rgba(96, 180, 172, 0.09);
+}
+
+.si-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 34px;
+}
+
+.si-section-heading .si-eyebrow {
+  margin-bottom: 12px;
+}
+
+.si-section-heading h2 {
+  margin: 0 0 10px;
+  color: var(--si-teal);
+  font-size: clamp(29px, 3.4vw, 39px);
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.si-section-heading p {
+  margin: 0;
+  color: var(--si-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.si-count {
+  flex-shrink: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(33, 150, 199, 0.25);
+  border-radius: 50px;
+  background: var(--si-white);
+  color: var(--si-blue);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1px;
+}
+
+/* ==========================================
+   PRODUCT GRID
+========================================== */
+
+.si-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.si-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 365px;
+  padding: 26px 24px 23px;
+  overflow: hidden;
+  border: 1px solid var(--si-border);
+  border-radius: 16px;
+  background: var(--si-white);
+  box-shadow: 0 7px 25px rgba(33, 150, 199, 0.035);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  animation: siSlideUp 0.55s ease both;
+}
+
+.si-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--si-teal),
+    var(--si-blue)
+  );
+  transition: width 0.3s ease;
+}
+
+.si-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(33, 150, 199, 0.45);
+  box-shadow: 0 20px 42px rgba(33, 150, 199, 0.11);
+}
+
+.si-card:hover::before {
+  width: 100%;
+}
+
+.si-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 26px;
+}
+
+.si-number {
+  color: var(--si-blue);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 1px;
+}
+
+.si-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  flex-shrink: 0;
+  border: 1px solid rgba(96, 180, 172, 0.25);
+  border-radius: 14px;
+  background: rgba(96, 180, 172, 0.12);
+  color: var(--si-blue);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.si-card:hover .si-icon {
+  transform: rotate(-5deg) scale(1.06);
+  background: var(--si-blue);
+  color: var(--si-white);
+}
+
+.si-subtitle {
+  margin: 0 0 8px;
+  color: var(--si-blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  line-height: 1.7;
+}
+
+.si-card h3 {
+  margin: 0 0 14px;
+  color: var(--si-teal);
+  font-size: 21px;
+  font-weight: 850;
+  line-height: 1.35;
+  letter-spacing: -0.4px;
+}
+
+.si-description {
+  margin: 0 0 21px;
+  color: var(--si-muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.si-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.si-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--si-text);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.si-features li svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--si-teal);
+}
+
+.si-card-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--si-border);
+  color: var(--si-blue);
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+}
+
+.si-card-link svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.si-card-link:hover {
+  color: var(--si-teal);
+}
+
+.si-card-link:hover svg {
+  transform: translateX(5px);
+}
+
+.si-investment-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.si-investment-grid .si-card {
+  min-height: 350px;
+}
+
+/* ==========================================
+   CALL TO ACTION
+========================================== */
+
+.si-cta {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  max-width: 1180px;
+  margin: 30px auto 65px;
+  padding: 36px 40px;
+  border: 1px solid rgba(96, 180, 172, 0.32);
+  border-radius: 20px;
+  background: linear-gradient(
+    120deg,
+    rgba(96, 180, 172, 0.13),
+    rgba(33, 150, 199, 0.07)
+  );
+}
+
+.si-cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 65px;
+  width: 65px;
+  height: 65px;
+  border-radius: 17px;
+  background: var(--si-blue);
+  color: var(--si-white);
+}
+
+.si-cta-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.si-cta-copy .si-eyebrow {
+  margin-bottom: 8px;
+}
+
+.si-cta-copy h2 {
+  margin: 0 0 10px;
+  color: var(--si-teal);
+  font-size: clamp(22px, 2.5vw, 29px);
+  font-weight: 850;
+  line-height: 1.3;
+}
+
+.si-cta-copy p {
+  max-width: 650px;
+  margin: 0;
+  color: var(--si-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.si-cta > .si-btn-primary {
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   BACK HOME
+========================================== */
+
+.si-back-home {
+  padding: 0 24px 45px;
+  text-align: center;
+}
+
+.si-back-home a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--si-blue);
+  font-size: 13px;
+  font-weight: 800;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.si-back-home a:hover {
+  transform: translateX(-3px);
+  color: var(--si-teal);
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
+
+@keyframes siSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes siFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes siFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes siOrbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes siBarPulse {
+  from {
+    opacity: 0.65;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (max-width: 1050px) {
+  .si-hero {
+    gap: 25px;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .si-hero-content h1 {
+    font-size: 54px;
+  }
+
+  .si-hero-visual {
+    transform: scale(0.9);
+  }
+
+  .si-product-section,
+  .si-investment-section {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .si-grid,
+  .si-investment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .si-cta {
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+}
+
+/* ==========================================
+   MOBILE AND SMALL TABLETS
+========================================== */
+
+@media (max-width: 700px) {
+  .si-hero {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 65px 24px 35px;
+  }
+
+  .si-hero-content {
+    max-width: 100%;
+  }
+
+  .si-hero-content h1 {
+    font-size: clamp(40px, 9vw, 55px);
+    letter-spacing: -1.7px;
+  }
+
+  .si-hero-content > p {
+    font-size: 14px;
+  }
+
+  .si-hero-visual {
+    min-height: 370px;
+    margin-top: 8px;
+    transform: none;
+  }
+
+  .si-visual-main {
+    width: 260px;
+    min-height: 275px;
+  }
+
+  .si-orbit-one {
+    width: 310px;
+    height: 310px;
+  }
+
+  .si-orbit-two {
+    width: 250px;
+    height: 250px;
+  }
+
+  .si-floating-top {
+    top: 24px;
+    right: 0;
+  }
+
+  .si-floating-bottom {
+    bottom: 20px;
+    left: 0;
+  }
+
+  .si-intro {
+    padding: 60px 22px 30px;
+  }
+
+  .si-product-section,
+  .si-investment-section {
+    padding: 35px 22px 60px;
+  }
+
+  .si-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 26px;
+  }
+
+  .si-grid,
+  .si-investment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .si-card,
+  .si-investment-grid .si-card {
+    min-height: 0;
+    padding: 20px 17px;
+  }
+
+  .si-card-top {
+    margin-bottom: 21px;
+  }
+
+  .si-icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .si-card h3 {
+    font-size: 18px;
+  }
+
+  .si-description {
+    font-size: 12px;
+  }
+
+  .si-features li {
+    font-size: 11px;
+  }
+
+  .si-card-link {
+    font-size: 11px;
+  }
+
+  .si-cta {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 15px 22px 45px;
+    padding: 25px 22px;
+  }
+
+  .si-cta-copy {
+    flex-basis: calc(100% - 90px);
+  }
+
+  .si-cta > .si-btn-primary {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   SMALL PHONES
+========================================== */
+
+@media (max-width: 450px) {
+  .si-hero {
+    padding: 50px 18px 25px;
+  }
+
+  .si-hero-content > .si-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .si-hero-content h1 {
+    font-size: 40px;
+  }
+
+  .si-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .si-hero-actions a {
+    width: 100%;
+  }
+
+  .si-trust-note {
+    align-items: flex-start;
+    font-size: 11px;
+  }
+
+  .si-hero-visual {
+    min-height: 330px;
+  }
+
+  .si-visual-main {
+    width: 230px;
+    min-height: 250px;
+    padding: 23px 17px;
+  }
+
+  .si-visual-icon {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 17px;
+  }
+
+  .si-visual-icon svg {
+    width: 43px;
+    height: 43px;
+  }
+
+  .si-visual-main > strong {
+    font-size: 21px;
+  }
+
+  .si-orbit-one {
+    width: 270px;
+    height: 270px;
+  }
+
+  .si-orbit-two {
+    width: 220px;
+    height: 220px;
+  }
+
+  .si-floating-label {
+    min-width: 145px;
+    gap: 8px;
+    padding: 11px;
+  }
+
+  .si-floating-label strong {
+    font-size: 12px;
+  }
+
+  .si-floating-label span {
+    font-size: 10px;
+  }
+
+  .si-intro {
+    padding: 45px 18px 25px;
+  }
+
+  .si-intro h2 {
+    font-size: 29px;
+  }
+
+  .si-intro > p {
+    font-size: 13px;
+  }
+
+  .si-product-section,
+  .si-investment-section {
+    padding: 30px 16px 45px;
+  }
+
+  .si-section-heading h2 {
+    font-size: 29px;
+  }
+
+  .si-grid,
+  .si-investment-grid {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .si-card,
+  .si-investment-grid .si-card {
+    padding: 23px;
+  }
+
+  .si-card h3 {
+    font-size: 21px;
+  }
+
+  .si-description {
+    font-size: 13px;
+  }
+
+  .si-features li {
+    font-size: 12px;
+  }
+
+  .si-card-link {
+    font-size: 12px;
+  }
+
+  .si-cta {
+    margin-right: 16px;
+    margin-left: 16px;
+    padding: 23px 19px;
+  }
+
+  .si-cta-icon {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .si-cta-copy {
+    flex-basis: 100%;
+  }
+
+  .si-cta-copy h2 {
+    font-size: 24px;
+  }
+
+  .si-cta-copy p {
+    font-size: 12px;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .si-page *,
+  .si-page *::before,
+  .si-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
