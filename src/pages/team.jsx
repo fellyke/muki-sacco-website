@@ -14,56 +14,46 @@ const directors = [
   {
     name: "John Gichigi",
     role: "Chairman",
-    image:
-      "https://mukisacco.co.ke/wp-content/uploads/2022/09/JOHN-GICHIGI-VICE-CHAIR.jpg",
+
   },
   {
     name: "John Migwi",
     role: "Vice Chairman",
-    image:
-      "https://mukisacco.co.ke/wp-content/uploads/2022/09/JOHN-MIGWI-DIRECTOR.jpg",
+   
   },
   {
     name: "John Wanyeki Theuri",
     role: "Honorable Secretary",
-    image:
-      "https://mukisacco.co.ke/wp-content/uploads/2022/09/JOHN-WANYEKI-THEURI-HONARABLE-SECRATARY.jpg",
+
   },
   {
     name: "Elijah Kirogo",
     role: "Treasurer",
-    image:
-      "https://mukisacco.co.ke/wp-content/uploads/2023/12/kirogo.jpg",
+    
   },
   {
     name: "George Matu",
     role: "Director",
-    image:
-      "https://mukisacco.co.ke/wp-content/uploads/2023/12/matu.jpg",
+   
   },
   {
     name: "Jane Wandurua",
     role: "Director",
-    image:
-      "https://mukisacco.co.ke/wp-content/uploads/2023/12/JANE-1.jpg",
+   
   },
   {
     name: "Monicah Wahu Njonge",
     role: "Director",
-    image:
-      "https://mukisacco.co.ke/wp-content/uploads/2022/09/MONICAH-WAHU-NJONGE-TREASURER.jpg",
+    
   },
   {
     name: "Joseph Maina",
     role: "Director",
-    image:
-      "https://mukisacco.co.ke/wp-content/uploads/2022/09/JOSEPH-MAINA-NGURE-DIRECTOR.jpg",
   },
   {
     name: "Daniel Wamathai",
     role: "Director",
-    image:
-      "https://mukisacco.co.ke/wp-content/uploads/2022/09/Mr.-DANIEL-WAMATHAI-CHAIRMAN.jpg",
+    
   },
 ];
 
@@ -71,8 +61,7 @@ const management = [
   {
     name: "Violet Ndungú",
     role: "Chief Executive Officer",
-    image:
-      "https://mukisacco.co.ke/wp-content/uploads/2022/09/VIOLET-NDUNGU-CEO.jpg",
+   
   },
   {
     name: "Zipporah Chege",
