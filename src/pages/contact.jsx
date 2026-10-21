@@ -135,7 +135,7 @@ export default function Contact() {
         <div className="contact-featured-info">
           <span className="contact-small-label">MAIN CONTACT</span>
           <h2>Ndunyu Njeru</h2>
-
+          <h2>Head Office</h2>
           <a href="tel:0711794957">
             <Phone size={17} />
             0711-794957
