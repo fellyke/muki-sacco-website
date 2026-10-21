@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
-import "./ScrollToTop.css";
+
+import "./ScrolltoTop.css";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
