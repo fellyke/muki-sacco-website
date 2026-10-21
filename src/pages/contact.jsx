@@ -147,14 +147,6 @@ export default function Contact() {
           </a>
         </div>
 
-        <a
-          href="https://mukisacco.co.ke/"
-          target="_blank"
-          rel="noreferrer"
-          className="contact-featured-link"
-        >
-          Official Website <ArrowRight size={17} />
-        </a>
       </section>
 
       <section className="contact-directory" id="branch-directory">
