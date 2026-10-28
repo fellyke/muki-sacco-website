@@ -63,7 +63,7 @@ const Footer = () => {
             <Link to="/loans">Loan Products</Link>
             <Link to="/savings">Savings Products</Link>
             <Link to="/digital-banking">Digital Banking</Link>
-            <Link to="AppSelfRegistration">App Self Registration</Link>
+            <Link to="/AppSelfRegistration">App Self Registration</Link>
             <Link to="/insurance">Insurance</Link>
             <a
               href="https://mukisacco.co.ke/channels/"

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import {
@@ -29,7 +30,10 @@ const Navbar = () => {
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
     { name: "Insurance", path: "/insurance" },
-    { name: "App Self Registration", path: "/AppSelfRegistration" },
+    {
+      name: "App Self Registration",
+      path: "/AppSelfRegistration",
+    },
   ];
 
   return (
@@ -41,6 +45,7 @@ const Navbar = () => {
               <Phone size={14} />
               <span>0711 794 957</span>
             </a>
+
             <a href="mailto:info@mukisacco.co.ke">
               <Mail size={14} />
               <span>info@mukisacco.co.ke</span>
@@ -55,27 +60,31 @@ const Navbar = () => {
 
       <div className="muki-navbar">
         <div className="muki-container muki-navbar-inner">
-         
-<Link to="/" className="muki-brand" onClick={closeMenu}>
-  <img
-    src="/logo.png"
-    alt="MUKI SACCO Society"
-    className="muki-brand-logo"
-  />
-</Link>
-
+          <Link to="/" className="muki-brand" onClick={closeMenu}>
+            <img
+              src="/logo.png"
+              alt="MUKI SACCO Society"
+              className="muki-brand-logo"
+            />
+          </Link>
 
           <button
             type="button"
             className="muki-menu-toggle"
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              menuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+            }
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <X size={25} /> : <Menu size={25} />}
           </button>
 
-          <nav className={`muki-nav-links ${menuOpen ? "is-open" : ""}`}>
+          <nav
+            className={`muki-nav-links ${menuOpen ? "is-open" : ""}`}
+          >
             {navItems.slice(0, 3).map((item) => (
               <NavLink
                 key={item.path}
@@ -91,7 +100,9 @@ const Navbar = () => {
             ))}
 
             <div
-              className={`muki-nav-dropdown ${loansOpen ? "dropdown-open" : ""}`}
+              className={`muki-nav-dropdown ${
+                loansOpen ? "dropdown-open" : ""
+              }`}
             >
               <button
                 type="button"
@@ -135,7 +146,7 @@ const Navbar = () => {
               className="muki-login-button"
               href="https://mukisacco.co.ke/channels/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Member Login <ExternalLink size={14} />
             </a>
