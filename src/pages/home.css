@@ -1577,3 +1577,176 @@
     margin: 10px 0 13px;
   }
 }
+
+/* =========================================
+   MUKI SACCO — PHOTOGRAPH STYLES
+========================================= */
+
+/* Service cards */
+
+.service-card {
+  overflow: hidden;
+  padding: 0;
+  border-radius: 16px;
+}
+
+.service-image-link {
+  display: block;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #eaf3f2;
+}
+
+.service-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1.04);
+}
+
+.service-card-content {
+  padding: 22px;
+}
+
+.service-card-content h3 {
+  margin: 14px 0 10px;
+}
+
+.service-card-content p {
+  line-height: 1.7;
+}
+
+/* Loan cards */
+
+.loan-card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.loan-image-link {
+  display: block;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: #eaf3f2;
+}
+
+.loan-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.loan-card:hover .loan-image {
+  transform: scale(1.05);
+}
+
+.loan-card-content {
+  padding: 22px;
+}
+
+.loan-card-content h3 {
+  margin: 15px 0 10px;
+}
+
+.loan-card-content p {
+  line-height: 1.7;
+}
+
+/* Savings cards */
+
+.saving-card {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.saving-image {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #eaf3f2;
+  transition: transform 0.4s ease;
+}
+
+.saving-card:hover .saving-image {
+  transform: scale(1.03);
+}
+
+.saving-card-content {
+  padding: 22px;
+}
+
+.saving-card-content h3 {
+  margin: 14px 0 10px;
+}
+
+.saving-card-content p {
+  line-height: 1.7;
+}
+
+/* About photograph */
+
+.about-visual {
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.about-visual > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  object-fit: cover;
+}
+
+/* Hero background */
+
+.hero {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .service-image-link {
+    height: 180px;
+  }
+
+  .loan-image-link,
+  .saving-image {
+    height: 170px;
+  }
+
+  .service-card-content,
+  .loan-card-content,
+  .saving-card-content {
+    padding: 18px;
+  }
+
+  .about-visual > img {
+    min-height: 260px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  .service-image,
+  .loan-image,
+  .saving-image {
+    transition: none;
+  }
+}
