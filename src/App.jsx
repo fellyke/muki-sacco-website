@@ -3,7 +3,6 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  
 } from "react-router-dom";
 
 import Navbar from "./components/navbar";
@@ -19,13 +18,12 @@ import Savings from "./pages/savings";
 import Membership from "./pages/membership";
 import DigitalBanking from "./pages/digitalbanking";
 import Contact from "./pages/contact";
-import Insurance from "./pages/insurance";     
+import Insurance from "./pages/insurance";
+import AppSelfRegistration from "./pages/AppSelfRegistration";
 
 import "./index.css";
 
 function SiteLayout() {
-  
-
   return (
     <>
       <ScrollToTop />
@@ -39,18 +37,30 @@ function SiteLayout() {
         <Route path="/loans" element={<Loans />} />
         <Route path="/savings" element={<Savings />} />
         <Route path="/membership" element={<Membership />} />
+
         <Route
           path="/digital-banking"
           element={<DigitalBanking />}
         />
+
         <Route path="/contact" element={<Contact />} />
         <Route path="/insurance" element={<Insurance />} />
+
+        {/* App Self Registration */}
+        <Route
+          path="/AppSelfRegistration"
+          element={<AppSelfRegistration />}
+        />
+
+        {/* Page Not Found */}
         <Route
           path="*"
           element={
             <main className="not-found">
               <h1>Page not found</h1>
-              <p>The page you are looking for does not exist.</p>
+              <p>
+                The page you are looking for does not exist.
+              </p>
               <a href="/">Return home</a>
             </main>
           }
