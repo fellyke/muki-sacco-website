@@ -1,7 +1,5 @@
-
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import {
   ArrowRight,
   CheckCircle2,
@@ -28,9 +26,7 @@ import {
 import "./home.css";
 
 /* =========================================
-   IMAGE SOURCES
-   Illustrative stock photographs from
-   Unsplash. Preview before production use.
+   LOAN PRODUCTS AND PHOTOGRAPHS
 ========================================= */
 
 const loans = [
@@ -74,7 +70,7 @@ const loans = [
     description: "Access financing through FOSA services.",
     icon: Wallet,
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Self Guaranteed Loan",
@@ -88,7 +84,7 @@ const loans = [
     description: "Take the next step in your financial journey.",
     icon: Users,
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Water Tank Loan",
@@ -134,40 +130,44 @@ const loans = [
   },
 ];
 
+/* =========================================
+   SAVINGS ACCOUNTS AND PHOTOGRAPHS
+========================================= */
+
 const savings = [
   {
     name: "Ordinary Account",
-    description:
-      "Build a consistent savings habit for everyday goals.",
+    description: "Build a consistent savings habit for everyday goals.",
     icon: PiggyBank,
     image:
       "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Golden Account",
-    description:
-      "Save towards your long-term financial plans.",
+    description: "Save towards your long-term financial plans.",
     icon: Coins,
     image:
       "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Junior Account",
-    description:
-      "Help children start their financial journey early.",
+    description: "Help children start their financial journey early.",
     icon: GraduationCap,
     image:
       "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Super Saver",
-    description:
-      "Work towards your bigger savings goals.",
+    description: "Work towards your bigger savings goals.",
     icon: HandCoins,
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=900&q=80",
   },
 ];
+
+/* =========================================
+   HERO SLIDES
+========================================= */
 
 const slides = [
   {
@@ -203,7 +203,7 @@ const slides = [
 ];
 
 /* =========================================
-   SECTION HEADING
+   REUSABLE SECTION HEADING
 ========================================= */
 
 function SectionHeading({
@@ -215,9 +215,7 @@ function SectionHeading({
   return (
     <div className={`section-heading ${centered ? "text-center" : ""}`}>
       {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-
       <h2>{title}</h2>
-
       {description && <p>{description}</p>}
     </div>
   );
@@ -250,12 +248,9 @@ function Hero() {
     >
       <div className="container hero-inner">
         <div className="hero-content" key={active}>
-          <span className="eyebrow hero-eyebrow">
-            {slide.eyebrow}
-          </span>
+          <span className="eyebrow hero-eyebrow">{slide.eyebrow}</span>
 
           <h1>{slide.title}</h1>
-
           <p>{slide.description}</p>
 
           <div className="hero-actions">
@@ -285,12 +280,10 @@ function Hero() {
 
       <div className="hero-controls">
         <button
-          type="button"
           aria-label="Previous slide"
           onClick={() =>
             setActive(
-              (current) =>
-                (current - 1 + slides.length) % slides.length
+              (current) => (current - 1 + slides.length) % slides.length
             )
           }
         >
@@ -300,20 +293,15 @@ function Hero() {
         <div className="hero-dots">
           {slides.map((item, index) => (
             <button
-              type="button"
               key={item.title}
-              className={
-                active === index ? "hero-dot active" : "hero-dot"
-              }
+              className={active === index ? "hero-dot active" : "hero-dot"}
               onClick={() => setActive(index)}
               aria-label={`Show slide ${index + 1}`}
-              aria-current={active === index ? "true" : undefined}
             />
           ))}
         </div>
 
         <button
-          type="button"
           aria-label="Next slide"
           onClick={() =>
             setActive((current) => (current + 1) % slides.length)
@@ -385,8 +373,7 @@ function Statistics() {
     {
       value: "36+",
       label: "Years of Service",
-      description:
-        "Providing quality service to our loyal members.",
+      description: "Providing quality service to our loyal members.",
     },
     {
       value: "47,000+",
@@ -414,11 +401,8 @@ function Statistics() {
         {stats.map((stat) => (
           <article className="stat-item" key={stat.label}>
             <strong>{stat.value}</strong>
-
             <span className="stat-label">{stat.label}</span>
-
             <span className="stat-divider" />
-
             <p>{stat.description}</p>
           </article>
         ))}
@@ -434,37 +418,34 @@ function Statistics() {
 function Services() {
   const items = [
     {
+      icon: HandCoins,
       title: "Flexible Loans",
-      text:
-        "Explore financing options for your personal and business goals.",
+      text: "Explore financing options for your personal and business goals.",
       link: "/loans",
       label: "Explore loans",
       image:
         "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80",
-      alt: "Financial documents and calculator",
-      icon: HandCoins,
+      alt: "Financial planning documents and calculator",
     },
     {
+      icon: PiggyBank,
       title: "Savings Accounts",
-      text:
-        "Find savings options to help you plan for tomorrow.",
+      text: "Find savings options to help you plan for tomorrow.",
       link: "/savings",
       label: "Explore savings",
       image:
         "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80",
       alt: "Savings and financial planning concept",
-      icon: PiggyBank,
     },
     {
+      icon: Smartphone,
       title: "Digital Banking",
-      text:
-        "Find the available digital channels for your account.",
+      text: "Find the available digital channels for your account.",
       link: "/digital-banking",
       label: "Go digital",
       image:
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
-      alt: "Technology and digital services",
-      icon: Smartphone,
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+      alt: "Digital finance dashboard on a screen",
     },
   ];
 
@@ -479,28 +460,14 @@ function Services() {
 
         <div className="services-grid">
           {items.map(
-            ({
-              icon: Icon,
-              title,
-              text,
-              link,
-              label,
-              image,
-              alt,
-            }) => (
+            ({ icon: Icon, title, text, link, label, image, alt }) => (
               <article className="service-card" key={title}>
-                <Link
-                  to={link}
-                  className="service-image-link"
-                  aria-label={label}
-                >
-                  <img
-                    className="service-image"
-                    src={image}
-                    alt={alt}
-                    loading="lazy"
-                  />
-                </Link>
+                <img
+                  className="service-image"
+                  src={image}
+                  alt={alt}
+                  loading="lazy"
+                />
 
                 <div className="service-card-content">
                   <span className="service-icon">
@@ -508,7 +475,6 @@ function Services() {
                   </span>
 
                   <h3>{title}</h3>
-
                   <p>{text}</p>
 
                   <Link className="text-link" to={link}>
@@ -526,7 +492,7 @@ function Services() {
 }
 
 /* =========================================
-   FEATURED LOAN PRODUCTS
+   LOAN PRODUCTS WITH PHOTOGRAPHS
 ========================================= */
 
 function LoanProducts() {
@@ -543,46 +509,34 @@ function LoanProducts() {
         </div>
 
         <div className="loans-grid">
-          {loans.slice(0, 4).map(
-            ({ name, description, icon: Icon, image }) => (
-              <article className="loan-card" key={name}>
-                <Link
-                  className="loan-image-link"
-                  to="/loans"
-                  aria-label={`View ${name}`}
-                >
-                  <img
-                    className="loan-image"
-                    src={image}
-                    alt={`${name} illustrative photograph`}
-                    loading="lazy"
-                  />
-                </Link>
+          {loans.slice(0, 4).map(({ name, description, icon: Icon, image }) => (
+            <article className="loan-card" key={name}>
+              <img
+                className="loan-image"
+                src={image}
+                alt={`${name} illustrative photograph`}
+                loading="lazy"
+              />
 
-                <div className="loan-card-content">
-                  <div className="loan-card-top">
-                    <span className="loan-icon">
-                      <Icon size={24} />
-                    </span>
+              <div className="loan-card-content">
+                <div className="loan-card-top">
+                  <span className="loan-icon">
+                    <Icon size={24} />
+                  </span>
 
-                    <ArrowRight
-                      className="loan-arrow"
-                      size={19}
-                    />
-                  </div>
-
-                  <h3>{name}</h3>
-
-                  <p>{description}</p>
-
-                  <Link className="loan-link" to="/contact">
-                    Enquire now
-                    <ArrowRight size={15} />
-                  </Link>
+                  <ArrowRight className="loan-arrow" size={19} />
                 </div>
-              </article>
-            )
-          )}
+
+                <h3>{name}</h3>
+                <p>{description}</p>
+
+                <Link className="loan-link" to="/contact">
+                  Enquire now
+                  <ArrowRight size={15} />
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
 
         <div className="center-actions">
@@ -597,7 +551,7 @@ function LoanProducts() {
 }
 
 /* =========================================
-   SAVINGS PRODUCTS
+   SAVINGS ACCOUNTS WITH PHOTOGRAPHS
 ========================================= */
 
 function Savings() {
@@ -611,36 +565,33 @@ function Savings() {
         />
 
         <div className="savings-grid">
-          {savings.map(
-            ({ name, description, icon: Icon, image }, index) => (
-              <article
-                className={`saving-card saving-card-${index + 1}`}
-                key={name}
-              >
-                <img
-                  className="saving-image"
-                  src={image}
-                  alt={`${name} illustrative savings photograph`}
-                  loading="lazy"
-                />
+          {savings.map(({ name, description, icon: Icon, image }, index) => (
+            <article
+              className={`saving-card saving-card-${index + 1}`}
+              key={name}
+            >
+              <img
+                className="saving-image"
+                src={image}
+                alt={`${name} illustrative savings photograph`}
+                loading="lazy"
+              />
 
-                <div className="saving-card-content">
-                  <span className="saving-icon">
-                    <Icon size={26} />
-                  </span>
+              <div className="saving-card-content">
+                <span className="saving-icon">
+                  <Icon size={26} />
+                </span>
 
-                  <h3>{name}</h3>
+                <h3>{name}</h3>
+                <p>{description}</p>
 
-                  <p>{description}</p>
-
-                  <Link className="text-link" to="/contact">
-                    Learn more
-                    <ArrowRight size={16} />
-                  </Link>
-                </div>
-              </article>
-            )
-          )}
+                <Link className="text-link" to="/contact">
+                  Learn more
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -649,6 +600,7 @@ function Savings() {
 
 /* =========================================
    ABOUT MUKI SACCO
+   HANDSHAKE IMAGE KEPT UNCHANGED
 ========================================= */
 
 function AboutPreview() {
@@ -657,16 +609,14 @@ function AboutPreview() {
       <div className="container about-grid">
         <div className="about-visual">
           <img
-            src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85"
-            alt="Agricultural landscape representing rural livelihoods and community growth"
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=85"
+            alt="Professionals working together"
             loading="lazy"
           />
 
           <div className="about-stamp">
             <HeartHandshake size={28} />
-
             <strong>Pamoja Twajenga</strong>
-
             <span>Together we build</span>
           </div>
         </div>
@@ -680,10 +630,9 @@ function AboutPreview() {
           />
 
           <p className="about-body">
-            Whether you are planning a major purchase, supporting your
-            family, investing in a business or building a savings habit,
-            explore the available services and find out which options
-            suit your needs.
+            Whether you are planning a major purchase, supporting your family,
+            investing in a business or building a savings habit, explore the
+            available services and find out which options suit your needs.
           </p>
 
           <ul className="check-list">
@@ -719,22 +668,17 @@ function AboutPreview() {
 
 function DigitalBankingPreview() {
   return (
-    <section
-      className="section digital-section"
-      id="digital-banking"
-    >
+    <section className="section digital-section" id="digital-banking">
       <div className="container digital-grid">
         <div className="digital-copy">
-          <span className="eyebrow">
-            BANKING THAT MOVES WITH YOU
-          </span>
+          <span className="eyebrow">BANKING THAT MOVES WITH YOU</span>
 
           <h2>Stay Connected To Your Finances</h2>
 
           <p>
-            Access the official MUKI SACCO digital channels to find
-            available member services. Always use official channels
-            and keep your PINs and passwords private.
+            Access the official MUKI SACCO digital channels to find available
+            member services. Always use official channels and keep your PINs
+            and passwords private.
           </p>
 
           <div className="digital-features">
@@ -757,10 +701,7 @@ function DigitalBankingPreview() {
             </div>
           </div>
 
-          <Link
-            className="button button-white"
-            to="/digital-banking"
-          >
+          <Link className="button button-white" to="/digital-banking">
             Explore Digital Banking
             <ArrowRight size={17} />
           </Link>
@@ -774,7 +715,7 @@ function DigitalBankingPreview() {
               <img
                 className="phone-logo"
                 src="/logo.png"
-                alt="MUKI SACCO logo"
+                alt="MUKI SACCO"
               />
 
               <span className="phone-welcome">Welcome to</span>
@@ -808,9 +749,7 @@ function DigitalBankingPreview() {
                 </span>
               </div>
 
-              <div className="phone-footer">
-                Pamoja Twajenga
-              </div>
+              <div className="phone-footer">Pamoja Twajenga</div>
             </div>
           </div>
 
@@ -863,7 +802,7 @@ function Partners() {
 }
 
 /* =========================================
-   BRANCHES CALL TO ACTION
+   BRANCHES
 ========================================= */
 
 function Branches() {
@@ -878,8 +817,8 @@ function Branches() {
           <h3>Looking For A MUKI SACCO Branch?</h3>
 
           <p>
-            Contact the SACCO to confirm the nearest branch,
-            directions and opening hours.
+            Contact the SACCO to confirm the nearest branch, directions and
+            opening hours.
           </p>
         </div>
 
@@ -893,7 +832,7 @@ function Branches() {
 }
 
 /* =========================================
-   HOMEPAGE
+   HOME PAGE
 ========================================= */
 
 export default function Home() {
