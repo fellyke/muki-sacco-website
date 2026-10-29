@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -15,11 +16,13 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import "./savings.css";
+
 const savingsProducts = [
   {
     number: "01",
     title: "Ordinary Account",
     subtitle: "Save consistently",
+    image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=900&q=85",
     description:
       "A savings option for members who want to build a saving habit and put money aside for everyday financial goals.",
     icon: PiggyBank,
@@ -29,6 +32,7 @@ const savingsProducts = [
     number: "02",
     title: "Golden Account",
     subtitle: "Savings for your future",
+    image: "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=900&q=85",
     description:
       "A savings product for members looking to organise their money and work towards their long-term financial plans.",
     icon: Crown,
@@ -38,6 +42,7 @@ const savingsProducts = [
     number: "03",
     title: "Super Savers",
     subtitle: "Make saving a priority",
+    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=900&q=85",
     description:
       "A savings option for members who want to make saving part of their financial routine.",
     icon: TrendingUp,
@@ -47,6 +52,7 @@ const savingsProducts = [
     number: "04",
     title: "Holiday Account",
     subtitle: "Save for your next getaway",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=85",
     description:
       "Plan ahead for holidays, family trips and special occasions by putting money aside before you need it.",
     icon: CalendarDays,
@@ -56,6 +62,7 @@ const savingsProducts = [
     number: "05",
     title: "MUKI Junior Account",
     subtitle: "A brighter financial future",
+    image:"https://images.unsplash.com/photo-IMAGE_ID?auto=format&fit=crop&w=900&q=85",
     description:
       "An account designed around children's savings and helping families introduce financial discipline early.",
     icon: GraduationCap,
@@ -65,8 +72,9 @@ const savingsProducts = [
     number: "06",
     title: "Inua Dada Savings",
     subtitle: "Empowering women",
+    image: "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?auto=format&fit=crop&w=900&q=85",
     description:
-      "A savings option presented for women pursuing stronger financial planning and greater economic independence.",
+      "A savings option for women pursuing stronger financial planning and greater economic independence.",
     icon: HeartHandshake,
     features: ["Support personal financial goals", "Encourage a consistent saving habit"],
   },
@@ -74,6 +82,7 @@ const savingsProducts = [
     number: "07",
     title: "Boresha Mwanaume",
     subtitle: "Plan. Save. Progress.",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=85",
     description:
       "A savings product for men looking to strengthen their financial planning and work towards personal goals.",
     icon: UsersRound,
@@ -86,6 +95,7 @@ const investmentProducts = [
     number: "01",
     title: "Share Capital",
     subtitle: "Invest in your SACCO",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=85",
     description:
       "Share capital represents a member's ownership stake in the SACCO. Confirm the share requirements, transfer rules and applicable benefits with MUKI SACCO.",
     icon: Landmark,
@@ -95,6 +105,7 @@ const investmentProducts = [
     number: "02",
     title: "BOSA Deposit Account",
     subtitle: "Build your member deposits",
+    image: "https://images.unsplash.com/photo-1579621970563-01c...?...",
     description:
       "A Back Office Service Activity (BOSA) deposit product associated with members' SACCO savings and borrowing arrangements. Confirm the applicable terms with MUKI SACCO.",
     icon: Coins,
@@ -104,6 +115,7 @@ const investmentProducts = [
     number: "03",
     title: "Fixed Deposit Account",
     subtitle: "Put your money to work",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=85",
     description:
       "An investment option to ask about when you want to place funds for an agreed period under specified terms and returns.",
     icon: TrendingUp,
@@ -116,32 +128,42 @@ function ProductCard({ product, category }) {
 
   return (
     <article className="si-card">
-      <div className="si-card-top">
-        <span className="si-number">{product.number}</span>
-        <div className="si-icon">
-          <Icon size={25} strokeWidth={1.8} />
-        </div>
+      <div className="si-card-image">
+        <img
+          src={product.image}
+          alt={`${product.title} - ${product.subtitle}`}
+          loading="lazy"
+        />
       </div>
 
-      <p className="si-subtitle">{product.subtitle}</p>
-      <h3>{product.title}</h3>
-      <p className="si-description">{product.description}</p>
+      <div className="si-card-content">
+        <div className="si-card-top">
+          <span className="si-number">{product.number}</span>
+          <div className="si-icon">
+            <Icon size={25} strokeWidth={1.8} />
+          </div>
+        </div>
 
-      <ul className="si-features">
-        {product.features.map((feature) => (
-          <li key={feature}>
-            <CheckCircle2 size={17} />
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
+        <p className="si-subtitle">{product.subtitle}</p>
+        <h3>{product.title}</h3>
+        <p className="si-description">{product.description}</p>
 
-      <Link
-        className="si-card-link"
-        to={`/contact?product=${encodeURIComponent(product.title)}&category=${category}`}
-      >
-        Enquire about this product <ArrowRight size={17} />
-      </Link>
+        <ul className="si-features">
+          {product.features.map((feature) => (
+            <li key={feature}>
+              <CheckCircle2 size={17} />
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <Link
+          className="si-card-link"
+          to={`/contact?product=${encodeURIComponent(product.title)}&category=${category}`}
+        >
+          Enquire about this product <ArrowRight size={17} />
+        </Link>
+      </div>
     </article>
   );
 }
@@ -190,13 +212,7 @@ export default function Savings() {
             <span>Your goals start here</span>
             <strong>A future worth saving for.</strong>
             <div className="si-growth-line">
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
-              <span />
+              <span /><span /><span /><span /><span /><span /><span />
             </div>
           </div>
 
