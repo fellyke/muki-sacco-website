@@ -14,10 +14,12 @@ import "./navbar.css";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loansOpen, setLoansOpen] = useState(false);
+  const [digitalOpen, setDigitalOpen] = useState(false);
 
   const closeMenu = () => {
     setMenuOpen(false);
     setLoansOpen(false);
+    setDigitalOpen(false);
   };
 
   const navItems = [
@@ -26,7 +28,6 @@ const Navbar = () => {
     { name: "Our Team", path: "/team" },
     { name: "Savings", path: "/savings" },
     { name: "Membership", path: "/membership" },
-    { name: "Digital Banking", path: "/digital-banking" },
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
     { name: "Insurance", path: "/insurance" },
@@ -36,10 +37,33 @@ const Navbar = () => {
     },
   ];
 
+  const digitalLinks = [
+    {
+      name: "Mobile Banking",
+      path: "/digital-banking#mobile-banking",
+    },
+    {
+      name: "ATM & Cards",
+      path: "/digital-banking#atm-cards",
+    },
+    {
+      name: "*850#",
+      path: "/digital-banking#ussd-banking",
+    },
+    {
+      name: "Paybill",
+      path: "/digital-banking#paybill",
+    },
+  ];
+
   return (
     <header className="muki-header">
+
+      {/* TOP BAR */}
+
       <div className="muki-topbar">
         <div className="muki-container muki-topbar-inner">
+
           <div className="muki-topbar-contact">
             <a href="tel:0711794957">
               <Phone size={14} />
@@ -55,18 +79,28 @@ const Navbar = () => {
           <span className="muki-topbar-message">
             Pamoja Twajenga
           </span>
+
         </div>
       </div>
 
+      {/* MAIN NAVBAR */}
+
       <div className="muki-navbar">
         <div className="muki-container muki-navbar-inner">
-          <Link to="/" className="muki-brand" onClick={closeMenu}>
+
+          <Link
+            to="/"
+            className="muki-brand"
+            onClick={closeMenu}
+          >
             <img
               src="/logo.png"
               alt="MUKI SACCO Society"
               className="muki-brand-logo"
             />
           </Link>
+
+          {/* MOBILE MENU BUTTON */}
 
           <button
             type="button"
@@ -79,12 +113,21 @@ const Navbar = () => {
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuOpen ? <X size={25} /> : <Menu size={25} />}
+            {menuOpen ? (
+              <X size={25} />
+            ) : (
+              <Menu size={25} />
+            )}
           </button>
 
           <nav
-            className={`muki-nav-links ${menuOpen ? "is-open" : ""}`}
+            className={`muki-nav-links ${
+              menuOpen ? "is-open" : ""
+            }`}
           >
+
+            {/* FIRST NAVIGATION ITEMS */}
+
             {navItems.slice(0, 3).map((item) => (
               <NavLink
                 key={item.path}
@@ -92,12 +135,16 @@ const Navbar = () => {
                 end={item.path === "/"}
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  `muki-nav-link ${isActive ? "active" : ""}`
+                  `muki-nav-link ${
+                    isActive ? "active" : ""
+                  }`
                 }
               >
                 {item.name}
               </NavLink>
             ))}
+
+            {/* LOANS DROPDOWN */}
 
             <div
               className={`muki-nav-dropdown ${
@@ -108,26 +155,68 @@ const Navbar = () => {
                 type="button"
                 className="muki-nav-link muki-dropdown-trigger"
                 aria-expanded={loansOpen}
-                onClick={() => setLoansOpen(!loansOpen)}
+                onClick={() => {
+                  setLoansOpen(!loansOpen);
+                  setDigitalOpen(false);
+                }}
               >
-                Loans <ChevronDown size={15} />
+                Loans
+                <ChevronDown size={15} />
               </button>
 
               <div className="muki-dropdown-menu">
                 <Link to="/loans" onClick={closeMenu}>
                   All Loan Products
                 </Link>
+
                 <Link to="/loans" onClick={closeMenu}>
                   School Fees Loan
                 </Link>
+
                 <Link to="/loans" onClick={closeMenu}>
                   Business Loans
                 </Link>
+
                 <Link to="/loans" onClick={closeMenu}>
                   Asset Financing
                 </Link>
               </div>
             </div>
+
+            {/* DIGITAL BANKING DROPDOWN */}
+
+            <div
+              className={`muki-nav-dropdown ${
+                digitalOpen ? "dropdown-open" : ""
+              }`}
+            >
+              <button
+                type="button"
+                className="muki-nav-link muki-dropdown-trigger"
+                aria-expanded={digitalOpen}
+                onClick={() => {
+                  setDigitalOpen(!digitalOpen);
+                  setLoansOpen(false);
+                }}
+              >
+                Digital Banking
+                <ChevronDown size={15} />
+              </button>
+
+              <div className="muki-dropdown-menu">
+                {digitalLinks.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={closeMenu}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* REMAINING NAVIGATION ITEMS */}
 
             {navItems.slice(3).map((item) => (
               <NavLink
@@ -135,12 +224,16 @@ const Navbar = () => {
                 to={item.path}
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  `muki-nav-link ${isActive ? "active" : ""}`
+                  `muki-nav-link ${
+                    isActive ? "active" : ""
+                  }`
                 }
               >
                 {item.name}
               </NavLink>
             ))}
+
+            {/* MEMBER LOGIN */}
 
             <a
               className="muki-login-button"
@@ -148,8 +241,10 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Member Login <ExternalLink size={14} />
+              Member Login
+              <ExternalLink size={14} />
             </a>
+
           </nav>
         </div>
       </div>

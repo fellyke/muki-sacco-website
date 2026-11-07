@@ -797,3 +797,114 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* =================================
+   DIGITAL BANKING CATEGORY FILTERS
+================================= */
+
+.db-categories {
+  max-width: 1200px;
+  margin: 55px auto 35px;
+  padding: 0 25px;
+}
+
+.db-category-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.db-category-heading h2 {
+  font-size: 32px;
+  color: #263F4A;
+  margin: 12px 0;
+}
+
+.db-category-heading p {
+  color: #657B84;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.db-category-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.db-category-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 23px;
+  border: 1px solid #dce8e7;
+  border-radius: 30px;
+  background: #ffffff;
+  color: #263F4A;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.db-category-btn:hover {
+  border-color: #60B4AC;
+  color: #2196C7;
+  transform: translateY(-2px);
+}
+
+.db-category-btn.active {
+  background: #60B4AC;
+  color: #ffffff;
+  border-color: #60B4AC;
+  box-shadow: 0 5px 15px rgba(96, 180, 172, 0.2);
+}
+
+.db-results-count {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 13px;
+  color: #657B84;
+}
+
+/* RESPONSIVE CATEGORY FILTERS */
+
+@media (max-width: 768px) {
+  .db-categories {
+    margin-top: 40px;
+    padding: 0 18px;
+  }
+
+  .db-category-heading h2 {
+    font-size: 27px;
+  }
+
+  .db-category-buttons {
+    gap: 10px;
+  }
+
+  .db-category-btn {
+    padding: 11px 17px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .db-category-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .db-category-btn {
+    width: 100%;
+    padding: 12px 8px;
+    font-size: 12px;
+  }
+
+  .db-category-heading h2 {
+    font-size: 24px;
+  }
+}
