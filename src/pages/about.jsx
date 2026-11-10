@@ -50,7 +50,7 @@ export default function About() {
             A cooperative journey that began with farmers working
             together to build a stronger financial future.
           </p>
-          <Link className="button button-white" to="./membership">
+          <Link className="button button-white" to="/membership">
             Become a Member <ArrowRight size={17} />
           </Link>
         </div>
