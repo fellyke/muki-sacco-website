@@ -78,29 +78,6 @@ const insuranceCategories = [
   },
 ];
 
-const heroServices = [
-  {
-    title: "Motor Insurance",
-    description: "Protection for your vehicles.",
-    icon: CarFront,
-  },
-  {
-    title: "Medical Insurance",
-    description: "Cover options for health needs.",
-    icon: HeartPulse,
-  },
-  {
-    title: "Livestock & Crop",
-    description: "Protection for agricultural livelihoods.",
-    icon: Sprout,
-  },
-  {
-    title: "School Insurance",
-    description: "Options for schools and institutions.",
-    icon: GraduationCap,
-  },
-];
-
 /* =====================================================
    REUSABLE COMPONENTS
 ===================================================== */
@@ -187,151 +164,7 @@ export default function Insurance() {
     <main className="insurance-page">
 
       {/* =================================================
-          HERO — THREE COLUMN LAYOUT
-      ================================================= */}
-
-      <section className="insurance-hero">
-        <div className="insurance-hero-decoration" />
-
-        <div className="insurance-container insurance-hero-grid">
-
-          {/* COLUMN 1 — INTRODUCTION */}
-
-          <div className="insurance-hero-content">
-            <span className="insurance-hero-label">
-              <ShieldCheck size={17} />
-              INSURANCE SERVICES
-            </span>
-
-            <h1>
-              Protect What
-              <span> Matters Most.</span>
-            </h1>
-
-            <p>
-              Financial wellbeing goes beyond saving and borrowing.
-              We provide convenient access to insurance solutions
-              designed to protect you, your family, your property
-              and your business.
-            </p>
-
-            <p className="insurance-hero-secondary">
-              From motor vehicle and medical insurance to property,
-              personal accident, livestock, business, school and
-              institutional insurance, our team is ready to guide
-              you towards cover that suits your needs.
-            </p>
-
-            <div className="insurance-hero-actions">
-              <a
-                href="#insurance-contact"
-                className="insurance-btn-primary"
-              >
-                Enquire About Insurance
-                <ArrowRight size={18} />
-              </a>
-
-              <a
-                href="#insurance-products"
-                className="insurance-btn-outline"
-              >
-                Explore Our Products
-              </a>
-            </div>
-
-            <div className="insurance-hero-trust">
-              <ShieldCheck size={20} />
-              <span>
-                Professional guidance. Convenient service. Protection.
-              </span>
-            </div>
-          </div>
-
-          {/* COLUMN 2 — PEACE OF MIND */}
-
-          <div className="insurance-hero-visual">
-            <div className="insurance-hero-card">
-
-              <div className="insurance-hero-card-icon">
-                <ShieldCheck size={34} />
-              </div>
-
-              <span className="insurance-hero-card-label">
-                YOUR PEACE OF MIND
-              </span>
-
-              <h2>
-                Protection for every stage of life.
-              </h2>
-
-              <p>
-                Explore insurance solutions for your family,
-                assets, business and future.
-              </p>
-
-              <div className="insurance-hero-card-footer">
-                <span>INSURANCE</span>
-                <span>PROTECTION SERVICES</span>
-              </div>
-
-            </div>
-
-            <div className="insurance-floating-icon insurance-float-one">
-              <HeartPulse size={23} />
-            </div>
-
-            <div className="insurance-floating-icon insurance-float-two">
-              <CarFront size={23} />
-            </div>
-          </div>
-
-          {/* COLUMN 3 — INSURANCE PROTECTION SERVICES */}
-
-          <div className="insurance-hero-services">
-
-            <span className="insurance-hero-services-label">
-              WHAT WE PROTECT
-            </span>
-
-            <h2>Insurance Protection Services</h2>
-
-            <div className="insurance-hero-service-list">
-              {heroServices.map((service) => {
-                const Icon = service.icon;
-
-                return (
-                  <div
-                    className="insurance-hero-service"
-                    key={service.title}
-                  >
-                    <span className="insurance-hero-service-icon">
-                      <Icon size={22} />
-                    </span>
-
-                    <div className="insurance-hero-service-content">
-                      <h3>{service.title}</h3>
-                      <p>{service.description}</p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            <a
-              href="#insurance-products"
-              className="insurance-hero-services-link"
-            >
-              View all insurance products
-              <ArrowRight size={16} />
-            </a>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* =================================================
-          WHY CHOOSE US
+          1. WHY CHOOSE US
       ================================================= */}
 
       <section className="insurance-why">
@@ -398,7 +231,7 @@ export default function Insurance() {
       </section>
 
       {/* =================================================
-          INSURANCE CATEGORIES
+          2. INSURANCE CATEGORIES
       ================================================= */}
 
       <section
@@ -426,7 +259,7 @@ export default function Insurance() {
       </section>
 
       {/* =================================================
-          LIFE ASSURANCE
+          3. LIFE ASSURANCE
       ================================================= */}
 
       <section className="insurance-life">
@@ -471,7 +304,7 @@ export default function Insurance() {
       </section>
 
       {/* =================================================
-          GENERAL INSURANCE
+          4. GENERAL INSURANCE
       ================================================= */}
 
       <section className="insurance-general">
@@ -494,7 +327,7 @@ export default function Insurance() {
       </section>
 
       {/* =================================================
-          MOTOR INSURANCE
+          5. MOTOR INSURANCE
       ================================================= */}
 
       <section
@@ -574,7 +407,7 @@ export default function Insurance() {
       </section>
 
       {/* =================================================
-          LIVESTOCK INSURANCE
+          6. LIVESTOCK INSURANCE
       ================================================= */}
 
       <section
@@ -633,7 +466,7 @@ export default function Insurance() {
       </section>
 
       {/* =================================================
-          MEDICAL INSURANCE
+          7. MEDICAL INSURANCE
       ================================================= */}
 
       <section
@@ -705,7 +538,7 @@ export default function Insurance() {
       </section>
 
       {/* =================================================
-          SCHOOL AND INSTITUTIONS
+          8. SCHOOL AND INSTITUTIONS
       ================================================= */}
 
       <section
@@ -805,7 +638,7 @@ export default function Insurance() {
       </section>
 
       {/* =================================================
-          CONTACT
+          9. CONTACT
       ================================================= */}
 
       <section
