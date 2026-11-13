@@ -8,7 +8,7 @@ import {
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import ScrollToTop from "./components/ScrolltoTop";
-import Chatbot from "./components/Chatbot";
+import Chatbot from "./components/chatbot";
 
 
 import Home from "./pages/home";
