@@ -20,6 +20,7 @@ import DigitalBanking from "./pages/digitalbanking";
 import Contact from "./pages/contact";
 import Insurance from "./pages/insurance";
 import AppSelfRegistration from "./pages/AppSelfRegistration";
+import Chatbot from "./components/Chatbot";
 
 import "./index.css";
 
@@ -68,6 +69,7 @@ function SiteLayout() {
       </Routes>
 
       <Footer />
+      <Chatbot/>
     </>
   );
 }

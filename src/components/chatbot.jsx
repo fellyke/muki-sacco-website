@@ -70,7 +70,7 @@ export default function Chatbot() {
   const [messages, setMessages] = useState([
     {
       sender: "bot",
-      text: "Hello! 👋 Welcome to MUKI SACCO. I'm your virtual assistant. How can I help you today?",
+      text: "Hello!  Welcome to MUKI SACCO. I'm your virtual assistant. How can I help you today?",
     },
   ]);
 
@@ -97,7 +97,7 @@ export default function Chatbot() {
       {isOpen && (
         <section className="chat-window">
           <header className="chat-header">
-            <img src="/muki-logo.png" alt="MUKI SACCO logo" />
+            <img src="/logo.png" alt="MUKI SACCO logo" />
 
             <div className="chat-header-info">
               <h3>MUKI SACCO Assistant</h3>
@@ -111,7 +111,7 @@ export default function Chatbot() {
               onClick={() => setIsOpen(false)}
               aria-label="Close chatbot"
             >
-              ×
+              
             </button>
           </header>
 
@@ -122,7 +122,7 @@ export default function Chatbot() {
                 className={`message-row ${item.sender}`}
               >
                 {item.sender === "bot" && (
-                  <img src="/muki-logo.png" alt="" />
+                  <img src="/logo.png" alt="" />
                 )}
 
                 <div className="message-bubble">
@@ -175,7 +175,7 @@ export default function Chatbot() {
         {isOpen ? (
           <span className="launcher-close">×</span>
         ) : (
-          <img src="/muki-logo.png" alt="Chat with MUKI SACCO" />
+          <img src="/logo.png" alt="Chat with MUKI SACCO" />
         )}
       </button>
     </div>
