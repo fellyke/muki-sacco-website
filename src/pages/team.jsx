@@ -8,7 +8,7 @@ import {
   UserRound,
   Building2,
   Eye,
-  ChevronRight,
+  
   Quote,
 } from "lucide-react";
 
@@ -271,7 +271,7 @@ function ChairmanSection() {
         <div className="team-chairman-layout">
           <div className="team-chairman-image">
             <img
-              src="https://mukisacco.co.ke/wp-content/uploads/2022/09/JOHN-GICHIGI-VICE-CHAIR.jpg"
+              src="#"
               alt="John Gichigi"
               loading="lazy"
             />
@@ -560,9 +560,7 @@ function TeamClosingSection() {
             </p>
           </div>
 
-          <div className="team-closing-decoration">
-            <ArrowUpRight size={28} />
-          </div>
+        
         </div>
       </div>
     </section>
