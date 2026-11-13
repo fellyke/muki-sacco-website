@@ -237,7 +237,7 @@ const Navbar = () => {
 
             <a
               className="muki-login-button"
-              href="https://mukisacco.co.ke/channels/"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
             >
