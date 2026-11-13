@@ -8,6 +8,8 @@ import {
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import ScrollToTop from "./components/ScrolltoTop";
+import Chatbot from "./components/Chatbot";
+
 
 import Home from "./pages/home";
 import About from "./pages/about";
@@ -20,7 +22,7 @@ import DigitalBanking from "./pages/digitalbanking";
 import Contact from "./pages/contact";
 import Insurance from "./pages/insurance";
 import AppSelfRegistration from "./pages/AppSelfRegistration";
-import Chatbot from "./components/Chatbot";
+
 
 import "./index.css";
 
