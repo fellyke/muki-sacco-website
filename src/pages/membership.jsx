@@ -1,5 +1,7 @@
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
+
 import {
   UserRound,
   Mail,
@@ -9,10 +11,19 @@ import {
   ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
+
 import "./membership.css";
+
+// Replace these with your EmailJS credentials
+const SERVICE_ID = "YOUR_SERVICE_ID";
+const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
 
 export default function Membership() {
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
 
   const [form, setForm] = useState({
     fullName: "",
@@ -32,18 +43,70 @@ export default function Membership() {
     }));
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    // Frontend demonstration only.
-    // Connect a secure backend before accepting real applications.
-    setSubmitted(true);
+    if (sending) return;
+
+    setSending(true);
+    setMessage("");
+    setMessageType("");
+
+    const templateParams = {
+      from_name: form.fullName,
+      from_email: form.email,
+      phone: form.phone,
+      category: form.category,
+      occupation: form.occupation || "Not provided",
+      consent: form.consent ? "Yes" : "No",
+      to_email: "info@mukisacco.co.ke",
+    };
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        templateParams,
+        {
+          publicKey: PUBLIC_KEY,
+        }
+      );
+
+      setSubmitted(true);
+
+      setForm({
+        fullName: "",
+        phone: "",
+        email: "",
+        category: "",
+        occupation: "",
+        consent: false,
+      });
+
+      setMessage("Your enquiry has been sent successfully!");
+      setMessageType("success");
+
+    } catch (error) {
+      console.error("EmailJS error:", error);
+
+      setMessage(
+        "Unable to send your enquiry. Please try again or contact MUKI SACCO directly."
+      );
+
+      setMessageType("error");
+
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
     <main className="membership-page">
+
+      {/* HERO SECTION */}
       <section className="membership-hero">
         <div className="membership-container">
+
           <span className="membership-eyebrow">
             <ShieldCheck size={17} />
             YOUR FINANCIAL JOURNEY STARTS HERE
@@ -59,12 +122,17 @@ export default function Membership() {
             Submit your membership enquiry and let our team
             guide you through the official application process.
           </p>
+
         </div>
       </section>
 
+      {/* MEMBERSHIP CONTENT */}
       <section className="membership-content">
         <div className="membership-container membership-layout">
+
+          {/* LEFT INFORMATION */}
           <aside className="membership-info">
+
             <span className="membership-label">
               MEMBERSHIP APPLICATION
             </span>
@@ -78,23 +146,36 @@ export default function Membership() {
             </p>
 
             <div className="membership-info-item">
-              <div><UserRound size={21} /></div>
+              <div>
+                <UserRound size={21} />
+              </div>
+
               <section>
                 <h3>Your details</h3>
-                <p>Provide your name and contact information.</p>
+                <p>
+                  Provide your name and contact information.
+                </p>
               </section>
             </div>
 
             <div className="membership-info-item">
-              <div><BriefcaseBusiness size={21} /></div>
+              <div>
+                <BriefcaseBusiness size={21} />
+              </div>
+
               <section>
                 <h3>Your membership category</h3>
-                <p>Select the category that best describes you.</p>
+                <p>
+                  Select the category that best describes you.
+                </p>
               </section>
             </div>
 
             <div className="membership-info-item">
-              <div><ShieldCheck size={21} /></div>
+              <div>
+                <ShieldCheck size={21} />
+              </div>
+
               <section>
                 <h3>Privacy matters</h3>
                 <p>
@@ -103,28 +184,43 @@ export default function Membership() {
                 </p>
               </section>
             </div>
+
           </aside>
 
+          {/* FORM CARD */}
           <div className="membership-form-card">
+
             {submitted ? (
+
               <div className="membership-success">
+
                 <CheckCircle2 size={55} />
-                <h2>Form demonstration complete</h2>
+
+                <h2>Enquiry submitted successfully!</h2>
+
                 <p>
-                  The form has been validated in your browser,
-                  but your application has not been sent to MUKI
-                  SACCO. A backend connection is required before
-                  real applications can be submitted.
+                  Thank you for contacting MUKI SACCO.
+                  Your membership enquiry has been sent to our
+                  team. They can follow up using the contact
+                  details you provided.
                 </p>
+
                 <button
                   type="button"
                   className="membership-button"
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => {
+                    setSubmitted(false);
+                    setMessage("");
+                    setMessageType("");
+                  }}
                 >
-                  Back to form
+                  Submit another enquiry
                 </button>
+
               </div>
+
             ) : (
+
               <>
                 <div className="membership-form-heading">
                   <h2>Membership enquiry</h2>
@@ -132,10 +228,16 @@ export default function Membership() {
                 </div>
 
                 <form onSubmit={handleSubmit}>
+
+                  {/* FULL NAME */}
                   <div className="membership-field">
-                    <label htmlFor="fullName">Full name *</label>
+                    <label htmlFor="fullName">
+                      Full name *
+                    </label>
+
                     <div className="membership-input-wrap">
                       <UserRound size={18} />
+
                       <input
                         id="fullName"
                         name="fullName"
@@ -148,11 +250,17 @@ export default function Membership() {
                     </div>
                   </div>
 
+                  {/* PHONE AND EMAIL */}
                   <div className="membership-form-row">
+
                     <div className="membership-field">
-                      <label htmlFor="phone">Phone number *</label>
+                      <label htmlFor="phone">
+                        Phone number *
+                      </label>
+
                       <div className="membership-input-wrap">
                         <Phone size={18} />
+
                         <input
                           id="phone"
                           name="phone"
@@ -169,9 +277,13 @@ export default function Membership() {
                     </div>
 
                     <div className="membership-field">
-                      <label htmlFor="email">Email address *</label>
+                      <label htmlFor="email">
+                        Email address *
+                      </label>
+
                       <div className="membership-input-wrap">
                         <Mail size={18} />
+
                         <input
                           id="email"
                           name="email"
@@ -184,12 +296,15 @@ export default function Membership() {
                         />
                       </div>
                     </div>
+
                   </div>
 
+                  {/* MEMBERSHIP CATEGORY */}
                   <div className="membership-field">
                     <label htmlFor="category">
                       Membership category *
                     </label>
+
                     <select
                       id="category"
                       name="category"
@@ -197,17 +312,30 @@ export default function Membership() {
                       onChange={handleChange}
                       required
                     >
-                      <option value="">Select a category</option>
-                      <option value="individual">Individual</option>
-                      <option value="business">Business or institution</option>
-                      <option value="other">Other / not sure</option>
+                      <option value="">
+                        Select a category
+                      </option>
+
+                      <option value="individual">
+                        Individual
+                      </option>
+
+                      <option value="business">
+                        Business or institution
+                      </option>
+
+                      <option value="other">
+                        Other / not sure
+                      </option>
                     </select>
                   </div>
 
+                  {/* OCCUPATION */}
                   <div className="membership-field">
                     <label htmlFor="occupation">
                       Occupation or business
                     </label>
+
                     <input
                       id="occupation"
                       name="occupation"
@@ -217,6 +345,7 @@ export default function Membership() {
                     />
                   </div>
 
+                  {/* CONSENT */}
                   <label className="membership-consent">
                     <input
                       type="checkbox"
@@ -225,6 +354,7 @@ export default function Membership() {
                       onChange={handleChange}
                       required
                     />
+
                     <span>
                       I consent to MUKI SACCO using these details
                       to respond to my membership enquiry, subject
@@ -232,20 +362,37 @@ export default function Membership() {
                     </span>
                   </label>
 
+                  {/* FEEDBACK MESSAGE */}
+                  {message && (
+                    <p
+                      className={`membership-message ${messageType}`}
+                      role="status"
+                    >
+                      {message}
+                    </p>
+                  )}
+
+                  {/* SUBMIT BUTTON */}
                   <button
                     type="submit"
                     className="membership-button"
+                    disabled={sending}
                   >
-                    Submit enquiry <ArrowRight size={18} />
+                    {sending ? "Sending enquiry..." : "Submit enquiry"}
+
+                    <ArrowRight size={18} />
                   </button>
 
-                 
                 </form>
               </>
+
             )}
+
           </div>
+
         </div>
       </section>
+
     </main>
   );
 }
