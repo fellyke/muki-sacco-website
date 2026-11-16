@@ -1,0 +1,96 @@
+
+/* ==========================================
+   MUKI SACCO FLOATING WHATSAPP BUTTON
+========================================== */
+
+.muki-whatsapp-button {
+  position: fixed;
+  left: 25px;
+  bottom: 28px;
+  z-index: 9998;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.35);
+
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.muki-whatsapp-button:hover {
+  background: #1ebe5d;
+  color: #ffffff;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 9px 25px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-phone-icon {
+  position: absolute;
+  top: 22px;
+  left: 23px;
+  color: #ffffff;
+  stroke-width: 2.5;
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  left: 72px;
+
+  width: max-content;
+  padding: 10px 15px;
+
+  border-radius: 7px;
+  background: #173b42;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-7px);
+
+  transition: all 0.25s ease;
+}
+
+.muki-whatsapp-button:hover .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .muki-whatsapp-button {
+    left: 15px;
+    bottom: 20px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsapp-phone-icon {
+    top: 19px;
+    left: 20px;
+  }
+
+  .whatsapp-tooltip {
+    display: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .muki-whatsapp-button,
+  .whatsapp-tooltip {
+    transition: none;
+  }
+}
