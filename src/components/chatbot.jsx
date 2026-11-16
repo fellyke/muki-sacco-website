@@ -8,6 +8,7 @@ const quickQuestions = [
   "Mobile banking",
   "MUKI SACCO branches",
   "Contact customer care",
+  
 ];
 
 const responses = [
@@ -29,7 +30,7 @@ const responses = [
   {
     keywords: ["branch", "branches", "location", "where"],
     answer:
-      "MUKI SACCO has branches in Ndunyu Njeru (Main Branch), Engineer, Kwa Haraka, Geta, Murungaru and Ol Kalou.",
+      "MUKI SACCO has branches in Ndunyu Njeru (Main Branch), Engineer, Kwa Haraka, Geta, Murungaru,Naivasha,Mlolongo ,Miharati,Gilgil and Ol Kalou.",
   },
   {
     keywords: ["contact", "phone", "call", "email", "customer care"],
