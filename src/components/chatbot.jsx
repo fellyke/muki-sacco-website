@@ -8,6 +8,7 @@ const quickQuestions = [
   "Mobile banking",
   "MUKI SACCO branches",
   "Contact customer care",
+  "Paybill"
   
 ];
 
