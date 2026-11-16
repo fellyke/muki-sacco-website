@@ -47,6 +47,11 @@ const responses = [
     answer:
       "MUKI SACCO offers insurance services through MUKCOP. Contact our customer care team for information about available insurance products.",
   },
+  {
+  keywords: ["paybill", "mpesa", "m-pesa", "make payment", "payment", "deposit", "pay muki"],
+  answer:
+    "You can make payments to MUKI SACCO conveniently through M-Pesa. Use Paybill Number 469988. Go to M-Pesa, select Lipa na M-Pesa, then Paybill, enter 469988 as the business number, enter your correct MUKI SACCO account number, and follow the prompts to complete your payment. Remember to keep your M-Pesa confirmation message."
+},
 ];
 
 function getResponse(message) {
