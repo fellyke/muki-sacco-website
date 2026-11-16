@@ -2,6 +2,7 @@
 /* ==========================================
    MUKI SACCO - APP SELF REGISTRATION
    Brand: Teal | Blue | White
+   Updated typography
 ========================================== */
 
 .self-registration {
@@ -70,7 +71,7 @@
   align-items: center;
   gap: 8px;
   color: #188b91;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 800;
   letter-spacing: 1.4px;
 }
@@ -92,7 +93,7 @@
   max-width: 570px;
   margin: 17px 0 14px;
   color: var(--registration-dark);
-  font-size: clamp(32px, 4vw, 47px);
+  font-size: clamp(36px, 4.2vw, 50px);
   line-height: 1.13;
   letter-spacing: -1.4px;
   font-weight: 800;
@@ -107,7 +108,7 @@
   max-width: 500px;
   margin: 0 0 21px;
   color: var(--registration-muted);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.8;
 }
 
@@ -130,7 +131,7 @@
   border-radius: 8px;
   background: var(--registration-blue);
   color: #ffffff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   text-decoration: none;
   transition:
@@ -160,7 +161,7 @@
   align-items: center;
   gap: 7px;
   color: var(--registration-muted);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -237,7 +238,7 @@
 
 .phone-brand span {
   color: var(--registration-dark);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.5px;
 }
@@ -249,7 +250,7 @@
 
 .phone-welcome > span {
   color: #299d91;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 800;
   letter-spacing: 1.4px;
 }
@@ -257,14 +258,14 @@
 .phone-welcome h3 {
   margin: 5px 0;
   color: var(--registration-dark);
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 800;
 }
 
 .phone-welcome p {
   margin: 0;
   color: var(--registration-muted);
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .phone-progress {
@@ -308,12 +309,12 @@
 .phone-input small {
   margin-bottom: 3px;
   color: var(--registration-muted);
-  font-size: 7px;
+  font-size: 8px;
 }
 
 .phone-input strong {
   color: var(--registration-dark);
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 700;
 }
 
@@ -327,7 +328,7 @@
   border-radius: 6px;
   background: var(--registration-blue);
   color: #ffffff;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
 }
 
@@ -338,7 +339,7 @@
   gap: 5px;
   margin-top: 11px;
   color: #7a9295;
-  font-size: 7px;
+  font-size: 8px;
 }
 
 .hero-floating-card {
@@ -375,12 +376,12 @@
 .hero-floating-card strong {
   margin-bottom: 4px;
   color: var(--registration-dark);
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .hero-floating-card span {
   color: var(--registration-muted);
-  font-size: 9px;
+  font-size: 11px;
 }
 
 @keyframes phoneFloat {
@@ -412,7 +413,7 @@
 .cta-content h2 {
   margin: 11px 0 13px;
   color: var(--registration-dark);
-  font-size: clamp(27px, 3vw, 36px);
+  font-size: clamp(29px, 3vw, 39px);
   line-height: 1.25;
   letter-spacing: -0.7px;
   font-weight: 800;
@@ -421,7 +422,7 @@
 .registration-heading > p {
   margin: 0;
   color: var(--registration-muted);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.8;
 }
 
@@ -476,21 +477,21 @@
 
 .requirement-index {
   color: #b7c9cc;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 
 .requirement-card h3 {
   margin: 0 0 10px;
   color: var(--registration-dark);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 750;
 }
 
 .requirement-card p {
   margin: 0;
   color: var(--registration-muted);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.85;
 }
 
@@ -557,7 +558,7 @@
   border-radius: 9px;
   background: var(--registration-blue);
   color: #ffffff;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 800;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
@@ -588,7 +589,7 @@
 
 .step-label {
   color: #279e96;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 1.3px;
 }
@@ -596,7 +597,7 @@
 .step-card-content h3 {
   margin: 0 0 10px;
   color: var(--registration-dark);
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.4;
   font-weight: 800;
 }
@@ -605,7 +606,7 @@
   min-height: 105px;
   margin: 0;
   color: var(--registration-muted);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.85;
 }
 
@@ -619,7 +620,7 @@
   padding-top: 14px;
   border-top: 1px solid #edf1f2;
   color: #269d93;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -656,15 +657,15 @@
 .notice-content h3 {
   margin: 2px 0 8px;
   color: var(--registration-dark);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
 }
 
 .notice-content p {
   margin: 0;
   color: #627b7d;
-  font-size: 12px;
-  line-height: 1.8;
+  font-size: 14px;
+  line-height: 1.85;
 }
 
 /* ==========================================
@@ -708,7 +709,7 @@
   max-width: 570px;
   margin: 0 0 24px;
   color: #d1e5e7;
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.9;
 }
 
@@ -727,7 +728,7 @@
   margin-top: 18px;
   margin-bottom: 0;
   color: #b8d4d7;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 /* ==========================================
@@ -740,7 +741,7 @@
   }
 
   .registration-hero-content h1 {
-    font-size: 40px;
+    font-size: 42px;
   }
 
   .registration-hero-visual {
@@ -789,7 +790,7 @@
   }
 
   .registration-hero-content > p {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .registration-hero-visual {
@@ -815,11 +816,11 @@
   }
 
   .registration-heading h2 {
-    font-size: 27px;
+    font-size: 29px;
   }
 
   .registration-heading > p {
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .requirements-grid {
@@ -831,11 +832,11 @@
   }
 
   .requirement-card h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .requirement-card p {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .registration-steps-grid {
@@ -851,8 +852,13 @@
     padding: 21px 19px;
   }
 
+  .step-card-content h3 {
+    font-size: 18px;
+  }
+
   .step-card-content > p {
     min-height: auto;
+    font-size: 14px;
   }
 
   .registration-notice {
@@ -867,11 +873,11 @@
   }
 
   .notice-content h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .notice-content p {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .registration-cta {
@@ -893,7 +899,7 @@
   }
 
   .registration-hero-trust span {
-    font-size: 10px;
+    font-size: 11px;
   }
 
   .registration-hero-visual {
@@ -906,7 +912,7 @@
   }
 
   .hero-floating-card span {
-    font-size: 8px;
+    font-size: 10px;
   }
 
   .requirements-grid {
@@ -915,12 +921,12 @@
 
   .registration-primary-btn {
     padding: 12px 14px;
-    font-size: 11px;
+    font-size: 12px;
     gap: 7px;
   }
 
   .registration-heading h2 {
-    font-size: 25px;
+    font-size: 26px;
   }
 
   .step-image-wrapper {
