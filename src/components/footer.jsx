@@ -35,15 +35,15 @@ const Footer = () => {
            <p>Get in Touch </p>
            <div className="muki-footer-socials">
            
-  <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" aria-label="Facebook">
+  <a href="https://www.facebook.com/mukisacco" target="_blank" rel="noreferrer" aria-label="Facebook">
     <FontAwesomeIcon icon={faFacebookF} />
   </a>
 
-  <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">
+  <a href="https://www.instagram.com/mukisacco" target="_blank" rel="noreferrer" aria-label="Instagram">
     <FontAwesomeIcon icon={faInstagram} />
   </a>
 
-  <a href="https://x.com/" target="_blank" rel="noreferrer" aria-label="X (Twitter)">
+  <a href="https://x.com/mukisacco" target="_blank" rel="noreferrer" aria-label="X (Twitter)">
     <FontAwesomeIcon icon={faXTwitter} />
   </a>
 </div>
