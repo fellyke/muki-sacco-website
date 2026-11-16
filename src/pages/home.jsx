@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
+
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -772,34 +773,81 @@ function DigitalBankingPreview() {
 ========================================= */
 
 function Partners() {
-  const partners = [
-    "Partner 1",
-    "Partner 2",
-    "Partner 3",
-    "Partner 4",
-    "Partner 5",
-  ];
+  const partnersRef = useRef(null);
+
+  useEffect(() => {
+    const section = partnersRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          section.classList.add("partners-visible");
+          observer.unobserve(section);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="section partners-section" id="partners">
+    <section
+      className="section partners-section"
+      id="partners"
+      ref={partnersRef}
+    >
       <div className="container">
-        <SectionHeading
-          eyebrow="OUR PARTNERS"
-          title="Growing Through Partnership"
-          description="Working together to support members and strengthen our community."
-        />
 
-        <div className="partners-grid">
-          {partners.map((partner) => (
-            <div className="partner-logo-card" key={partner}>
-              <span>{partner}</span>
-            </div>
-          ))}
+        <div className="partners-heading">
+          <span className="partners-eyebrow">
+            OUR TRUSTED PARTNERS
+          </span>
+
+          <h2>Stronger Together</h2>
+
+          <p>
+            Building trusted partnerships that support our members
+            and strengthen our cooperative community.
+          </p>
         </div>
+
+        <div className="partners-banner">
+          <img
+            src="/partners/muki-partners.png"
+            alt="CIC Insurance Group, Britam, KUSCCO Ltd. and SASRA"
+            loading="lazy"
+            className="partner-image partner-image-one"
+          />
+
+          <img
+            src="/partners/muki-partners1.png"
+            alt="MUKI SACCO additional partners"
+            loading="lazy"
+            className="partner-image partner-image-two"
+          />
+        </div>
+
+        <div className="partners-bottom">
+          <span className="partners-line"></span>
+
+          <p>
+            Trusted Institutions. Shared Commitment. Stronger Communities.
+          </p>
+
+          <span className="partners-line"></span>
+        </div>
+
       </div>
     </section>
   );
 }
+
+
 
 /* =========================================
    BRANCHES

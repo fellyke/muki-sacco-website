@@ -1209,40 +1209,282 @@
 }
 
 /* =========================================
-   PARTNERS
+   MUKI SACCO - PARTNERS SECTION
 ========================================= */
 
-.home-page .partners-section {
-  background: var(--home-white);
+.partners-section {
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  padding: 90px 0;
 }
 
-.home-page .partners-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.partners-heading {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 35px;
 }
 
-.home-page .partner-logo-card {
+.partners-eyebrow {
+  display: inline-block;
+  color: #60B4AC;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.partners-heading h2 {
+  color: #263F4A;
+  font-size: clamp(30px, 4vw, 43px);
+  font-weight: 750;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+  margin: 0 0 15px;
+}
+
+.partners-heading p {
+  color: #657B84;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   PARTNERS SLIDER
+========================================= */
+
+.partners-banner {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: clamp(180px, 28vw, 320px);
+  margin: 40px auto;
+  overflow: hidden;
+}
+
+/* Both partner images */
+
+.partner-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  visibility: hidden;
+  animation-play-state: paused;
+  will-change: transform, opacity;
+}
+
+/* First image */
+
+.partner-image-one {
+  animation: slideFirst 8s infinite ease-in-out;
+}
+
+/* Second image */
+
+.partner-image-two {
+  animation: slideSecond 8s infinite ease-in-out;
+}
+
+/* Start when section enters viewport */
+
+.partners-visible .partner-image {
+  animation-play-state: running;
+}
+
+/* =========================================
+   FIRST IMAGE ANIMATION
+========================================= */
+
+@keyframes slideFirst {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: visible;
+  }
+
+  10%, 40% {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  50% {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* =========================================
+   SECOND IMAGE ANIMATION
+========================================= */
+
+@keyframes slideSecond {
+  0%, 50% {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  60%, 90% {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* =========================================
+   BOTTOM MESSAGE
+========================================= */
+
+.partners-bottom {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100px;
-  padding: 20px;
-  border: 1px solid #e4eeec;
-  border-radius: 9px;
-  color: #688084;
-  background: #fbfdfd;
-  font-size: 0.9rem;
-  font-weight: 750;
-  text-align: center;
-  transition: 0.25s ease;
+  gap: 22px;
+  max-width: 850px;
+  margin: 30px auto 0;
 }
 
-.home-page .partner-logo-card:hover {
-  transform: translateY(-3px);
-  border-color: #a9ded6;
-  color: var(--home-blue);
-  background: #f0faf8;
+.partners-bottom p {
+  color: #263F4A;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 1px;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+}
+
+.partners-line {
+  flex-shrink: 0;
+  width: 65px;
+  height: 1px;
+  background: #60B4AC;
+  opacity: 0.7;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 768px) {
+  .partners-section {
+    padding: 65px 0;
+  }
+
+  .partners-heading {
+    padding: 0 15px;
+  }
+
+  .partners-heading h2 {
+    font-size: 32px;
+  }
+
+  .partners-heading p {
+    font-size: 15px;
+  }
+
+  .partners-banner {
+    height: 210px;
+    margin: 30px auto;
+  }
+
+  .partners-bottom {
+    gap: 12px;
+    padding: 0 15px;
+  }
+
+  .partners-line {
+    width: 35px;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 480px) {
+  .partners-section {
+    padding: 50px 0;
+  }
+
+  .partners-eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .partners-heading h2 {
+    font-size: 27px;
+    letter-spacing: -0.8px;
+  }
+
+  .partners-heading p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .partners-banner {
+    height: 160px;
+    margin: 25px auto;
+  }
+
+  .partners-bottom {
+    gap: 8px;
+  }
+
+  .partners-bottom p {
+    font-size: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .partners-line {
+    width: 20px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-image {
+    animation: none;
+  }
+
+  .partner-image-one {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .partner-image-two {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 /* =========================================

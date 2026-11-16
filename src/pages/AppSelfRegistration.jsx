@@ -9,10 +9,11 @@ import {
   ShieldCheck,
   ArrowRight,
   Download,
-  UserRound,
   FileCheck,
   Fingerprint,
   ClipboardCheck,
+  LockKeyhole,
+  BadgeCheck,
 } from "lucide-react";
 
 import "./AppSelfRegistration.css";
@@ -23,128 +24,137 @@ const MUKI_APP_URL =
 const requirements = [
   {
     icon: Phone,
-    title: "Active Phone Number",
+    number: "01",
+    title: "Registered Phone Number",
     description:
-      "Keep your phone nearby. An OTP may be sent to your number to verify your identity.",
+      "Have access to the mobile number registered with MUKI SACCO for verification during app registration.",
   },
   {
     icon: CreditCard,
+    number: "02",
     title: "National ID",
     description:
-      "Have your original National ID ready. You may need to enter the ID number and upload a clear photo.",
+      "Keep your National Identity Card nearby to provide the identity details requested by the application.",
   },
   {
     icon: Mail,
+    number: "03",
     title: "Email Address",
     description:
-      "Provide a valid email address that you regularly access for registration updates and communication.",
+      "Have access to a valid email address if requested during the registration process.",
   },
   {
     icon: Camera,
-    title: "Camera-enabled Device",
+    number: "04",
+    title: "Camera-enabled Smartphone",
     description:
-      "Use a device with a working camera for any requested ID, facial image or signature capture.",
+      "Use a smartphone with a working camera for the required photo or biometric verification steps.",
   },
 ];
 
-const steps = [
+const registrationSteps = [
   {
     number: "01",
-    icon: Smartphone,
-    title: "Initiate Registration",
+    icon: Download,
+    title: "Download the MUKI App",
     description:
-      "Open the MUKI SACCO app and select Self-Registration. Enter your phone number, National ID number and email address, then submit.",
+      "Visit Google Play Store, download the official MUKI SACCO mobile application and install it on your smartphone.",
     image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80",
-    alt: "Smartphone representing mobile registration",
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9?auto=format&fit=crop&w=900&q=85",
+    alt: "Smartphone displaying a mobile application",
+    note: "Install the official MUKI app",
   },
   {
     number: "02",
-    icon: Phone,
-    title: "OTP Verification",
+    icon: Smartphone,
+    title: "Open Self Registration",
     description:
-      "Check your phone for the one-time password (OTP). Enter the verification code in the app to confirm your phone number.",
+      "Open the application and select the self-registration option. Follow the instructions displayed on your screen.",
     image:
-      "https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=900&q=80",
-    alt: "Mobile phone used for OTP verification",
+      "https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=900&q=85",
+    alt: "Mobile phone used for digital registration",
+    note: "Select self registration",
   },
   {
     number: "03",
-    icon: CreditCard,
-    title: "Identity Verification",
+    icon: Phone,
+    title: "Verify Your Phone Number",
     description:
-      "Follow the app's instructions to enter your National ID details and capture a clear image of your ID card if requested.",
+      "Enter the phone number registered with MUKI SACCO and follow the instructions to verify it using the OTP sent to you.",
     image:
-      "https://images.unsplash.com/photo-1582005450386-52b25f82d9bb?auto=format&fit=crop&w=900&q=80",
-    alt: "Identity document verification",
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=900&q=85",
+    alt: "Person using a smartphone",
+    note: "Complete OTP verification",
   },
   {
     number: "04",
-    icon: UserRound,
-    title: "Additional Personal Details",
+    icon: CreditCard,
+    title: "Confirm Your Identity",
     description:
-      "Fill in the requested information, including your title, occupation, address, city, next of kin, introducer's name and preferred branch.",
+      "Provide the requested National ID details. Ensure that the information you enter matches your official identification documents.",
     image:
-      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80",
-    alt: "Reviewing registration information",
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=85",
+    alt: "Documents and paperwork on a desk",
+    note: "Provide accurate ID details",
   },
   {
     number: "05",
     icon: Fingerprint,
-    title: "Biometric Capture",
+    title: "Complete Verification",
     description:
-      "Follow the on-screen instructions for any required facial verification, biometric information and signature capture.",
+      "Follow the application's instructions for any required photograph, biometric capture or additional verification.",
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
-    alt: "Digital device used for biometric verification",
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85",
+    alt: "Person using a digital device",
+    note: "Follow verification instructions",
   },
   {
     number: "06",
-    icon: ClipboardCheck,
-    title: "Confirmation and Submission",
+    icon: FileCheck,
+    title: "Review and Submit",
     description:
-      "Review all the information you have provided. Confirm that your details are correct and submit your registration request.",
+      "Carefully review the information provided in the application. Confirm that the details are correct before submitting.",
     image:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80",
-    alt: "Reviewing financial paperwork",
+      "https://images.unsplash.com/photo-1554774853-b414d2a2f4e4?auto=format&fit=crop&w=900&q=85",
+    alt: "Person reviewing information on a computer",
+    note: "Check details before submission",
   },
   {
     number: "07",
-    icon: FileCheck,
+    icon: ClipboardCheck,
     title: "Account Validation",
     description:
-      "Your registration request proceeds to MUKI SACCO's account validation process. Wait for confirmation through the appropriate SACCO communication channel.",
+      "Your registration details may be reviewed by MUKI SACCO. Follow any further instructions or communication provided to complete the process.",
     image:
-      "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=80",
-    alt: "Digital security and account validation",
+      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=85",
+    alt: "Documents being reviewed on a desk",
+    note: "Await registration confirmation",
   },
 ];
 
-export default function AppSelfRegistration() {
+function AppSelfRegistration() {
   return (
     <main className="self-registration">
 
-      {/* HERO */}
+      {/* COMPACT HERO */}
       <section className="registration-hero">
         <div className="registration-container registration-hero-grid">
 
           <div className="registration-hero-content">
             <span className="registration-eyebrow">
-              <Smartphone size={16} />
+              <span className="eyebrow-dot"></span>
               MUKI SACCO DIGITAL BANKING
             </span>
 
             <h1>
-              Register for
-              <span> Digital Banking</span>
-              with Ease.
+              Activate your
+              <span> MUKI Mobile Banking.</span>
             </h1>
 
             <p>
-              Get started with MUKI SACCO digital services.
-              Follow our simple registration guide and learn
-              what you need to access your account through
-              the mobile application.
+              Register on the MUKI SACCO mobile application and
+              follow the guided verification process to access
+              digital banking services conveniently from your phone.
             </p>
 
             <div className="registration-hero-actions">
@@ -154,33 +164,95 @@ export default function AppSelfRegistration() {
                 rel="noopener noreferrer"
                 className="registration-primary-btn"
               >
-                <Download size={19} />
-                View MUKI SACCO App
-                <ArrowRight size={18} />
+                <Download size={18} />
+                Download MUKI App
+                <ArrowRight size={17} />
               </a>
             </div>
 
-            <div className="registration-hero-note">
-              <ShieldCheck size={18} />
-              <span>Simple, convenient and secure digital access.</span>
+            <div className="registration-hero-trust">
+              <span>
+                <ShieldCheck size={17} />
+                Guided registration
+              </span>
+
+              <span>
+                <CheckCircle2 size={17} />
+                Convenient digital access
+              </span>
             </div>
           </div>
 
+          {/* PHONE MOCKUP */}
           <div className="registration-hero-visual">
-            <div className="hero-image-frame">
-              <img
-                src="https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?auto=format&fit=crop&w=1000&q=85"
-                alt="Mobile phone representing digital banking"
-              />
+            <div className="hero-visual-glow"></div>
 
-              <div className="hero-floating-card">
-                <div className="hero-floating-icon">
-                  <CheckCircle2 size={23} />
+            <div className="registration-phone">
+              <div className="registration-phone-speaker"></div>
+
+              <div className="registration-phone-screen">
+
+                <div className="phone-brand">
+                  <img src="/logo.png" alt="MUKI SACCO logo" />
+                  <span>MUKI SACCO</span>
                 </div>
-                <div>
-                  <strong>Digital Banking</strong>
-                  <span>Access services conveniently</span>
+
+                <div className="phone-welcome">
+                  <span>DIGITAL BANKING</span>
+                  <h3>App Registration</h3>
+                  <p>Set up your mobile access</p>
                 </div>
+
+                <div className="phone-progress">
+                  <span className="phone-progress-active"></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div className="phone-input">
+                  <Phone size={15} />
+                  <div>
+                    <small>Registered phone number</small>
+                    <strong>Enter phone number</strong>
+                  </div>
+                </div>
+
+                <div className="phone-input">
+                  <CreditCard size={15} />
+                  <div>
+                    <small>National ID</small>
+                    <strong>Enter ID number</strong>
+                  </div>
+                </div>
+
+                <div className="phone-input">
+                  <Mail size={15} />
+                  <div>
+                    <small>Email address</small>
+                    <strong>Enter email address</strong>
+                  </div>
+                </div>
+
+                <div className="phone-continue">
+                  Continue
+                  <ArrowRight size={14} />
+                </div>
+
+                <div className="phone-secure">
+                  <LockKeyhole size={12} />
+                  Secure registration process
+                </div>
+              </div>
+            </div>
+
+            <div className="hero-floating-card">
+              <div className="hero-floating-icon">
+                <BadgeCheck size={22} />
+              </div>
+
+              <div>
+                <strong>Easy app setup</strong>
+                <span>Follow the registration steps</span>
               </div>
             </div>
           </div>
@@ -193,30 +265,35 @@ export default function AppSelfRegistration() {
         <div className="registration-container">
 
           <div className="registration-heading">
-            <span className="section-label">GET PREPARED</span>
-            <h2>What You Need Before Registering</h2>
+            <span className="section-label">BEFORE YOU BEGIN</span>
+            <h2>What you need for registration</h2>
             <p>
-              Make sure you have these essentials ready before
-              beginning your MUKI SACCO app registration.
+              Prepare the following details and items before
+              registering on the MUKI SACCO mobile application.
             </p>
           </div>
 
           <div className="requirements-grid">
-            {requirements.map(({ icon: Icon, title, description }, index) => (
-              <article className="requirement-card" key={title}>
-                <div className="requirement-card-top">
-                  <div className="requirement-icon">
-                    <Icon size={25} />
-                  </div>
-                  <span className="requirement-index">
-                    0{index + 1}
-                  </span>
-                </div>
+            {requirements.map((item) => {
+              const Icon = item.icon;
 
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </article>
-            ))}
+              return (
+                <article className="requirement-card" key={item.number}>
+                  <div className="requirement-card-top">
+                    <div className="requirement-icon">
+                      <Icon size={24} />
+                    </div>
+
+                    <span className="requirement-index">
+                      {item.number}
+                    </span>
+                  </div>
+
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </article>
+              );
+            })}
           </div>
 
         </div>
@@ -228,15 +305,15 @@ export default function AppSelfRegistration() {
 
           <div className="registration-heading">
             <span className="section-label">STEP-BY-STEP GUIDE</span>
-            <h2>How to Register on the MUKI App</h2>
+            <h2>How to register on the MUKI App</h2>
             <p>
-              Follow these instructions to complete your
-              self-registration process.
+              Follow these instructions to complete your MUKI SACCO
+              mobile application registration.
             </p>
           </div>
 
           <div className="registration-steps-grid">
-            {steps.map((step) => {
+            {registrationSteps.map((step) => {
               const Icon = step.icon;
 
               return (
@@ -258,18 +335,20 @@ export default function AppSelfRegistration() {
 
                     <div className="step-title-row">
                       <div className="step-icon">
-                        <Icon size={21} />
+                        <Icon size={20} />
                       </div>
-                      <span className="step-label">STEP {step.number}</span>
+
+                      <span className="step-label">
+                        STEP {step.number}
+                      </span>
                     </div>
 
                     <h3>{step.title}</h3>
-
                     <p>{step.description}</p>
 
                     <div className="step-card-footer">
-                      <CheckCircle2 size={17} />
-                      <span>Follow the app instructions</span>
+                      <CheckCircle2 size={15} />
+                      <span>{step.note}</span>
                     </div>
 
                   </div>
@@ -280,59 +359,70 @@ export default function AppSelfRegistration() {
 
           {/* SECURITY NOTICE */}
           <div className="registration-notice">
+
             <div className="notice-icon">
-              <ShieldCheck size={30} />
+              <ShieldCheck size={27} />
             </div>
 
             <div className="notice-content">
-              <h3>Your Security Matters</h3>
+              <h3>Keep your account information secure</h3>
+
               <p>
-                Never share your OTP, passwords or confidential
-                verification details with anyone. Only submit
-                personal information through official MUKI SACCO
-                channels.
+                Only download the official MUKI SACCO mobile
+                application. Never share your OTP, PIN, password
+                or other confidential banking information with
+                anyone. MUKI SACCO will not ask you to disclose
+                your secret verification codes.
               </p>
             </div>
-          </div>
 
+          </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* FINAL CALL TO ACTION */}
       <section className="registration-cta">
-        <div className="registration-container cta-content">
+        <div className="registration-container">
 
-          <div className="cta-icon">
-            <Smartphone size={30} />
+          <div className="cta-content">
+
+            <div className="cta-icon">
+              <Smartphone size={30} />
+            </div>
+
+            <span className="section-label">
+              MUKI DIGITAL BANKING
+            </span>
+
+            <h2>Access MUKI SACCO on your phone.</h2>
+
+            <p>
+              Download the official MUKI SACCO mobile application
+              and follow the self-registration instructions to
+              activate your mobile banking access.
+            </p>
+
+            <a
+              href={MUKI_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="registration-primary-btn"
+            >
+              <Download size={18} />
+              Download MUKI App
+              <ArrowRight size={17} />
+            </a>
+
+            <p className="cta-small">
+              Pamoja Twajenga
+            </p>
+
           </div>
-
-          <span className="section-label">START YOUR DIGITAL JOURNEY</span>
-
-          <h2>Ready to Get Started?</h2>
-
-          <p>
-            Access the MUKI SACCO mobile application and follow
-            the self-registration instructions to get started.
-          </p>
-
-          <a
-            href={MUKI_APP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="registration-primary-btn"
-          >
-            <Download size={19} />
-            View MUKI SACCO App
-            <ArrowRight size={18} />
-          </a>
-
-          <span className="cta-small">
-            Registration is subject to MUKI SACCO account validation.
-          </span>
-
         </div>
       </section>
 
     </main>
   );
 }
+
+export default AppSelfRegistration;
