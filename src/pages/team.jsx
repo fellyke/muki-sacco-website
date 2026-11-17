@@ -4,7 +4,7 @@ import {
   BriefcaseBusiness,
   Search,
   ShieldCheck,
-  ArrowUpRight,
+
   UserRound,
   Building2,
   Eye,
@@ -101,11 +101,6 @@ function ProfileCard({ person }) {
         <span className="team-card-role">{person.role}</span>
 
         <h3>{person.name}</h3>
-
-        <div className="team-card-footer">
-          <span>MUKI SACCO</span>
-          <ArrowUpRight size={18} />
-        </div>
       </div>
     </article>
   );
