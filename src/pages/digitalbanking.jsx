@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import {
   ArrowRight,
   Smartphone,
@@ -9,7 +9,8 @@ import {
   ShieldCheck,
   Copy,
   CheckCircle2,
-  ChevronRight,
+  Globe,
+  ArrowLeftRight,
 } from "lucide-react";
 
 import "./digitalbanking.css";
@@ -30,10 +31,9 @@ const services = [
       "Enter business number 469988",
       "Use your national ID number as the account number",
     ],
-    action: "View official channels",
-    link: "https://mukisacco.co.ke/channels/",
     icon: Wallet,
   },
+
   {
     number: "02",
     title: "MUKI SACCO Mobile App",
@@ -53,6 +53,7 @@ const services = [
     link: "https://play.google.com/store/apps/details?id=com.cloudpesa.muki_sacco",
     icon: Smartphone,
   },
+
   {
     number: "03",
     title: "MCo-op Cash",
@@ -68,10 +69,9 @@ const services = [
       "Use the available mobile banking options",
       "Confirm eligibility with the relevant institution",
     ],
-    action: "Visit Co-operative Bank",
-    link: "https://www.co-opbank.co.ke/",
     icon: Wallet,
   },
+
   {
     number: "04",
     title: "ATM Services",
@@ -87,10 +87,9 @@ const services = [
       "Confirm card eligibility and activation requirements",
       "Ask about applicable charges and transaction limits",
     ],
-    action: "Contact MUKI SACCO",
-    link: "https://mukisacco.co.ke/contact/",
     icon: CreditCard,
   },
+
   {
     number: "05",
     title: "USSD Mobile Banking",
@@ -110,6 +109,47 @@ const services = [
     link: "tel:*850%23",
     icon: Smartphone,
   },
+
+  {
+    number: "06",
+    title: "Internet Banking",
+    category: "Online Banking",
+    subtitle: "Bank conveniently, securely and from wherever you are",
+    image: "/images/internet-banking.jpg",
+    description:
+      "MUKI SACCO Internet Banking gives you easy access to your account and allows you to carry out banking transactions online without having to visit our branches.",
+    features: [
+      "Check Account Balance",
+      "Send to M-Pesa",
+      "Buy Airtime",
+      "Paybill / Till",
+      "Buy M-Pesa Float",
+      "Fund Transfer",
+      "PesaLink",
+      "Withdraw Cash",
+      "Utility Payments",
+    ],
+    icon: Globe,
+  },
+  {
+  number: "07",
+  title: "Fund Transfer (RTGS)",
+  category: "Online Banking",
+  subtitle: "Fast and secure high-value transfers",
+  image: "/images/rtgs-fund-transfer.jpg",
+  description:
+    "Members can transfer money electronically from other banks to their MUKI SACCO accounts through Real Time Gross Settlement (RTGS).",
+
+  features: [
+    "Ideal for transferring large amounts and high-value transactions",
+    "Safe and secure method of funds transfer",
+    "Fast transactions carried out on a real-time basis",
+    "Transfer funds across geographical boundaries",
+    "Convenient transfers from wherever you are",
+  ],
+
+  icon: ArrowLeftRight,
+},
 ];
 
 const categories = [
@@ -133,16 +173,22 @@ const categories = [
     name: "Paybill",
     icon: Wallet,
   },
+  {
+    name: "Online Banking",
+    icon: Globe,
+  },
 ];
 
 export default function DigitalBanking() {
   const [copied, setCopied] = useState(false);
+
   const [activeCategory, setActiveCategory] =
     useState("All Services");
 
   async function copyPaybill() {
     try {
       await navigator.clipboard.writeText("469988");
+
       setCopied(true);
 
       window.setTimeout(() => {
@@ -169,7 +215,9 @@ export default function DigitalBanking() {
       {/* HERO SECTION */}
 
       <section className="db-hero">
+
         <div className="db-hero-content">
+
           <span className="db-eyebrow">
             BANKING WITHOUT BOUNDARIES
           </span>
@@ -194,14 +242,19 @@ export default function DigitalBanking() {
           </a>
 
           <div className="db-hero-note">
+
             <ShieldCheck size={18} />
+
             <span>
               Always use official banking channels.
             </span>
+
           </div>
+
         </div>
 
         <div className="db-hero-image">
+
           <img
             src="https://mukisacco.co.ke/wp-content/uploads/2022/08/Mobile-Banking.jpg"
             alt="Mobile banking"
@@ -211,16 +264,21 @@ export default function DigitalBanking() {
           />
 
           <div className="db-floating-card">
+
             <Smartphone size={24} />
 
             <div>
               <strong>Bank on the go</strong>
+
               <span>
                 Convenience at your fingertips
               </span>
             </div>
+
           </div>
+
         </div>
+
       </section>
 
       {/* INTRO SECTION */}
@@ -229,6 +287,7 @@ export default function DigitalBanking() {
         className="db-intro"
         id="digital-services"
       >
+
         <span className="db-eyebrow">
           OUR DIGITAL CHANNELS
         </span>
@@ -240,6 +299,7 @@ export default function DigitalBanking() {
           services through mobile banking, ATM services,
           USSD and M-Pesa.
         </p>
+
       </section>
 
       {/* CATEGORY FILTERS */}
@@ -247,6 +307,7 @@ export default function DigitalBanking() {
       <section className="db-categories">
 
         <div className="db-category-heading">
+
           <span className="db-eyebrow">
             FIND YOUR SERVICE
           </span>
@@ -257,9 +318,11 @@ export default function DigitalBanking() {
             Select your preferred banking channel
             to explore available services.
           </p>
+
         </div>
 
         <div className="db-category-buttons">
+
           {categories.map((category) => {
             const Icon = category.icon;
 
@@ -276,18 +339,25 @@ export default function DigitalBanking() {
                   setActiveCategory(category.name)
                 }
               >
+
                 <Icon size={18} />
+
                 <span>{category.name}</span>
+
               </button>
             );
           })}
+
         </div>
 
         <div className="db-results-count">
+
           Showing {filteredServices.length}{" "}
+
           {filteredServices.length === 1
             ? "service"
             : "services"}
+
         </div>
 
       </section>
@@ -295,6 +365,7 @@ export default function DigitalBanking() {
       {/* DIGITAL BANKING SERVICES */}
 
       <section className="db-services">
+
         {filteredServices.map((service) => {
           const Icon = service.icon;
 
@@ -303,7 +374,9 @@ export default function DigitalBanking() {
               className="db-service-card"
               key={service.number}
             >
+
               <div className="db-image-wrap">
+
                 <img
                   src={service.image}
                   alt={service.title}
@@ -316,6 +389,7 @@ export default function DigitalBanking() {
                 <span className="db-number">
                   {service.number}
                 </span>
+
               </div>
 
               <div className="db-card-content">
@@ -337,7 +411,9 @@ export default function DigitalBanking() {
                 {/* PAYBILL NUMBER */}
 
                 {service.number === "01" && (
+
                   <div className="db-paybill">
+
                     <div>
                       <span>Business number</span>
                       <strong>469988</strong>
@@ -348,6 +424,7 @@ export default function DigitalBanking() {
                       onClick={copyPaybill}
                       aria-label="Copy Paybill number"
                     >
+
                       {copied ? (
                         <CheckCircle2 size={18} />
                       ) : (
@@ -355,55 +432,78 @@ export default function DigitalBanking() {
                       )}
 
                       {copied ? "Copied" : "Copy"}
+
                     </button>
+
                   </div>
+
                 )}
 
                 {/* SERVICE FEATURES */}
 
                 <ul className="db-feature-list">
+
                   {service.features.map((feature) => (
+
                     <li key={feature}>
+
                       <CheckCircle2 size={17} />
+
                       <span>{feature}</span>
+
                     </li>
+
                   ))}
+
                 </ul>
 
                 {/* MCO-OP DISCLAIMER */}
 
                 {service.number === "03" && (
+
                   <p className="db-disclaimer">
+
                     MCo-op Cash is a Co-operative Bank service.
                     Confirm with MUKI SACCO whether it is
                     available for your account.
+
                   </p>
+
                 )}
 
-                {/* SERVICE ACTION */}
+                {/* SERVICE ACTIONS */}
 
-                <a
-                  className="db-card-link"
-                  href={service.link}
-                  target={
-                    service.number === "05"
-                      ? undefined
-                      : "_blank"
-                  }
-                  rel={
-                    service.number === "05"
-                      ? undefined
-                      : "noopener noreferrer"
-                  }
-                >
-                  {service.action}
-                  <ArrowRight size={17} />
-                </a>
+                {service.action && service.link && (
+
+                  <a
+                    className="db-card-link"
+                    href={service.link}
+                    target={
+                      service.number === "05"
+                        ? undefined
+                        : "_blank"
+                    }
+                    rel={
+                      service.number === "05"
+                        ? undefined
+                        : "noopener noreferrer"
+                    }
+                  >
+
+                    {service.action}
+
+                    <ArrowRight size={17} />
+
+                  </a>
+
+                )}
 
               </div>
+
             </article>
           );
         })}
+
       </section>
 
       {/* SECURITY SECTION */}
@@ -415,6 +515,7 @@ export default function DigitalBanking() {
         </div>
 
         <div className="db-security-content">
+
           <h2>Your security matters</h2>
 
           <p>
@@ -423,26 +524,10 @@ export default function DigitalBanking() {
             money and contact MUKI SACCO if a transaction
             looks suspicious.
           </p>
+
         </div>
 
-        <Link to="/contact">
-          Need assistance?
-          <ArrowRight size={17} />
-        </Link>
-
       </section>
-
-      {/* BACK HOME */}
-
-      <div className="db-back-home">
-        <Link to="/">
-          <ChevronRight
-            size={17}
-            style={{ transform: "rotate(180deg)" }}
-          />
-          Back to Home
-        </Link>
-      </div>
 
     </main>
   );
