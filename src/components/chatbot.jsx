@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./chatbot.css";
 
 const quickQuestions = [
@@ -8,8 +8,7 @@ const quickQuestions = [
   "Mobile banking",
   "MUKI SACCO branches",
   "Contact customer care",
-  "Paybill"
-  
+  "Paybill",
 ];
 
 const responses = [
@@ -31,7 +30,7 @@ const responses = [
   {
     keywords: ["branch", "branches", "location", "where"],
     answer:
-      "MUKI SACCO has branches in Ndunyu Njeru (Main Branch), Engineer, Kwa Haraka, Geta, Murungaru,Naivasha,Mlolongo ,Miharati,Gilgil and Ol Kalou.",
+      "MUKI SACCO has branches in Ndunyu Njeru (Main Branch), Engineer, Kwa Haraka, Geta, Murungaru, Naivasha, Mlolongo, Miharati, Gilgil and Ol Kalou.",
   },
   {
     keywords: ["contact", "phone", "call", "email", "customer care"],
@@ -39,31 +38,28 @@ const responses = [
       "You can contact MUKI SACCO through:\nPhone: 0711 794 957\nEmail: info@mukisacco.co.ke\nWorking hours: Monday to Friday, 8:30 AM – 4:00 PM.",
   },
   {
-    keywords: ["paybill", "mpesa", "m-pesa", "payment"],
+    keywords: ["paybill", "mpesa", "m-pesa", "payment", "deposit"],
     answer:
-      "The MUKI SACCO M-Pesa Paybill number is 469988. Please confirm the correct account details with MUKI SACCO before making a payment.",
+      "You can make payments to MUKI SACCO conveniently through M-Pesa. Use Paybill Number 469988. Go to M-Pesa, select Lipa na M-Pesa, then Paybill, enter 469988 as the business number, enter your correct MUKI SACCO account number, and follow the prompts to complete your payment. Remember to keep your M-Pesa confirmation message.",
   },
   {
     keywords: ["insurance", "mukcop"],
     answer:
       "MUKI SACCO offers insurance services through MUKCOP. Contact our customer care team for information about available insurance products.",
   },
-  {
-  keywords: ["paybill", "mpesa", "m-pesa", "make payment", "payment", "deposit", "pay muki"],
-  answer:
-    "You can make payments to MUKI SACCO conveniently through M-Pesa. Use Paybill Number 469988. Go to M-Pesa, select Lipa na M-Pesa, then Paybill, enter 469988 as the business number, enter your correct MUKI SACCO account number, and follow the prompts to complete your payment. Remember to keep your M-Pesa confirmation message."
-},
 ];
 
 function getResponse(message) {
-  const text = message.toLowerCase();
+  const text = message.toLowerCase().trim();
 
-  if (["hi", "hello", "hey", "good morning", "good afternoon"].some(word => text.trim() === word)) {
-    return "Hello! 👋 Welcome to MUKI SACCO. How can I assist you today?";
+  if (
+    ["hi", "hello", "hey", "good morning", "good afternoon"].includes(text)
+  ) {
+    return "Hello! Welcome to MUKI SACCO. How can I assist you today?";
   }
 
-  const match = responses.find(item =>
-    item.keywords.some(keyword => text.includes(keyword))
+  const match = responses.find((item) =>
+    item.keywords.some((keyword) => text.includes(keyword))
   );
 
   if (match) return match.answer;
@@ -74,21 +70,37 @@ function getResponse(message) {
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
+
   const [messages, setMessages] = useState([
     {
       sender: "bot",
-      text: "Hello!  Welcome to MUKI SACCO. I'm your virtual assistant. How can I help you today?",
+      text: "Hello! Welcome to MUKI SACCO. I'm your virtual assistant. How can I help you today?",
     },
   ]);
 
+  const messagesEndRef = useRef(null);
+
+  // Automatically scroll to the latest conversation
+  useEffect(() => {
+    if (isOpen) {
+      messagesEndRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
+  }, [messages, isOpen]);
+
   function sendMessage(text = message) {
     const userMessage = text.trim();
+
     if (!userMessage) return;
 
-    setMessages(previous => [
+    const botResponse = getResponse(userMessage);
+
+    setMessages((previous) => [
       ...previous,
       { sender: "user", text: userMessage },
-      { sender: "bot", text: getResponse(userMessage) },
+      { sender: "bot", text: botResponse },
     ]);
 
     setMessage("");
@@ -118,11 +130,12 @@ export default function Chatbot() {
               onClick={() => setIsOpen(false)}
               aria-label="Close chatbot"
             >
-              
+              ×
             </button>
           </header>
 
           <div className="chat-messages">
+            {/* Display conversation history */}
             {messages.map((item, index) => (
               <div
                 key={index}
@@ -138,29 +151,33 @@ export default function Chatbot() {
               </div>
             ))}
 
-            {messages.length === 1 && (
-              <div className="quick-questions">
-                <p>Popular questions</p>
+            {/* Display questions after the latest answer */}
+            <div className="quick-questions">
+              <p>What else would you like to know?</p>
 
-                {quickQuestions.map(question => (
-                  <button
-                    key={question}
-                    onClick={() => sendMessage(question)}
-                  >
-                    {question}
-                    <span>›</span>
-                  </button>
-                ))}
-              </div>
-            )}
+              {quickQuestions.map((question) => (
+                <button
+                  key={question}
+                  onClick={() => sendMessage(question)}
+                >
+                  {question}
+                  <span>›</span>
+                </button>
+              ))}
+            </div>
+
+            <div ref={messagesEndRef} />
           </div>
 
-          <form className="chat-input-area" onSubmit={handleSubmit}>
+          <form
+            className="chat-input-area"
+            onSubmit={handleSubmit}
+          >
             <input
               type="text"
               placeholder="Type your message..."
               value={message}
-              onChange={event => setMessage(event.target.value)}
+              onChange={(event) => setMessage(event.target.value)}
             />
 
             <button type="submit" aria-label="Send message">
