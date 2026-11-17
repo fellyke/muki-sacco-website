@@ -38,23 +38,31 @@ const Navbar = () => {
   ];
 
   const digitalLinks = [
-    {
-      name: "Mobile Banking",
-      path: "/digital-banking#mobile-banking",
-    },
-    {
-      name: "ATM & Cards",
-      path: "/digital-banking#atm-cards",
-    },
-    {
-      name: "*850#",
-      path: "/digital-banking#ussd-banking",
-    },
-    {
-      name: "Paybill",
-      path: "/digital-banking#paybill",
-    },
-  ];
+  {
+    name: "Mobile Banking",
+    path: "/digital-banking#mobile-banking",
+  },
+  {
+    name: "ATM & Cards",
+    path: "/digital-banking#atm-cards",
+  },
+  {
+    name: "*850# USSD Banking",
+    path: "/digital-banking#ussd-banking",
+  },
+  {
+    name: "Paybill",
+    path: "/digital-banking#paybill",
+  },
+  {
+    name: "Internet Banking",
+    path: "/digital-banking#internet-banking",
+  },
+  {
+    name: "Fund Transfer (RTGS)",
+    path: "/digital-banking#rtgs-fund-transfer",
+  },
+];
 
   return (
     <header className="muki-header">
