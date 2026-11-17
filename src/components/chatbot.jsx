@@ -78,14 +78,14 @@ export default function Chatbot() {
     },
   ]);
 
-  const messagesEndRef = useRef(null);
+  const latestAnswerRef = useRef(null);
 
-  // Automatically scroll to the latest conversation
+  // Scroll to the latest answer after each conversation
   useEffect(() => {
-    if (isOpen) {
-      messagesEndRef.current?.scrollIntoView({
+    if (isOpen && messages.length > 1) {
+      latestAnswerRef.current?.scrollIntoView({
         behavior: "smooth",
-        block: "end",
+        block: "start",
       });
     }
   }, [messages, isOpen]);
@@ -115,6 +115,7 @@ export default function Chatbot() {
     <div className="muki-chatbot">
       {isOpen && (
         <section className="chat-window">
+
           <header className="chat-header">
             <img src="/logo.png" alt="MUKI SACCO logo" />
 
@@ -135,10 +136,15 @@ export default function Chatbot() {
           </header>
 
           <div className="chat-messages">
-            {/* Display conversation history */}
+
             {messages.map((item, index) => (
               <div
                 key={index}
+                ref={
+                  index === messages.length - 1
+                    ? latestAnswerRef
+                    : null
+                }
                 className={`message-row ${item.sender}`}
               >
                 {item.sender === "bot" && (
@@ -151,7 +157,6 @@ export default function Chatbot() {
               </div>
             ))}
 
-            {/* Display questions after the latest answer */}
             <div className="quick-questions">
               <p>What else would you like to know?</p>
 
@@ -166,7 +171,6 @@ export default function Chatbot() {
               ))}
             </div>
 
-            <div ref={messagesEndRef} />
           </div>
 
           <form
@@ -181,13 +185,14 @@ export default function Chatbot() {
             />
 
             <button type="submit" aria-label="Send message">
-              ➤
+                  ➤
             </button>
           </form>
 
           <div className="chat-footer">
             Powered by MUKI SACCO
           </div>
+
         </section>
       )}
 
