@@ -66,7 +66,7 @@ const Footer = () => {
             <Link to="/AppSelfRegistration">App Self Registration</Link>
             <Link to="/insurance">Insurance</Link>
             <a
-              href="https://mukisacco.co.ke/channels/"
+              href="#"
               target="_blank"
               rel="noreferrer"
             >
