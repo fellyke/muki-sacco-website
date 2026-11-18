@@ -1,20 +1,22 @@
 
 /* =========================================
-   MUKI SACCO — MEMBERSHIP PAGE
-   Brand colours: Teal, Blue, White
+   MUKI SACCO - PREMIUM MEMBERSHIP PAGE
 ========================================= */
 
 .membership-page {
-  --membership-teal: #60B4AC;
-  --membership-blue: #2196C7;
-  --membership-white: #FFFFFF;
+  --member-teal: #60b4ac;
+  --member-blue: #2196c7;
+  --member-dark: #263f4a;
+  --member-muted: #657b84;
+  --member-light: #f5fafa;
+  --member-border: #e3eded;
 
   width: 100%;
-  min-height: 100vh;
-  background: var(--membership-white);
-  color: #183B43;
+  min-width: 0;
+  overflow-x: clip;
+  color: var(--member-dark);
+  background: #fff;
   font-family: inherit;
-  overflow: hidden;
 }
 
 .membership-page *,
@@ -23,410 +25,459 @@
   box-sizing: border-box;
 }
 
-.membership-page button,
-.membership-page input,
-.membership-page select {
-  font: inherit;
-}
-
-.membership-container {
-  width: min(1180px, calc(100% - 48px));
-  margin: 0 auto;
+.membership-page .membership-container {
+  width: min(1280px, calc(100% - 64px));
+  margin-inline: auto;
 }
 
 /* =========================================
-   HERO SECTION
+   COMPACT PREMIUM HERO
 ========================================= */
 
 .membership-hero {
-  position: relative;
-  isolation: isolate;
-  padding: 100px 0 110px;
-  color: var(--membership-white);
+  width: 100%;
+  padding: 23px 0;
   background:
     radial-gradient(
-      circle at 88% 18%,
-      rgba(96, 180, 172, 0.35),
-      transparent 32%
+      circle at 88% 20%,
+      rgba(96, 180, 172, 0.16),
+      transparent 35%
     ),
-    linear-gradient(
-      120deg,
-      #2196C7 0%,
-      #60B4AC 100%
-    );
+    linear-gradient(110deg, #f0f9f8 0%, #f8fbfc 100%);
+  border-bottom: 1px solid #e8f1f0;
 }
 
-.membership-hero::before,
-.membership-hero::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 50%;
-  pointer-events: none;
+.membership-hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
 }
 
-.membership-hero::before {
-  width: 360px;
-  height: 360px;
-  top: -190px;
-  right: 5%;
+.membership-hero-copy {
+  flex: 1;
+  max-width: 750px;
 }
 
-.membership-hero::after {
-  width: 230px;
-  height: 230px;
-  bottom: -150px;
-  right: 20%;
-}
-
-.membership-eyebrow {
+.membership-eyebrow,
+.membership-label,
+.membership-form-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 24px;
-  padding: 10px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50px;
-  background: rgba(255, 255, 255, 0.14);
-  color: var(--membership-white);
-  font-size: 12px;
+  gap: 8px;
+  color: #278c85;
+  font-size: 10px;
   font-weight: 800;
-  letter-spacing: 1.5px;
-}
-
-.membership-eyebrow svg {
-  flex-shrink: 0;
+  letter-spacing: 1.3px;
 }
 
 .membership-hero h1 {
-  max-width: 780px;
-  margin: 0 0 22px;
-  color: var(--membership-white);
-  font-size: clamp(38px, 5.5vw, 64px);
-  font-weight: 800;
-  line-height: 1.12;
-  letter-spacing: -2px;
+  max-width: 700px;
+  margin: 7px 0;
+  color: var(--member-dark);
+  font-size: clamp(27px, 3vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -1.2px;
 }
 
 .membership-hero h1 span {
-  display: inline-block;
-  color: var(--membership-white);
-  position: relative;
+  color: var(--member-blue);
 }
 
-.membership-hero > .membership-container > p {
-  max-width: 660px;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.96);
-  font-size: 17px;
-  line-height: 1.85;
+.membership-hero-copy > p {
+  max-width: 570px;
+  margin: 0 0 13px;
+  color: var(--member-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.membership-hero-button,
+.membership-button,
+.membership-download-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 19px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--member-blue);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.membership-hero-button:hover,
+.membership-button:hover,
+.membership-download-button:hover {
+  background: #177fae;
+  transform: translateY(-2px);
+}
+
+.membership-hero-side {
+  flex: 0 0 190px;
+  padding: 17px;
+  border: 1px solid rgba(96, 180, 172, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.hero-side-icon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  margin: 0 auto 9px;
+  place-items: center;
+  border-radius: 9px;
+  background: #e6f5f3;
+  color: #278c85;
+}
+
+.membership-hero-side strong,
+.membership-hero-side span {
+  display: block;
+}
+
+.membership-hero-side strong {
+  font-size: 14px;
+}
+
+.membership-hero-side span {
+  margin-top: 4px;
+  color: var(--member-muted);
+  font-size: 11px;
 }
 
 /* =========================================
-   MAIN CONTENT LAYOUT
+   APPLICATION SECTION
 ========================================= */
 
 .membership-content {
-  padding: 90px 0 100px;
-  background: var(--membership-white);
+  width: 100%;
+  padding: 43px 0 55px;
+  background: #fff;
 }
 
-.membership-layout {
+.membership-page .membership-layout {
   display: grid;
-  grid-template-columns: 0.88fr 1.12fr;
+  width: 100%;
+  grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.38fr);
   align-items: start;
-  gap: 65px;
+  gap: 28px;
 }
 
-/* =========================================
-   LEFT INFORMATION PANEL
-========================================= */
+/* LEFT INFORMATION CARD */
 
 .membership-info {
-  padding-top: 16px;
+  min-width: 0;
+  padding: 25px;
+  border: 1px solid var(--member-border);
+  border-radius: 11px;
+  background: #fff;
+  box-shadow: 0 5px 22px rgba(38, 63, 74, 0.035);
 }
 
-.membership-label {
-  display: inline-block;
-  margin-bottom: 18px;
-  color: var(--membership-blue);
+.membership-info > h2,
+.shares-heading h2 {
+  margin: 9px 0 10px;
+  color: var(--member-dark);
+  font-size: 25px;
+  line-height: 1.25;
+  letter-spacing: -0.7px;
+}
+
+.membership-intro,
+.shares-heading > p {
+  margin: 0;
+  color: var(--member-muted);
   font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1.7px;
+  line-height: 1.8;
 }
 
-.membership-info > h2 {
-  margin: 0 0 18px;
-  color: var(--membership-teal);
-  font-size: clamp(30px, 3.4vw, 42px);
-  font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -1px;
-}
-
-.membership-info > p {
-  margin: 0 0 35px;
-  color: #557078;
-  font-size: 15px;
-  line-height: 1.9;
+.membership-info-list {
+  display: grid;
+  gap: 19px;
+  margin-top: 24px;
 }
 
 .membership-info-item {
   display: flex;
   align-items: flex-start;
-  gap: 17px;
-  margin-bottom: 25px;
-  padding: 20px;
-  border: 1px solid rgba(96, 180, 172, 0.28);
-  border-radius: 14px;
-  background: var(--membership-white);
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  gap: 12px;
 }
 
-.membership-info-item:hover {
-  transform: translateY(-4px);
-  border-color: var(--membership-teal);
-  box-shadow: 0 12px 30px rgba(33, 150, 199, 0.09);
-}
-
-.membership-info-item > div {
-  display: flex;
-  flex: 0 0 48px;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: rgba(96, 180, 172, 0.16);
-  color: var(--membership-blue);
-}
-
-.membership-info-item > section {
-  min-width: 0;
+.membership-info-icon,
+.shares-icon {
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 8px;
+  background: #eaf6f5;
+  color: #278c85;
 }
 
 .membership-info-item h3 {
-  margin: 2px 0 7px;
-  color: var(--membership-teal);
-  font-size: 16px;
-  font-weight: 800;
+  margin: 2px 0 4px;
+  color: var(--member-blue);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .membership-info-item p {
   margin: 0;
-  color: #557078;
+  color: var(--member-muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+/* CONTACT CARD */
+
+.membership-contact-note {
+  margin-top: 25px;
+  padding: 17px;
+  border: 1px solid #edf3f3;
+  border-radius: 8px;
+  background: var(--member-light);
+}
+
+.membership-contact-note h3 {
+  margin: 0 0 6px;
+  color: var(--member-blue);
   font-size: 13px;
-  line-height: 1.75;
+}
+
+.membership-contact-note p {
+  margin: 0 0 11px;
+  color: var(--member-muted);
+  font-size: 11px;
+}
+
+.membership-contact-note a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 10px;
+  color: var(--member-dark);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.membership-contact-note a:hover {
+  color: var(--member-blue);
 }
 
 /* =========================================
-   FORM CARD
+   MEMBERSHIP FORM CARD
 ========================================= */
 
 .membership-form-card {
+  width: 100%;
   min-width: 0;
-  padding: 38px;
-  border: 1px solid rgba(96, 180, 172, 0.3);
-  border-radius: 22px;
-  background: var(--membership-white);
-  box-shadow: 0 20px 65px rgba(33, 150, 199, 0.10);
+  padding: 27px;
+  border: 1px solid var(--member-border);
+  border-radius: 11px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(38, 63, 74, 0.055);
 }
 
 .membership-form-heading {
-  margin-bottom: 30px;
-  padding-bottom: 23px;
-  border-bottom: 1px solid rgba(96, 180, 172, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 22px;
 }
 
 .membership-form-heading h2 {
-  margin: 0 0 9px;
-  color: var(--membership-teal);
-  font-size: 27px;
-  font-weight: 800;
-  letter-spacing: -0.6px;
+  margin: 6px 0 4px;
+  color: var(--member-blue);
+  font-size: 23px;
+  letter-spacing: -0.5px;
 }
 
 .membership-form-heading p {
   margin: 0;
-  color: #6D858B;
-  font-size: 13px;
-  line-height: 1.7;
+  color: var(--member-muted);
+  font-size: 11px;
+  line-height: 1.6;
 }
 
-/* =========================================
-   FORM FIELDS
-========================================= */
+.form-heading-icon,
+.download-icon {
+  display: grid;
+  flex: 0 0 45px;
+  width: 45px;
+  height: 45px;
+  place-items: center;
+  border-radius: 9px;
+  background: #eaf6f5;
+  color: #278c85;
+}
+
+/* FORM STRUCTURE */
+
+.membership-form-card form {
+  display: grid;
+  width: 100%;
+  gap: 14px;
+}
 
 .membership-field {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
+  display: grid;
   min-width: 0;
-  margin-bottom: 22px;
+  gap: 7px;
 }
 
-.membership-field label {
-  color: var(--membership-blue);
-  font-size: 13px;
-  font-weight: 750;
+.membership-field label,
+.shares-calculator > label {
+  color: var(--member-dark);
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .membership-form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 17px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
 }
+
+/* ICON INPUTS */
 
 .membership-input-wrap {
   display: flex;
   align-items: center;
-  gap: 11px;
+  gap: 10px;
+  width: 100%;
   min-width: 0;
-  min-height: 52px;
-  padding: 0 15px;
-  border: 1px solid rgba(96, 180, 172, 0.45);
-  border-radius: 10px;
-  background: var(--membership-white);
-  color: var(--membership-teal);
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  min-height: 43px;
+  padding: 0 11px;
+  border: 1px solid #dce7e7;
+  border-radius: 6px;
+  background: #fff;
+  color: #82969b;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .membership-input-wrap:focus-within {
-  border-color: var(--membership-blue);
-  box-shadow: 0 0 0 4px rgba(33, 150, 199, 0.12);
+  border-color: var(--member-teal);
+  box-shadow: 0 0 0 3px rgba(96, 180, 172, 0.12);
 }
 
 .membership-input-wrap svg {
-  flex-shrink: 0;
-  color: var(--membership-blue);
+  flex: 0 0 17px;
 }
 
 .membership-input-wrap input {
   width: 100%;
   min-width: 0;
-  min-height: 48px;
+  height: 41px;
   padding: 0;
-  border: none;
-  outline: none;
+  border: 0;
+  outline: 0;
   background: transparent;
-  color: #183B43;
-  font-size: 14px;
+  color: var(--member-dark);
+  font: inherit;
+  font-size: 12px;
 }
 
-.membership-input-wrap input::placeholder,
-.membership-field > input::placeholder {
-  color: #91A5AA;
+.membership-input-wrap input::placeholder {
+  color: #9aabad;
 }
 
-.membership-field > select,
-.membership-field > input {
+/* NORMAL INPUTS */
+
+.membership-field > input,
+.membership-field select {
   width: 100%;
   min-width: 0;
-  min-height: 52px;
-  padding: 0 15px;
-  border: 1px solid rgba(96, 180, 172, 0.45);
-  border-radius: 10px;
+  min-height: 43px;
+  padding: 0 12px;
+  border: 1px solid #dce7e7;
+  border-radius: 6px;
   outline: none;
-  background: var(--membership-white);
-  color: #183B43;
-  font-size: 14px;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  background: #fff;
+  color: var(--member-dark);
+  font: inherit;
+  font-size: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.membership-field > select {
-  cursor: pointer;
+.membership-field > input:focus,
+.membership-field select:focus {
+  border-color: var(--member-teal);
+  box-shadow: 0 0 0 3px rgba(96, 180, 172, 0.12);
 }
 
-.membership-field > select:focus,
-.membership-field > input:focus {
-  border-color: var(--membership-blue);
-  box-shadow: 0 0 0 4px rgba(33, 150, 199, 0.12);
+.membership-field > input::placeholder {
+  color: #9aabad;
 }
 
-.membership-field input:focus-visible,
-.membership-field select:focus-visible {
-  outline: none;
-}
-
-/* =========================================
-   PRIVACY CONSENT
-========================================= */
+/* CONSENT */
 
 .membership-consent {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  margin: 7px 0 25px;
-  color: #557078;
-  font-size: 12px;
-  line-height: 1.8;
-  cursor: pointer;
+  gap: 9px;
+  color: var(--member-muted);
+  font-size: 10px;
+  line-height: 1.7;
 }
 
 .membership-consent input {
-  flex: 0 0 17px;
-  width: 17px;
-  height: 17px;
-  margin: 3px 0 0;
-  accent-color: var(--membership-blue);
-  cursor: pointer;
+  flex: 0 0 15px;
+  width: 15px;
+  height: 15px;
+  margin-top: 2px;
+  accent-color: var(--member-blue);
 }
 
-/* =========================================
-   SUBMIT BUTTON
-========================================= */
+/* SUBMIT BUTTON */
 
 .membership-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
   width: 100%;
-  min-height: 54px;
-  padding: 15px 22px;
-  border: 1px solid var(--membership-blue);
-  border-radius: 10px;
-  background: var(--membership-blue);
-  color: var(--membership-white);
-  font-size: 14px;
-  font-weight: 800;
-  cursor: pointer;
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    box-shadow 0.25s ease;
+  min-height: 45px;
+  font-size: 12px;
 }
 
-.membership-button:hover {
-  transform: translateY(-2px);
-  border-color: var(--membership-teal);
-  background: var(--membership-teal);
-  box-shadow: 0 10px 24px rgba(33, 150, 199, 0.2);
+.membership-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.membership-button:active {
-  transform: translateY(0);
-}
-
-.membership-button:focus-visible {
-  outline: 3px solid rgba(96, 180, 172, 0.5);
-  outline-offset: 4px;
-}
-
-.membership-disclaimer {
-  margin: 18px 0 0;
-  color: #6D858B;
-  font-size: 11px;
-  line-height: 1.8;
+.membership-form-footnote {
+  margin: -3px 0 0;
+  color: var(--member-muted);
+  font-size: 10px;
+  line-height: 1.6;
   text-align: center;
+}
+
+.membership-message {
+  margin: 0;
+  padding: 11px 13px;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.membership-message.error {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.membership-message.success {
+  background: #eaf8ef;
+  color: #197647;
 }
 
 /* =========================================
@@ -435,197 +486,546 @@
 
 .membership-success {
   display: flex;
+  min-height: 350px;
   flex-direction: column;
   align-items: center;
-  padding: 35px 8px;
+  justify-content: center;
   text-align: center;
-  animation: membershipFadeIn 0.45s ease both;
 }
 
-.membership-success > svg {
-  margin-bottom: 22px;
-  color: var(--membership-teal);
+.membership-success-icon {
+  display: grid;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 17px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8f7ef;
+  color: #25945d;
 }
 
 .membership-success h2 {
-  margin: 0 0 15px;
-  color: var(--membership-teal);
-  font-size: 27px;
-  font-weight: 800;
-  line-height: 1.3;
+  margin: 11px 0 8px;
+  font-size: 23px;
 }
 
 .membership-success p {
-  max-width: 430px;
-  margin: 0 0 25px;
-  color: #557078;
-  font-size: 14px;
-  line-height: 1.9;
-}
-
-.membership-success .membership-button {
-  max-width: 230px;
+  max-width: 380px;
+  margin: 0 0 20px;
+  color: var(--member-muted);
+  font-size: 12px;
+  line-height: 1.7;
 }
 
 /* =========================================
-   ANIMATIONS
+   SHARE CAPITAL SECTION
 ========================================= */
 
-@keyframes membershipFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
+.membership-shares {
+  width: 100%;
+  padding: 55px 0;
+  background: var(--member-light);
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.shares-heading {
+  max-width: 620px;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.shares-heading h2 {
+  font-size: 27px;
+}
+
+.shares-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 22px;
+}
+
+.shares-information,
+.shares-calculator {
+  min-width: 0;
+  padding: 25px;
+  border: 1px solid var(--member-border);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 22px rgba(38, 63, 74, 0.035);
+}
+
+.shares-information {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.shares-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.shares-item span {
+  color: var(--member-muted);
+  font-size: 11px;
+}
+
+.shares-item h3 {
+  margin: 5px 0 0;
+  font-size: 19px;
+}
+
+.shares-description {
+  padding-top: 18px;
+  border-top: 1px solid var(--member-border);
+}
+
+.shares-description h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.shares-description p {
+  margin: 0 0 10px;
+  color: var(--member-muted);
+  font-size: 11px;
+  line-height: 1.8;
 }
 
 /* =========================================
-   TABLET
+   SHARE CALCULATOR
 ========================================= */
 
-@media (max-width: 1000px) {
+.calculator-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 21px;
+}
+
+.calculator-icon {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  place-items: center;
+  border-radius: 8px;
+  background: #eaf6f5;
+  color: #278c85;
+}
+
+.calculator-heading h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+
+.calculator-heading p {
+  margin: 0;
+  color: var(--member-muted);
+  font-size: 11px;
+}
+
+.shares-calculator > label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.calculator-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid #dce7e7;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.calculator-input-wrap:focus-within {
+  border-color: var(--member-teal);
+  box-shadow: 0 0 0 3px rgba(96, 180, 172, 0.12);
+}
+
+.calculator-input-wrap span {
+  color: var(--member-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.calculator-input-wrap input {
+  width: 100%;
+  min-width: 0;
+  height: 43px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--member-dark);
+  font: inherit;
+  font-size: 13px;
+}
+
+.calculator-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 17px;
+  padding: 20px;
+  border: 1px solid #e0f0ee;
+  border-radius: 8px;
+  background: #edf8f7;
+  text-align: center;
+}
+
+.calculator-result span {
+  color: var(--member-muted);
+  font-size: 11px;
+}
+
+.calculator-result strong {
+  margin: 6px 0;
+  color: #278c85;
+  font-size: 35px;
+  line-height: 1.2;
+}
+
+.calculator-result small {
+  color: var(--member-muted);
+  font-size: 10px;
+}
+
+.calculator-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.calculator-summary div {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--member-border);
+  border-radius: 6px;
+}
+
+.calculator-summary span,
+.calculator-summary strong {
+  display: block;
+}
+
+.calculator-summary span {
+  margin-bottom: 5px;
+  color: var(--member-muted);
+  font-size: 10px;
+}
+
+.calculator-summary strong {
+  font-size: 12px;
+}
+
+.calculator-note {
+  margin: 13px 0 0;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.calculator-note.qualified {
+  background: #eaf8ef;
+  color: #197647;
+}
+
+.calculator-note.not-qualified {
+  background: #fff6e8;
+  color: #946200;
+}
+
+.calculator-disclaimer {
+  margin: 11px 0 0;
+  color: var(--member-muted);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   DOWNLOAD APPLICATION FORM
+========================================= */
+
+.membership-download {
+  width: 100%;
+  padding: 42px 0;
+  background: #fff;
+}
+
+.membership-page .membership-download-card {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 25px;
+  border: 1px solid var(--member-border);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 6px 22px rgba(38, 63, 74, 0.035);
+}
+
+.membership-download-content {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  align-items: center;
+  gap: 16px;
+}
+
+.download-icon {
+  width: 52px;
+  height: 52px;
+  flex-basis: 52px;
+}
+
+.download-text {
+  min-width: 0;
+}
+
+.download-text h2 {
+  margin: 6px 0;
+  color: var(--member-dark);
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.download-text p {
+  max-width: 600px;
+  margin: 0;
+  color: var(--member-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.membership-download-button {
+  flex: 0 0 auto;
+  min-height: 43px;
+  padding: 0 17px;
+  white-space: nowrap;
+}
+
+/* =========================================
+   DESKTOP HEIGHT OPTIMISATION
+========================================= */
+
+@media (min-width: 1100px) {
   .membership-hero {
-    padding: 80px 0 90px;
+    padding: 19px 0;
   }
 
   .membership-content {
-    padding: 70px 0 80px;
+    padding: 35px 0 45px;
   }
 
-  .membership-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    max-width: 760px;
-  }
-
-  .membership-info {
-    padding-top: 0;
-  }
-
-  .membership-info > p {
-    max-width: 650px;
-  }
-
-  .membership-info-item {
-    margin-bottom: 15px;
-  }
-
-  .membership-form-card {
-    padding: 34px;
-  }
-}
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 600px) {
-  .membership-container {
-    width: calc(100% - 32px);
-  }
-
-  .membership-hero {
-    padding: 65px 0 72px;
-  }
-
-  .membership-eyebrow {
-    gap: 8px;
-    margin-bottom: 20px;
-    padding: 9px 12px;
-    font-size: 10px;
-    letter-spacing: 1px;
-  }
-
-  .membership-hero h1 {
-    margin-bottom: 18px;
-    font-size: clamp(34px, 9vw, 45px);
-    letter-spacing: -1.2px;
-  }
-
-  .membership-hero > .membership-container > p {
-    font-size: 15px;
-    line-height: 1.8;
-  }
-
-  .membership-content {
-    padding: 48px 0 60px;
-  }
-
-  .membership-layout {
+  .membership-page .membership-layout {
     gap: 30px;
   }
 
-  .membership-info > h2 {
-    font-size: 32px;
-  }
-
-  .membership-info > p {
-    margin-bottom: 25px;
-    font-size: 14px;
-  }
-
-  .membership-info-item {
-    gap: 13px;
-    padding: 16px;
-  }
-
-  .membership-info-item > div {
-    flex-basis: 42px;
-    width: 42px;
-    height: 42px;
-  }
-
-  .membership-info-item h3 {
-    font-size: 15px;
-  }
-
-  .membership-info-item p {
-    font-size: 12px;
+  .membership-info {
+    padding: 23px;
   }
 
   .membership-form-card {
-    padding: 23px 18px;
-    border-radius: 16px;
+    padding: 25px;
+  }
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+========================================= */
+
+@media (max-width: 1000px) {
+  .membership-page .membership-container {
+    width: calc(100% - 48px);
   }
 
-  .membership-form-heading {
-    margin-bottom: 24px;
-    padding-bottom: 19px;
+  .membership-page .membership-layout {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 20px;
   }
 
-  .membership-form-heading h2 {
-    font-size: 23px;
+  .membership-info {
+    padding: 21px 17px;
+  }
+
+  .membership-form-card {
+    padding: 22px 18px;
   }
 
   .membership-form-row {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 13px;
   }
 
-  .membership-field {
-    margin-bottom: 19px;
-  }
-
-  .membership-input-wrap,
-  .membership-field > select,
-  .membership-field > input {
-    min-height: 50px;
-  }
-
-  .membership-consent {
-    font-size: 11px;
-  }
-
-  .membership-success h2 {
+  .membership-info > h2 {
     font-size: 23px;
   }
 
-  .membership-success p {
-    font-size: 13px;
+  .membership-hero-side {
+    flex-basis: 170px;
+  }
+}
+
+/* =========================================
+   SMALL TABLETS
+========================================= */
+
+@media (max-width: 760px) {
+  .membership-page .membership-layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .membership-info {
+    padding: 24px;
+  }
+
+  .membership-info-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .membership-info-item {
+    flex-direction: column;
+  }
+
+  .membership-form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shares-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
+
+@media (max-width: 560px) {
+  .membership-page .membership-container {
+    width: calc(100% - 32px);
+  }
+
+  .membership-hero {
+    padding: 25px 0;
+  }
+
+  .membership-hero-content {
+    display: block;
+  }
+
+  .membership-hero h1 {
+    font-size: 29px;
+    letter-spacing: -0.9px;
+  }
+
+  .membership-hero-copy > p {
+    font-size: 12px;
+  }
+
+  .membership-hero-side {
+    display: none;
+  }
+
+  .membership-content,
+  .membership-shares {
+    padding: 35px 0;
+  }
+
+  .membership-info {
+    padding: 21px 17px;
+  }
+
+  .membership-info > h2,
+  .shares-heading h2 {
+    font-size: 23px;
+  }
+
+  .membership-info-list {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .membership-info-item {
+    flex-direction: row;
+  }
+
+  .membership-form-card {
+    padding: 21px 16px;
+  }
+
+  .membership-form-heading h2 {
+    font-size: 20px;
+  }
+
+  .membership-form-row {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .shares-heading {
+    margin-bottom: 24px;
+  }
+
+  .shares-information,
+  .shares-calculator {
+    padding: 21px 16px;
+  }
+
+  .shares-item h3 {
+    font-size: 17px;
+  }
+
+  .calculator-summary {
+    gap: 8px;
+  }
+
+  .calculator-summary strong {
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
+
+  .membership-download {
+    padding: 32px 0;
+  }
+
+  .membership-page .membership-download-card {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px 16px;
+    gap: 18px;
+  }
+
+  .membership-download-content {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .download-icon {
+    width: 43px;
+    height: 43px;
+    flex-basis: 43px;
+  }
+
+  .download-text h2 {
+    font-size: 16px;
+  }
+
+  .membership-download-button {
+    width: 100%;
+  }
+
+  .membership-success {
+    min-height: 310px;
   }
 }
 
@@ -634,55 +1034,36 @@
 ========================================= */
 
 @media (max-width: 360px) {
-  .membership-container {
+  .membership-page .membership-container {
     width: calc(100% - 24px);
   }
 
   .membership-hero h1 {
-    font-size: 32px;
+    font-size: 26px;
   }
 
   .membership-form-card {
-    padding: 20px 14px;
+    padding: 18px 13px;
   }
 
-  .membership-info-item {
-    padding: 13px;
+  .membership-info {
+    padding: 18px 14px;
+  }
+
+  .calculator-result strong {
+    font-size: 29px;
   }
 }
 
 /* =========================================
-   REDUCED MOTION ACCESSIBILITY
+   ACCESSIBILITY
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .membership-page *,
   .membership-page *::before,
   .membership-page *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
+    transition: none !important;
   }
-}
-.membership-message {
-  margin: 15px 0;
-  padding: 12px 15px;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.membership-message.success {
-  background: #e8f6ef;
-  color: #176b43;
-}
-
-.membership-message.error {
-  background: #fff0f0;
-  color: #b42318;
-}
-
-.membership-button:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
 }

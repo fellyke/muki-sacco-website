@@ -102,13 +102,12 @@ Potential future improvements include:
 - Online loan applications.
 - M-Pesa payment integration.
 - Member self-service functionality.
-- Improved SEO and accessibility.
 
 ## Developer
 
 **Felix Wanjigi**
 
-GitHub: https://github.com/fellyke
+
 
 ## Project
 
