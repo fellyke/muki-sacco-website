@@ -1287,13 +1287,13 @@
 /* First image */
 
 .partner-image-one {
-  animation: slideFirst 8s infinite ease-in-out;
+  animation: slideFirst 10s infinite ease-in-out;
 }
 
 /* Second image */
 
 .partner-image-two {
-  animation: slideSecond 8s infinite ease-in-out;
+  animation: slideSecond 10s infinite ease-in-out;
 }
 
 /* Start when section enters viewport */
