@@ -453,3 +453,29 @@
     padding: 15px 4%;
   }
 }
+.muki-dropdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+
+.dropdown-item-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #263f4a;
+}
+
+.dropdown-description {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #657b84;
+}
+
+.muki-dropdown-item:hover .dropdown-item-name {
+  color: #2196c7;
+}

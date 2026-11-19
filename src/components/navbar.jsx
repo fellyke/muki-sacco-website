@@ -35,15 +35,43 @@ const Navbar = () => {
     { name: "App Self Registration", path: "/AppSelfRegistration" },
   ];
 
-  const digitalLinks = [
-    { name: "Mobile Banking", path: "/digital-banking#mobile-banking" },
-    { name: "ATM & Cards", path: "/digital-banking#atm-cards" },
-    { name: "*850# USSD Banking", path: "/digital-banking#ussd-banking" },
-    { name: "Paybill", path: "/digital-banking#paybill" },
-    { name: "Internet Banking", path: "/digital-banking#internet-banking" },
-    { name: "Fund Transfer (RTGS)", path: "/digital-banking#rtgs-fund-transfer" },
-  ];
-
+ const digitalLinks = [
+  {
+    name: "Mobile Banking",
+    description: "Access your MUKI account using your mobile phone.",
+    path: "/digital-banking#mobile-banking",
+  },
+  {
+    name: "ATM & Cards",
+    description: "Access your money through supported ATM services.",
+    path: "/digital-banking#atm-cards",
+  },
+  {
+    name: "*850# USSD Banking",
+    description: "Access banking services using a simple USSD code.",
+    path: "/digital-banking#ussd-banking",
+  },
+  {
+    name: "Paybill",
+    description: "Make payments to MUKI SACCO using Paybill 469988.",
+    path: "/digital-banking#paybill",
+  },
+  {
+    name: "Internet Banking",
+    description: "Manage your account and access online banking services.",
+    path: "/digital-banking#internet-banking",
+  },
+  {
+    name: "Fund Transfer (RTGS)",
+    description: "Learn about transferring funds through RTGS.",
+    path: "/digital-banking#rtgs-fund-transfer",
+  },
+  {
+  name: "Agency Banking",
+  description: "Learn about accessing supported services through authorised agents.",
+  path: "/digital-banking#agency-banking",
+},
+];
   return (
     <header className="muki-header">
       {/* TOP BAR */}
@@ -161,29 +189,40 @@ const Navbar = () => {
             </div>
 
             {/* DIGITAL BANKING DROPDOWN */}
-            <div className={`muki-nav-dropdown ${digitalOpen ? "dropdown-open" : ""}`}>
-              <button
-                type="button"
-                className="muki-nav-link muki-dropdown-trigger"
-                aria-expanded={digitalOpen}
-                onClick={() => {
-                  setDigitalOpen(!digitalOpen);
-                  setLoansOpen(false);
-                  setMembershipOpen(false);
-                }}
-              >
-                Digital Banking
-                <ChevronDown size={15} />
-              </button>
+<div className={`muki-nav-dropdown ${digitalOpen ? "dropdown-open" : ""}`}>
+  <button
+    type="button"
+    className="muki-nav-link muki-dropdown-trigger"
+    aria-expanded={digitalOpen}
+    onClick={() => {
+      setDigitalOpen(!digitalOpen);
+      setLoansOpen(false);
+      setMembershipOpen(false);
+    }}
+  >
+    Digital Banking
+    <ChevronDown size={15} />
+  </button>
 
-              <div className="muki-dropdown-menu">
-                {digitalLinks.map((item) => (
-                  <Link key={item.name} to={item.path} onClick={closeMenu}>
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
+  <div className="muki-dropdown-menu">
+    {digitalLinks.map((item) => (
+      <Link
+        key={item.name}
+        to={item.path}
+        onClick={closeMenu}
+        className="muki-dropdown-item"
+      >
+        <span className="dropdown-item-name">{item.name}</span>
+
+        {item.description && (
+          <small className="dropdown-description">
+            {item.description}
+          </small>
+        )}
+      </Link>
+    ))}
+  </div>
+</div>
 
             {/* REMAINING NAVIGATION ITEMS */}
             {navItems.slice(3).map((item) => (
