@@ -440,11 +440,7 @@ export default function Insurance() {
               ]}
             />
 
-            <p className="insurance-small-note">
-              Covered events, exclusions and claim conditions depend on
-              the actual policy. Confirm the terms with the agency.
-            </p>
-
+         
             <a
               href="#insurance-contact"
               className="insurance-btn-primary"
