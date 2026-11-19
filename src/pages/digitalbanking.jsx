@@ -8,6 +8,7 @@ import {
   Wallet,
   ShieldCheck,
   Copy,
+  Store,
   CheckCircle2,
   Globe,
   ArrowLeftRight,
@@ -149,6 +150,23 @@ const services = [
   ],
 
   icon: ArrowLeftRight,
+},
+{
+  number: "08",
+  title: "MUKI Agency Banking",
+  category: "Agency Banking",
+  subtitle: "SACCO services closer to you",
+  image: "/images/agency-banking.jpg",
+  description:
+    "Agency Banking brings supported MUKI SACCO services closer to members through authorised agents, making access to financial services more convenient.",
+  features: [
+    "Find out where authorised MUKI agents are located",
+    "Ask about supported cash deposit and withdrawal services",
+    "Enquire about available account and payment services",
+    "Confirm transaction charges and limits before transacting",
+    "Always request and keep your transaction receipt",
+  ],
+  icon: Store,
 },
 ];
 
