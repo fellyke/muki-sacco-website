@@ -15,11 +15,13 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loansOpen, setLoansOpen] = useState(false);
   const [digitalOpen, setDigitalOpen] = useState(false);
+  const [membershipOpen, setMembershipOpen] = useState(false);
 
   const closeMenu = () => {
     setMenuOpen(false);
     setLoansOpen(false);
     setDigitalOpen(false);
+    setMembershipOpen(false);
   };
 
   const navItems = [
@@ -27,7 +29,6 @@ const Navbar = () => {
     { name: "About Us", path: "/about" },
     { name: "Our Team", path: "/team" },
     { name: "Savings", path: "/savings" },
-    { name: "Membership", path: "/membership" },
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
     { name: "Insurance", path: "/insurance" },
@@ -38,31 +39,31 @@ const Navbar = () => {
   ];
 
   const digitalLinks = [
-  {
-    name: "Mobile Banking",
-    path: "/digital-banking#mobile-banking",
-  },
-  {
-    name: "ATM & Cards",
-    path: "/digital-banking#atm-cards",
-  },
-  {
-    name: "*850# USSD Banking",
-    path: "/digital-banking#ussd-banking",
-  },
-  {
-    name: "Paybill",
-    path: "/digital-banking#paybill",
-  },
-  {
-    name: "Internet Banking",
-    path: "/digital-banking#internet-banking",
-  },
-  {
-    name: "Fund Transfer (RTGS)",
-    path: "/digital-banking#rtgs-fund-transfer",
-  },
-];
+    {
+      name: "Mobile Banking",
+      path: "/digital-banking#mobile-banking",
+    },
+    {
+      name: "ATM & Cards",
+      path: "/digital-banking#atm-cards",
+    },
+    {
+      name: "*850# USSD Banking",
+      path: "/digital-banking#ussd-banking",
+    },
+    {
+      name: "Paybill",
+      path: "/digital-banking#paybill",
+    },
+    {
+      name: "Internet Banking",
+      path: "/digital-banking#internet-banking",
+    },
+    {
+      name: "Fund Transfer (RTGS)",
+      path: "/digital-banking#rtgs-fund-transfer",
+    },
+  ];
 
   return (
     <header className="muki-header">
@@ -166,6 +167,7 @@ const Navbar = () => {
                 onClick={() => {
                   setLoansOpen(!loansOpen);
                   setDigitalOpen(false);
+                  setMembershipOpen(false);
                 }}
               >
                 Loans
@@ -191,6 +193,41 @@ const Navbar = () => {
               </div>
             </div>
 
+            {/* MEMBERSHIP DROPDOWN */}
+
+            <div
+              className={`muki-nav-dropdown ${
+                membershipOpen ? "dropdown-open" : ""
+              }`}
+            >
+              <button
+                type="button"
+                className="muki-nav-link muki-dropdown-trigger"
+                aria-expanded={membershipOpen}
+                onClick={() => {
+                  setMembershipOpen(!membershipOpen);
+                  setLoansOpen(false);
+                  setDigitalOpen(false);
+                }}
+              >
+                Membership
+                <ChevronDown size={15} />
+              </button>
+
+              <div className="muki-dropdown-menu">
+                <Link to="/membership" onClick={closeMenu}>
+                  Membership Information
+                </Link>
+
+                <Link
+                  to="/membership#membership-form"
+                  onClick={closeMenu}
+                >
+                  Membership Application Form
+                </Link>
+              </div>
+            </div>
+
             {/* DIGITAL BANKING DROPDOWN */}
 
             <div
@@ -205,6 +242,7 @@ const Navbar = () => {
                 onClick={() => {
                   setDigitalOpen(!digitalOpen);
                   setLoansOpen(false);
+                  setMembershipOpen(false);
                 }}
               >
                 Digital Banking
