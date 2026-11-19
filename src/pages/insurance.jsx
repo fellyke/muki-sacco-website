@@ -318,10 +318,7 @@ export default function Insurance() {
 
           <ProductGrid products={generalProducts} />
 
-          <p className="insurance-disclaimer">
-            Product availability, eligibility, premiums and policy
-            conditions should be confirmed with the insurance agency.
-          </p>
+        
 
         </div>
       </section>
