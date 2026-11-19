@@ -32,48 +32,16 @@ const Navbar = () => {
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
     { name: "Insurance", path: "/insurance" },
-    {
-      name: "App Self Registration",
-      path: "/AppSelfRegistration",
-    },
+    { name: "App Self Registration", path: "/AppSelfRegistration" },
   ];
 
   const digitalLinks = [
-    {
-      name: "Mobile Banking",
-      path: "/digital-banking#mobile-banking",
-    },
-    {
-      name: "ATM & Cards",
-      path: "/digital-banking#atm-cards",
-    },
-    {
-      name: "*850# USSD Banking",
-      path: "/digital-banking#ussd-banking",
-    },
-    {
-      name: "Paybill",
-      path: "/digital-banking#paybill",
-    },
-    {
-      name: "Internet Banking",
-      path: "/digital-banking#internet-banking",
-    },
-    {
-      name: "Fund Transfer (RTGS)",
-      path: "/digital-banking#rtgs-fund-transfer",
-    },
-  ];
-
-  const membershipLinks = [
-    {
-      name: "Membership Information",
-      path: "/membership",
-    },
-    {
-      name: "Membership Application Form",
-      path: "/forms/muki-membership-form.pdf",
-    },
+    { name: "Mobile Banking", path: "/digital-banking#mobile-banking" },
+    { name: "ATM & Cards", path: "/digital-banking#atm-cards" },
+    { name: "*850# USSD Banking", path: "/digital-banking#ussd-banking" },
+    { name: "Paybill", path: "/digital-banking#paybill" },
+    { name: "Internet Banking", path: "/digital-banking#internet-banking" },
+    { name: "Fund Transfer (RTGS)", path: "/digital-banking#rtgs-fund-transfer" },
   ];
 
   return (
@@ -102,11 +70,7 @@ const Navbar = () => {
       {/* MAIN NAVBAR */}
       <div className="muki-navbar">
         <div className="muki-container muki-navbar-inner">
-          <Link
-            to="/"
-            className="muki-brand"
-            onClick={closeMenu}
-          >
+          <Link to="/" className="muki-brand" onClick={closeMenu}>
             <img
               src="/logo.png"
               alt="MUKI SACCO Society"
@@ -118,22 +82,14 @@ const Navbar = () => {
           <button
             type="button"
             className="muki-menu-toggle"
-            aria-label={
-              menuOpen
-                ? "Close navigation menu"
-                : "Open navigation menu"
-            }
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <X size={25} /> : <Menu size={25} />}
           </button>
 
-          <nav
-            className={`muki-nav-links ${
-              menuOpen ? "is-open" : ""
-            }`}
-          >
+          <nav className={`muki-nav-links ${menuOpen ? "is-open" : ""}`}>
             {/* FIRST NAVIGATION ITEMS */}
             {navItems.slice(0, 3).map((item) => (
               <NavLink
@@ -150,11 +106,7 @@ const Navbar = () => {
             ))}
 
             {/* LOANS DROPDOWN */}
-            <div
-              className={`muki-nav-dropdown ${
-                loansOpen ? "dropdown-open" : ""
-              }`}
-            >
+            <div className={`muki-nav-dropdown ${loansOpen ? "dropdown-open" : ""}`}>
               <button
                 type="button"
                 className="muki-nav-link muki-dropdown-trigger"
@@ -170,27 +122,15 @@ const Navbar = () => {
               </button>
 
               <div className="muki-dropdown-menu">
-                <Link to="/loans" onClick={closeMenu}>
-                  All Loan Products
-                </Link>
-                <Link to="/loans" onClick={closeMenu}>
-                  School Fees Loan
-                </Link>
-                <Link to="/loans" onClick={closeMenu}>
-                  Business Loans
-                </Link>
-                <Link to="/loans" onClick={closeMenu}>
-                  Asset Financing
-                </Link>
+                <Link to="/loans" onClick={closeMenu}>All Loan Products</Link>
+                <Link to="/loans" onClick={closeMenu}>School Fees Loan</Link>
+                <Link to="/loans" onClick={closeMenu}>Business Loans</Link>
+                <Link to="/loans" onClick={closeMenu}>Asset Financing</Link>
               </div>
             </div>
 
             {/* MEMBERSHIP DROPDOWN */}
-            <div
-              className={`muki-nav-dropdown ${
-                membershipOpen ? "dropdown-open" : ""
-              }`}
-            >
+            <div className={`muki-nav-dropdown ${membershipOpen ? "dropdown-open" : ""}`}>
               <button
                 type="button"
                 className="muki-nav-link muki-dropdown-trigger"
@@ -206,24 +146,22 @@ const Navbar = () => {
               </button>
 
               <div className="muki-dropdown-menu">
-                {membershipLinks.map((item) => (
-                  <Link
-                    key={item.path}
-                    to={item.path}
-                    onClick={closeMenu}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                <Link to="/membership" onClick={closeMenu}>
+                  Membership Information
+                </Link>
+
+                <a
+                  href="/forms/muki-membership-form.pdf"
+                  download="MUKI-SACCO-Membership-Form.pdf"
+                  onClick={closeMenu}
+                >
+                  Membership Application Form
+                </a>
               </div>
             </div>
 
             {/* DIGITAL BANKING DROPDOWN */}
-            <div
-              className={`muki-nav-dropdown ${
-                digitalOpen ? "dropdown-open" : ""
-              }`}
-            >
+            <div className={`muki-nav-dropdown ${digitalOpen ? "dropdown-open" : ""}`}>
               <button
                 type="button"
                 className="muki-nav-link muki-dropdown-trigger"
@@ -240,11 +178,7 @@ const Navbar = () => {
 
               <div className="muki-dropdown-menu">
                 {digitalLinks.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.path}
-                    onClick={closeMenu}
-                  >
+                  <Link key={item.name} to={item.path} onClick={closeMenu}>
                     {item.name}
                   </Link>
                 ))}
