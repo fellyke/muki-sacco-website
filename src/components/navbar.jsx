@@ -72,7 +72,7 @@ const Navbar = () => {
     },
     {
       name: "Membership Application Form",
-      path: "/membership#membership-form",
+      path: "/forms/muki-membership-form.pdf",
     },
   ];
 
