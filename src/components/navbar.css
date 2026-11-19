@@ -1,10 +1,7 @@
-.muki-brand-logo {
-  display: block;
-  width: 180px;
-  height: 65px;
-  object-fit: contain;
-  object-position: left center;
-}
+
+/* =========================================
+   MUKI SACCO NAVBAR
+========================================= */
 
 .muki-header {
   position: sticky;
@@ -18,6 +15,64 @@
   width: min(1240px, 92%);
   margin: 0 auto;
 }
+
+/* =========================================
+   LOGO
+========================================= */
+
+.muki-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+  color: #2196c7;
+  text-decoration: none;
+}
+
+.muki-brand-logo {
+  display: block;
+  width: 180px;
+  height: 65px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.muki-brand-symbol {
+  display: grid;
+  width: 47px;
+  height: 47px;
+  place-items: center;
+  border-radius: 12px 12px 12px 3px;
+  background: #60b4ac;
+  color: #ffffff;
+  font-size: 27px;
+  font-weight: 800;
+  box-shadow: 0 5px 14px rgba(96, 180, 172, 0.22);
+}
+
+.muki-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.muki-brand-text strong {
+  font-size: 23px;
+  letter-spacing: 1.3px;
+  font-weight: 800;
+}
+
+.muki-brand-text small {
+  margin-top: 5px;
+  color: #667a82;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+}
+
+/* =========================================
+   TOP BAR
+========================================= */
 
 .muki-topbar {
   color: #ffffff;
@@ -54,6 +109,10 @@
   letter-spacing: 0.4px;
 }
 
+/* =========================================
+   MAIN NAVBAR
+========================================= */
+
 .muki-navbar {
   background: #ffffff;
 }
@@ -64,48 +123,6 @@
   justify-content: space-between;
   gap: 24px;
   min-height: 82px;
-}
-
-.muki-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  flex-shrink: 0;
-  color: #2196c7;
-  text-decoration: none;
-}
-
-.muki-brand-symbol {
-  display: grid;
-  width: 47px;
-  height: 47px;
-  place-items: center;
-  border-radius: 12px 12px 12px 3px;
-  background: #60b4ac;
-  color: #ffffff;
-  font-size: 27px;
-  font-weight: 800;
-  box-shadow: 0 5px 14px rgba(96, 180, 172, 0.22);
-}
-
-.muki-brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.muki-brand-text strong {
-  font-size: 23px;
-  letter-spacing: 1.3px;
-  font-weight: 800;
-}
-
-.muki-brand-text small {
-  margin-top: 5px;
-  color: #667a82;
-  font-size: 9px;
-  letter-spacing: 1.8px;
-  font-weight: 700;
 }
 
 .muki-nav-links {
@@ -156,33 +173,61 @@
   transform: scaleX(1);
 }
 
+/* =========================================
+   DROPDOWNS
+========================================= */
+
 .muki-nav-dropdown {
   position: relative;
+}
+
+.muki-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: inherit;
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
 .muki-dropdown-trigger::after {
   display: none;
 }
 
+.muki-dropdown-trigger svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.muki-nav-dropdown.dropdown-open
+.muki-dropdown-trigger svg {
+  transform: rotate(180deg);
+}
+
 .muki-dropdown-menu {
   position: absolute;
-  top: calc(100% + 10px);
-  left: -15px;
+  top: calc(100% + 8px);
+  left: 0;
   display: none;
-  min-width: 205px;
+  min-width: 215px;
   padding: 8px;
   border: 1px solid #e4efef;
-  border-radius: 12px;
+  border-radius: 10px;
   background: #ffffff;
-  box-shadow: 0 15px 35px rgba(20, 65, 80, 0.13);
+  box-shadow: 0 12px 30px rgba(20, 65, 80, 0.13);
+  z-index: 1100;
+  animation: muki-menu-appear 0.2s ease;
 }
 
 .muki-dropdown-menu a {
   display: block;
+  width: 100%;
   padding: 11px 12px;
   border-radius: 7px;
-  color: #354d57;
+  color: #263f4a;
   font-size: 13px;
+  font-weight: 500;
   text-decoration: none;
   transition: background 0.2s ease, color 0.2s ease;
 }
@@ -192,12 +237,19 @@
   color: #2196c7;
 }
 
-.muki-nav-dropdown:hover .muki-dropdown-menu,
-.muki-nav-dropdown:focus-within .muki-dropdown-menu,
-.muki-nav-dropdown.dropdown-open .muki-dropdown-menu {
-  display: block;
-  animation: muki-menu-appear 0.2s ease both;
+/* Desktop dropdown interaction */
+
+@media (min-width: 1101px) {
+  .muki-nav-dropdown:hover .muki-dropdown-menu,
+  .muki-nav-dropdown:focus-within .muki-dropdown-menu,
+  .muki-nav-dropdown.dropdown-open .muki-dropdown-menu {
+    display: block;
+  }
 }
+
+/* =========================================
+   MEMBER LOGIN
+========================================= */
 
 .muki-login-button {
   display: inline-flex;
@@ -220,6 +272,10 @@
   transform: translateY(-2px);
 }
 
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
 .muki-menu-toggle {
   display: none;
   width: 43px;
@@ -233,16 +289,25 @@
   cursor: pointer;
 }
 
+/* =========================================
+   ANIMATIONS
+========================================= */
+
 @keyframes muki-menu-appear {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(7px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+/* =========================================
+   TABLET AND MOBILE NAVIGATION
+========================================= */
 
 @media (max-width: 1100px) {
   .muki-menu-toggle {
@@ -272,38 +337,72 @@
 
   .muki-nav-links.is-open {
     display: flex;
-    animation: muki-menu-appear 0.2s ease both;
+    animation: muki-menu-appear 0.2s ease;
   }
 
   .muki-nav-link {
+    display: flex;
     width: 100%;
+    align-items: center;
+    justify-content: space-between;
     padding: 12px 0;
+    white-space: normal;
   }
 
   .muki-nav-link::after {
     display: none;
   }
 
+  /* Mobile dropdown container */
+
   .muki-nav-dropdown {
     width: 100%;
+    position: relative;
   }
 
   .muki-dropdown-trigger {
+    width: 100%;
+    display: flex;
     justify-content: space-between;
+    text-align: left;
   }
+
+  /* Hide dropdowns until tapped */
 
   .muki-dropdown-menu {
     position: static;
     display: none;
     width: 100%;
-    padding: 5px 8px;
-    border: 0;
+    min-width: 0;
+    padding: 5px 0 5px 15px;
+    border: none;
+    border-radius: 0;
+    background: #f5fafa;
     box-shadow: none;
-    background: #f5fbfa;
+    animation: none;
   }
 
+  /* Show selected dropdown */
+
   .muki-nav-dropdown.dropdown-open .muki-dropdown-menu {
-    display: block;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .muki-dropdown-menu a {
+    width: 100%;
+    padding: 12px 14px;
+    white-space: normal;
+  }
+
+  /* Disable desktop hover opening on mobile */
+
+  .muki-nav-dropdown:hover .muki-dropdown-menu {
+    display: none;
+  }
+
+  .muki-nav-dropdown.dropdown-open:hover .muki-dropdown-menu {
+    display: flex;
   }
 
   .muki-login-button {
@@ -311,6 +410,10 @@
     margin-top: 8px;
   }
 }
+
+/* =========================================
+   SMALL PHONES
+========================================= */
 
 @media (max-width: 560px) {
   .muki-topbar-inner {
@@ -327,6 +430,11 @@
     display: none;
   }
 
+  .muki-brand-logo {
+    width: 155px;
+    height: 58px;
+  }
+
   .muki-brand-symbol {
     width: 41px;
     height: 41px;
@@ -340,109 +448,8 @@
   .muki-navbar-inner {
     gap: 12px;
   }
-}
 
-/* DIGITAL BANKING DROPDOWN */
-
-.muki-nav-dropdown {
-  position: relative;
-}
-
-.muki-dropdown-trigger {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-family: inherit;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-}
-
-.muki-dropdown-trigger svg {
-  transition: transform 0.3s ease;
-}
-
-.muki-nav-dropdown.dropdown-open
-.muki-dropdown-trigger svg {
-  transform: rotate(180deg);
-}
-
-.muki-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 205px;
-  background: #ffffff;
-  border-radius: 10px;
-  padding: 9px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  border: 1px solid #edf1f1;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: all 0.25s ease;
-  z-index: 1000;
-}
-
-.muki-nav-dropdown:hover .muki-dropdown-menu,
-.muki-nav-dropdown.dropdown-open .muki-dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.muki-dropdown-menu a {
-  display: block;
-  padding: 12px 14px;
-  color: #263F4A;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: 500;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-.muki-dropdown-menu a:hover {
-  background: #f0f8f7;
-  color: #2196C7;
-  padding-left: 19px;
-}
-
-/* MOBILE DROPDOWN */
-
-@media (max-width: 992px) {
-  .muki-nav-dropdown {
-    width: 100%;
-  }
-
-  .muki-dropdown-trigger {
-    width: 100%;
-    justify-content: space-between;
-    text-align: left;
-  }
-
-  .muki-dropdown-menu {
-    position: static;
-    width: 100%;
-    min-width: unset;
-    display: none;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-    padding: 5px 0 5px 15px;
-    background: #f7fbfa;
-  }
-
-  .muki-nav-dropdown.dropdown-open .muki-dropdown-menu {
-    display: block;
-  }
-
-  .muki-nav-dropdown:hover .muki-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
+  .muki-nav-links {
+    padding: 15px 4%;
   }
 }
