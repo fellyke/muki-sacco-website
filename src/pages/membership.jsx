@@ -142,7 +142,7 @@ export default function Membership() {
               Send us an enquiry and our team will guide you.
             </p>
 
-            <a href="#membership-application" className="membership-hero-button">
+            <a href="#membership-form" className="membership-hero-button">
               Apply for membership
               <ArrowRight size={17} />
             </a>
@@ -158,8 +158,8 @@ export default function Membership() {
         </div>
       </section>
 
-      {/* APPLICATION */}
-      <section className="membership-content" id="membership-application">
+      {/* APPLICATION FORM */}
+      <section className="membership-content" id="membership-form">
         <div className="membership-container membership-layout">
 
           <aside className="membership-info">

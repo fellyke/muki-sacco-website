@@ -65,14 +65,22 @@ const Navbar = () => {
     },
   ];
 
+  const membershipLinks = [
+    {
+      name: "Membership Information",
+      path: "/membership",
+    },
+    {
+      name: "Membership Application Form",
+      path: "/membership#membership-form",
+    },
+  ];
+
   return (
     <header className="muki-header">
-
       {/* TOP BAR */}
-
       <div className="muki-topbar">
         <div className="muki-container muki-topbar-inner">
-
           <div className="muki-topbar-contact">
             <a href="tel:0711794957">
               <Phone size={14} />
@@ -88,15 +96,12 @@ const Navbar = () => {
           <span className="muki-topbar-message">
             Pamoja Twajenga
           </span>
-
         </div>
       </div>
 
       {/* MAIN NAVBAR */}
-
       <div className="muki-navbar">
         <div className="muki-container muki-navbar-inner">
-
           <Link
             to="/"
             className="muki-brand"
@@ -110,7 +115,6 @@ const Navbar = () => {
           </Link>
 
           {/* MOBILE MENU BUTTON */}
-
           <button
             type="button"
             className="muki-menu-toggle"
@@ -122,11 +126,7 @@ const Navbar = () => {
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuOpen ? (
-              <X size={25} />
-            ) : (
-              <Menu size={25} />
-            )}
+            {menuOpen ? <X size={25} /> : <Menu size={25} />}
           </button>
 
           <nav
@@ -134,9 +134,7 @@ const Navbar = () => {
               menuOpen ? "is-open" : ""
             }`}
           >
-
             {/* FIRST NAVIGATION ITEMS */}
-
             {navItems.slice(0, 3).map((item) => (
               <NavLink
                 key={item.path}
@@ -144,9 +142,7 @@ const Navbar = () => {
                 end={item.path === "/"}
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  `muki-nav-link ${
-                    isActive ? "active" : ""
-                  }`
+                  `muki-nav-link ${isActive ? "active" : ""}`
                 }
               >
                 {item.name}
@@ -154,7 +150,6 @@ const Navbar = () => {
             ))}
 
             {/* LOANS DROPDOWN */}
-
             <div
               className={`muki-nav-dropdown ${
                 loansOpen ? "dropdown-open" : ""
@@ -178,15 +173,12 @@ const Navbar = () => {
                 <Link to="/loans" onClick={closeMenu}>
                   All Loan Products
                 </Link>
-
                 <Link to="/loans" onClick={closeMenu}>
                   School Fees Loan
                 </Link>
-
                 <Link to="/loans" onClick={closeMenu}>
                   Business Loans
                 </Link>
-
                 <Link to="/loans" onClick={closeMenu}>
                   Asset Financing
                 </Link>
@@ -194,7 +186,6 @@ const Navbar = () => {
             </div>
 
             {/* MEMBERSHIP DROPDOWN */}
-
             <div
               className={`muki-nav-dropdown ${
                 membershipOpen ? "dropdown-open" : ""
@@ -215,21 +206,19 @@ const Navbar = () => {
               </button>
 
               <div className="muki-dropdown-menu">
-                <Link to="/membership" onClick={closeMenu}>
-                  Membership Information
-                </Link>
-
-                <Link
-                  to="/membership#membership-form"
-                  onClick={closeMenu}
-                >
-                  Membership Application Form
-                </Link>
+                {membershipLinks.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={closeMenu}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             </div>
 
             {/* DIGITAL BANKING DROPDOWN */}
-
             <div
               className={`muki-nav-dropdown ${
                 digitalOpen ? "dropdown-open" : ""
@@ -263,16 +252,13 @@ const Navbar = () => {
             </div>
 
             {/* REMAINING NAVIGATION ITEMS */}
-
             {navItems.slice(3).map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  `muki-nav-link ${
-                    isActive ? "active" : ""
-                  }`
+                  `muki-nav-link ${isActive ? "active" : ""}`
                 }
               >
                 {item.name}
@@ -280,7 +266,6 @@ const Navbar = () => {
             ))}
 
             {/* MEMBER LOGIN */}
-
             <a
               className="muki-login-button"
               href="#"
@@ -290,7 +275,6 @@ const Navbar = () => {
               Member Login
               <ExternalLink size={14} />
             </a>
-
           </nav>
         </div>
       </div>
