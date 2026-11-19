@@ -4,7 +4,7 @@
 
 The MUKI SACCO Website is a responsive web application built to improve the SACCO's online presence and provide members and visitors with easy access to information about its financial products, services, membership, and digital banking solutions.
 
-🌐 **Live Website:** https://muki-sacco-website-rkvd.vercel.app/
+🌐 **Live Website:** 
 
 ## Features
 
