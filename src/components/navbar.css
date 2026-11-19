@@ -7,6 +7,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
   background: #ffffff;
   box-shadow: 0 4px 20px rgba(20, 65, 80, 0.08);
 }
@@ -102,6 +103,11 @@
   gap: 7px;
   color: #ffffff;
   text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.muki-topbar-contact a:hover {
+  opacity: 0.8;
 }
 
 .muki-topbar-message {
@@ -174,7 +180,7 @@
 }
 
 /* =========================================
-   DROPDOWNS
+   DROPDOWN STRUCTURE
 ========================================= */
 
 .muki-nav-dropdown {
@@ -205,25 +211,30 @@
   transform: rotate(180deg);
 }
 
+/* =========================================
+   GENERAL DROPDOWN MENU
+========================================= */
+
 .muki-dropdown-menu {
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
   display: none;
-  min-width: 215px;
+  min-width: 225px;
   padding: 8px;
   border: 1px solid #e4efef;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #ffffff;
-  box-shadow: 0 12px 30px rgba(20, 65, 80, 0.13);
+  box-shadow: 0 15px 35px rgba(20, 65, 80, 0.14);
   z-index: 1100;
   animation: muki-menu-appear 0.2s ease;
 }
 
-.muki-dropdown-menu a {
+/* Standard dropdown links */
+
+.muki-dropdown-menu > a:not(.muki-dropdown-item) {
   display: block;
-  width: 100%;
-  padding: 11px 12px;
+  padding: 11px 13px;
   border-radius: 7px;
   color: #263f4a;
   font-size: 13px;
@@ -232,12 +243,111 @@
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-.muki-dropdown-menu a:hover {
+.muki-dropdown-menu > a:not(.muki-dropdown-item):hover {
   background: #edf8f7;
   color: #2196c7;
 }
 
-/* Desktop dropdown interaction */
+/* =========================================
+   ICON DROPDOWN MENUS
+   LOANS, MEMBERSHIP & DIGITAL BANKING
+========================================= */
+
+.muki-dropdown-menu:has(.muki-dropdown-item) {
+  width: 335px;
+  min-width: 335px;
+  padding: 10px;
+}
+
+/* Dropdown item */
+
+.muki-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 11px 10px;
+  border-radius: 9px;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* Icon container */
+
+.dropdown-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 39px;
+  min-width: 39px;
+  border-radius: 10px;
+  background: #edf8f7;
+  color: #2196c7;
+  transition: all 0.25s ease;
+}
+
+/* Dropdown text wrapper */
+
+.dropdown-item-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+/* Dropdown title */
+
+.dropdown-item-name {
+  color: #263f4a;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+/* Dropdown description */
+
+.dropdown-description {
+  display: block;
+  color: #657b84;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* Dropdown hover effects */
+
+.muki-dropdown-item:hover {
+  background: #f2f9f8;
+  transform: translateX(3px);
+}
+
+.muki-dropdown-item:hover .dropdown-icon {
+  background: #60b4ac;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(96, 180, 172, 0.2);
+}
+
+.muki-dropdown-item:hover .dropdown-item-name {
+  color: #2196c7;
+}
+
+/* Keyboard accessibility */
+
+.muki-dropdown-item:focus-visible,
+.muki-dropdown-trigger:focus-visible {
+  outline: 2px solid #2196c7;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   DESKTOP DROPDOWN INTERACTION
+========================================= */
 
 @media (min-width: 1101px) {
   .muki-nav-dropdown:hover .muki-dropdown-menu,
@@ -248,7 +358,7 @@
 }
 
 /* =========================================
-   MEMBER LOGIN
+   MEMBER LOGIN BUTTON
 ========================================= */
 
 .muki-login-button {
@@ -264,7 +374,9 @@
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-  transition: background 0.25s ease, transform 0.25s ease;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
 .muki-login-button:hover {
@@ -287,6 +399,12 @@
   background: #ffffff;
   color: #2196c7;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.muki-menu-toggle:hover {
+  background: #edf8f7;
+  border-color: #60b4ac;
 }
 
 /* =========================================
@@ -310,6 +428,7 @@
 ========================================= */
 
 @media (max-width: 1100px) {
+
   .muki-menu-toggle {
     display: inline-flex;
   }
@@ -353,28 +472,26 @@
     display: none;
   }
 
-  /* Mobile dropdown container */
-
   .muki-nav-dropdown {
-    width: 100%;
     position: relative;
+    width: 100%;
   }
 
   .muki-dropdown-trigger {
-    width: 100%;
     display: flex;
+    width: 100%;
     justify-content: space-between;
     text-align: left;
   }
 
-  /* Hide dropdowns until tapped */
+  /* Mobile dropdown container */
 
   .muki-dropdown-menu {
     position: static;
     display: none;
     width: 100%;
     min-width: 0;
-    padding: 5px 0 5px 15px;
+    padding: 5px 0 5px 12px;
     border: none;
     border-radius: 0;
     background: #f5fafa;
@@ -382,20 +499,38 @@
     animation: none;
   }
 
-  /* Show selected dropdown */
+  .muki-dropdown-menu:has(.muki-dropdown-item) {
+    width: 100%;
+    min-width: 0;
+    padding: 8px;
+    border-radius: 10px;
+    background: #f5fafa;
+  }
+
+  /* Show dropdown only when opened */
 
   .muki-nav-dropdown.dropdown-open .muki-dropdown-menu {
     display: flex;
     flex-direction: column;
   }
 
-  .muki-dropdown-menu a {
+  .muki-dropdown-menu > a:not(.muki-dropdown-item) {
     width: 100%;
     padding: 12px 14px;
     white-space: normal;
   }
 
-  /* Disable desktop hover opening on mobile */
+  /* Mobile icon dropdown items */
+
+  .muki-dropdown-item {
+    padding: 10px 8px;
+  }
+
+  .muki-dropdown-item:hover {
+    transform: none;
+  }
+
+  /* Prevent hover from opening closed menus on mobile */
 
   .muki-nav-dropdown:hover .muki-dropdown-menu {
     display: none;
@@ -416,6 +551,11 @@
 ========================================= */
 
 @media (max-width: 560px) {
+
+  .muki-container {
+    width: 92%;
+  }
+
   .muki-topbar-inner {
     justify-content: center;
     padding: 8px 0;
@@ -452,30 +592,32 @@
   .muki-nav-links {
     padding: 15px 4%;
   }
-}
-.muki-dropdown-item {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 3px;
-  padding: 10px 15px;
-  text-decoration: none;
+
+  .dropdown-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  .dropdown-item-name {
+    font-size: 12px;
+  }
+
+  .dropdown-description {
+    font-size: 10px;
+  }
 }
 
-.dropdown-item-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: #263f4a;
-}
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
-.dropdown-description {
-  display: block;
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 1.4;
-  color: #657b84;
-}
-
-.muki-dropdown-item:hover .dropdown-item-name {
-  color: #2196c7;
+@media (prefers-reduced-motion: reduce) {
+  .muki-header *,
+  .muki-header *::before,
+  .muki-header *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

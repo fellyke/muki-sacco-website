@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+
 import {
   Menu,
   X,
@@ -14,7 +15,14 @@ import {
   Globe,
   ArrowLeftRight,
   Building2,
+  GraduationCap,
+  BriefcaseBusiness,
+  CarFront,
+  FileText,
+  Users,
+  UserPlus,
 } from "lucide-react";
+
 import "./navbar.css";
 
 const Navbar = () => {
@@ -23,6 +31,7 @@ const Navbar = () => {
   const [digitalOpen, setDigitalOpen] = useState(false);
   const [membershipOpen, setMembershipOpen] = useState(false);
 
+  // CLOSE ALL MENUS
   const closeMenu = () => {
     setMenuOpen(false);
     setLoansOpen(false);
@@ -30,6 +39,7 @@ const Navbar = () => {
     setMembershipOpen(false);
   };
 
+  // MAIN NAVIGATION
   const navItems = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
@@ -41,7 +51,58 @@ const Navbar = () => {
     { name: "App Self Registration", path: "/AppSelfRegistration" },
   ];
 
-  // DIGITAL BANKING LINKS
+  // LOANS DROPDOWN LINKS
+  const loanLinks = [
+    {
+      name: "All Loan Products",
+      description: "Explore MUKI SACCO loan solutions.",
+      icon: Wallet,
+      path: "/loans",
+    },
+    {
+      name: "School Fees Loan",
+      description: "Financial support for education needs.",
+      icon: GraduationCap,
+      path: "/loans",
+    },
+    {
+      name: "Business Loans",
+      description: "Explore financing for business activities.",
+      icon: BriefcaseBusiness,
+      path: "/loans",
+    },
+    {
+      name: "Asset Financing",
+      description: "Explore financing for asset acquisition.",
+      icon: CarFront,
+      path: "/loans",
+    },
+  ];
+
+  // MEMBERSHIP DROPDOWN LINKS
+  const membershipLinks = [
+    {
+      name: "Membership Information",
+      description: "Learn about joining MUKI SACCO.",
+      icon: Users,
+      path: "/membership",
+    },
+    {
+      name: "Membership Application Form",
+      description: "Download the membership application form.",
+      icon: FileText,
+      path: "/forms/muki-membership-form.pdf",
+      download: true,
+    },
+    {
+      name: "App Self Registration",
+      description: "Learn how to register using the MUKI mobile app.",
+      icon: UserPlus,
+      path: "/AppSelfRegistration",
+    },
+  ];
+
+  // DIGITAL BANKING DROPDOWN LINKS
   const digitalLinks = [
     {
       name: "Mobile Banking",
@@ -69,7 +130,7 @@ const Navbar = () => {
     },
     {
       name: "Internet Banking",
-      description: "Manage your account and access online banking services.",
+      description: "Manage your account through online banking.",
       icon: Globe,
       path: "/digital-banking#internet-banking",
     },
@@ -87,11 +148,62 @@ const Navbar = () => {
     },
   ];
 
+  // REUSABLE DROPDOWN ITEM
+  const renderDropdownItems = (items) =>
+    items.map((item) => {
+      const Icon = item.icon;
+
+      const content = (
+        <>
+          <span className="dropdown-icon">
+            <Icon size={19} strokeWidth={1.9} />
+          </span>
+
+          <span className="dropdown-item-content">
+            <span className="dropdown-item-name">
+              {item.name}
+            </span>
+
+            <small className="dropdown-description">
+              {item.description}
+            </small>
+          </span>
+        </>
+      );
+
+      if (item.download) {
+        return (
+          <a
+            key={item.name}
+            href={item.path}
+            download="MUKI-SACCO-Membership-Form.pdf"
+            onClick={closeMenu}
+            className="muki-dropdown-item"
+          >
+            {content}
+          </a>
+        );
+      }
+
+      return (
+        <Link
+          key={item.name}
+          to={item.path}
+          onClick={closeMenu}
+          className="muki-dropdown-item"
+        >
+          {content}
+        </Link>
+      );
+    });
+
   return (
     <header className="muki-header">
+
       {/* TOP BAR */}
       <div className="muki-topbar">
         <div className="muki-container muki-topbar-inner">
+
           <div className="muki-topbar-contact">
             <a href="tel:0711794957">
               <Phone size={14} />
@@ -107,13 +219,20 @@ const Navbar = () => {
           <span className="muki-topbar-message">
             Pamoja Twajenga
           </span>
+
         </div>
       </div>
 
       {/* MAIN NAVBAR */}
       <div className="muki-navbar">
         <div className="muki-container muki-navbar-inner">
-          <Link to="/" className="muki-brand" onClick={closeMenu}>
+
+          {/* LOGO */}
+          <Link
+            to="/"
+            className="muki-brand"
+            onClick={closeMenu}
+          >
             <img
               src="/logo.png"
               alt="MUKI SACCO Society"
@@ -133,10 +252,20 @@ const Navbar = () => {
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuOpen ? <X size={25} /> : <Menu size={25} />}
+            {menuOpen ? (
+              <X size={25} />
+            ) : (
+              <Menu size={25} />
+            )}
           </button>
 
-          <nav className={`muki-nav-links ${menuOpen ? "is-open" : ""}`}>
+          {/* NAVIGATION LINKS */}
+          <nav
+            className={`muki-nav-links ${
+              menuOpen ? "is-open" : ""
+            }`}
+          >
+
             {/* FIRST NAVIGATION ITEMS */}
             {navItems.slice(0, 3).map((item) => (
               <NavLink
@@ -152,7 +281,9 @@ const Navbar = () => {
               </NavLink>
             ))}
 
-            {/* LOANS DROPDOWN */}
+            {/* =================================
+                LOANS DROPDOWN
+            ================================= */}
             <div
               className={`muki-nav-dropdown ${
                 loansOpen ? "dropdown-open" : ""
@@ -173,22 +304,13 @@ const Navbar = () => {
               </button>
 
               <div className="muki-dropdown-menu">
-                <Link to="/loans" onClick={closeMenu}>
-                  All Loan Products
-                </Link>
-                <Link to="/loans" onClick={closeMenu}>
-                  School Fees Loan
-                </Link>
-                <Link to="/loans" onClick={closeMenu}>
-                  Business Loans
-                </Link>
-                <Link to="/loans" onClick={closeMenu}>
-                  Asset Financing
-                </Link>
+                {renderDropdownItems(loanLinks)}
               </div>
             </div>
 
-            {/* MEMBERSHIP DROPDOWN */}
+            {/* =================================
+                MEMBERSHIP DROPDOWN
+            ================================= */}
             <div
               className={`muki-nav-dropdown ${
                 membershipOpen ? "dropdown-open" : ""
@@ -209,21 +331,13 @@ const Navbar = () => {
               </button>
 
               <div className="muki-dropdown-menu">
-                <Link to="/membership" onClick={closeMenu}>
-                  Membership Information
-                </Link>
-
-                <a
-                  href="/forms/muki-membership-form.pdf"
-                  download="MUKI-SACCO-Membership-Form.pdf"
-                  onClick={closeMenu}
-                >
-                  Membership Application Form
-                </a>
+                {renderDropdownItems(membershipLinks)}
               </div>
             </div>
 
-            {/* DIGITAL BANKING DROPDOWN */}
+            {/* =================================
+                DIGITAL BANKING DROPDOWN
+            ================================= */}
             <div
               className={`muki-nav-dropdown ${
                 digitalOpen ? "dropdown-open" : ""
@@ -244,32 +358,7 @@ const Navbar = () => {
               </button>
 
               <div className="muki-dropdown-menu">
-                {digitalLinks.map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <Link
-                      key={item.name}
-                      to={item.path}
-                      onClick={closeMenu}
-                      className="muki-dropdown-item"
-                    >
-                      <span className="dropdown-icon">
-                        <Icon size={19} />
-                      </span>
-
-                      <span className="dropdown-item-content">
-                        <span className="dropdown-item-name">
-                          {item.name}
-                        </span>
-
-                        <small className="dropdown-description">
-                          {item.description}
-                        </small>
-                      </span>
-                    </Link>
-                  );
-                })}
+                {renderDropdownItems(digitalLinks)}
               </div>
             </div>
 
@@ -297,6 +386,7 @@ const Navbar = () => {
               Member Login
               <ExternalLink size={14} />
             </a>
+
           </nav>
         </div>
       </div>
