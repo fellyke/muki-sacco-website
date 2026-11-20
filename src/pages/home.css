@@ -167,9 +167,9 @@
 .home-page .hero {
   position: relative;
   display: flex;
-  align-items: center;
-  min-height: 390px;
-  padding: 35px 0 50px;
+  align-items: flex-start;
+  min-height: 350px;
+  padding: 18px 0 35px;
   overflow: hidden;
   isolation: isolate;
   background: #f7fbfa;
@@ -266,9 +266,9 @@
   position: absolute;
   z-index: 1;
   right: 7%;
-  bottom: 35px;
+  bottom: 15px;
   width: 230px;
-  height: 380px;
+  height: 330px;
   max-width: 30%;
   max-height: 95%;
   object-fit: contain;
@@ -283,6 +283,7 @@
   z-index: 2;
   width: min(1200px, 88%);
   margin-inline: auto;
+  padding-top: 5px;
 }
 
 .home-page .hero-content {
@@ -296,15 +297,15 @@
 /* PHOTO SLIDE TEXT PANEL */
 
 .home-page .hero-photo-slide .hero-inner {
-  transform: translateY(-35px);
+  transform: none;
 }
 
 .home-page .hero-photo-slide .hero-content {
   max-width: 650px;
-  padding: 25px;
+  padding: 22px 25px;
   border-radius: 12px;
   color: #ffffff;
-  background: rgba(25, 48, 55, 0.76);
+  background: rgba(25, 48, 55, 0.82);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
 }
 
@@ -340,7 +341,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   color: #218f88;
   font-size: 0.76rem;
   font-weight: 800;
@@ -360,9 +361,9 @@
 
 .home-page .hero h1 {
   max-width: 720px;
-  margin: 0 0 15px;
+  margin: 0 0 12px;
   color: #263f4a;
-  font-size: clamp(2.7rem, 4.5vw, 3.8rem);
+  font-size: clamp(2.5rem, 4.2vw, 3.5rem);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -2px;
@@ -372,9 +373,9 @@
   max-width: 610px;
   margin: 0;
   color: #526d77;
-  font-size: 0.96rem;
+  font-size: 0.94rem;
   font-weight: 500;
-  line-height: 1.75;
+  line-height: 1.65;
 }
 
 .home-page .hero-actions {
@@ -382,7 +383,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 14px;
-  margin-top: 22px;
+  margin-top: 17px;
 }
 
 .home-page .hero-actions .button-white,
@@ -416,7 +417,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
   color: #526d77;
 }
 
@@ -437,7 +438,7 @@
   position: absolute;
   z-index: 5;
   right: 6%;
-  bottom: 18px;
+  bottom: 12px;
   display: flex;
   align-items: center;
   gap: 11px;
@@ -1571,15 +1572,20 @@
 
 @media (max-width: 1024px) {
   .home-page .hero {
-    min-height: 370px;
-    padding: 32px 0 48px;
+    min-height: 330px;
+    padding: 15px 0 30px;
+    align-items: flex-start;
+  }
+
+  .home-page .hero-inner {
+    padding-top: 5px;
   }
 
   .home-page .hero-app-image {
     right: 4%;
-    bottom: 28px;
+    bottom: 12px;
     width: 190px;
-    height: 330px;
+    height: 300px;
     max-width: 29%;
     max-height: 90%;
   }
@@ -1590,6 +1596,14 @@
 
   .home-page .hero-photo-slide .hero-content {
     max-width: 650px;
+  }
+
+  .home-page .hero h1 {
+    font-size: clamp(2.3rem, 4vw, 3rem);
+  }
+
+  .home-page .hero-content > p {
+    font-size: 0.9rem;
   }
 
   .home-page .highlights-grid {
@@ -1659,8 +1673,8 @@
   .home-page .hero {
     display: block;
     position: relative;
-    min-height: 760px;
-    padding: 190px 0 245px;
+    min-height: 0;
+    padding: 18px 0 35px;
     background: #f7fbfa;
     overflow: hidden;
   }
@@ -1681,6 +1695,7 @@
 
   .home-page .hero-inner {
     width: 90%;
+    padding-top: 0;
   }
 
   .home-page .hero-content {
@@ -1691,17 +1706,17 @@
     max-width: 100%;
   }
 
-  /* Move photo slide text upwards on mobile */
+  /* Photo slide text at the top */
 
   .home-page .hero-photo-slide .hero-inner {
-    transform: translateY(-25px);
+    transform: none;
   }
 
   .home-page .hero-photo-slide .hero-content {
     max-width: 100%;
-    padding: 20px;
+    padding: 18px;
     border-radius: 12px;
-    background: rgba(25, 48, 55, 0.80);
+    background: rgba(25, 48, 55, 0.82);
   }
 
   .home-page .hero-app-slide::before {
@@ -1719,9 +1734,9 @@
 
   .home-page .hero-eyebrow {
     gap: 10px;
-    margin-bottom: 16px;
-    font-size: 0.75rem;
-    letter-spacing: 1.7px;
+    margin-bottom: 12px;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
   }
 
   .home-page .hero-eyebrow::before {
@@ -1730,51 +1745,56 @@
 
   .home-page .hero h1 {
     max-width: 570px;
-    margin-bottom: 18px;
-    font-size: clamp(2.45rem, 8vw, 3.15rem);
+    margin-bottom: 13px;
+    font-size: clamp(2.2rem, 8vw, 2.9rem);
     line-height: 1.08;
     letter-spacing: -1.4px;
   }
 
   .home-page .hero-content > p {
     max-width: 560px;
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: 0.94rem;
+    line-height: 1.6;
   }
 
   .home-page .hero-actions {
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 23px;
+    gap: 10px;
+    margin-top: 17px;
   }
 
   .home-page .hero-actions .button {
     width: auto;
     max-width: none;
-    min-height: 50px;
-    padding: 13px 17px;
-    font-size: 0.92rem;
+    min-height: 45px;
+    padding: 11px 15px;
+    font-size: 0.85rem;
   }
 
   .home-page .hero-trust {
     flex-direction: row;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 13px;
-    margin-top: 20px;
+    gap: 11px;
+    margin-top: 14px;
   }
 
   .home-page .hero-trust span {
-    font-size: 0.82rem;
+    font-size: 0.76rem;
   }
 
-  /* Keep the app image visible */
+  /* App slide phone */
+
+  .home-page .hero-app-slide {
+    min-height: 475px;
+    padding: 18px 0 190px;
+  }
 
   .home-page .hero-app-image {
     right: 50%;
-    bottom: 45px;
+    bottom: 35px;
     width: 160px;
     height: 220px;
     max-width: 45%;
@@ -1795,14 +1815,25 @@
     content: none !important;
   }
 
+  /* Photo slides use only the space their content needs */
+
+  .home-page .hero-photo-slide {
+    min-height: 0;
+    padding: 18px 0 35px;
+  }
+
+  .home-page .hero-photo-slide .hero-content {
+    padding: 18px;
+  }
+
   .home-page .hero-controls {
     right: 5%;
-    bottom: 12px;
+    bottom: 10px;
   }
 
   .home-page .hero-controls > button {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
   }
 
   .home-page .hero-bottom-line {
@@ -2059,29 +2090,41 @@
 
 @media (max-width: 380px) {
   .home-page .hero {
-    min-height: 730px;
-    padding-top: 175px;
-    padding-bottom: 225px;
+    min-height: 0;
+    padding-top: 15px;
+    padding-bottom: 30px;
+  }
+
+  .home-page .hero-app-slide {
+    min-height: 455px;
+    padding-top: 15px;
+    padding-bottom: 185px;
+  }
+
+  .home-page .hero-photo-slide {
+    min-height: 0;
+    padding: 15px 0 30px;
   }
 
   .home-page .hero h1 {
-    font-size: 2.35rem;
+    font-size: 2.2rem;
   }
 
   .home-page .hero-content > p {
-    font-size: 0.98rem;
+    font-size: 0.9rem;
   }
 
   .home-page .hero-actions .button {
-    min-height: 46px;
-    padding: 11px 13px;
-    font-size: 0.82rem;
+    min-height: 43px;
+    padding: 10px 12px;
+    font-size: 0.8rem;
   }
 
   .home-page .hero-app-image {
     width: 140px;
     height: 200px;
     max-width: 44%;
+    bottom: 30px;
   }
 
   .home-page .hero-trust span {
