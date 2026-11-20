@@ -1,6 +1,7 @@
-import { useEffect, useState,useRef } from "react";
 
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+
 import {
   ArrowRight,
   CheckCircle2,
@@ -35,99 +36,85 @@ const loans = [
     name: "School Fees Loan",
     description: "Support your family's education plans.",
     icon: GraduationCap,
-    image:
-      "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Boda Boda Loan",
     description: "Finance your motorcycle and grow your income.",
     icon: Bike,
-    image:
-      "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Ngombe Loan",
     description: "Support your livestock and dairy farming needs.",
     icon: Beef,
-    image:
-      "https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Biashara Loan",
     description: "Get financing to grow your business.",
     icon: Store,
-    image:
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Tatua Loan",
     description: "Get financial support for urgent needs.",
     icon: HandCoins,
-    image:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "FOSA Loan",
     description: "Access financing through FOSA services.",
     icon: Wallet,
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Self Guaranteed Loan",
     description: "Borrow against your eligible savings.",
     icon: ShieldCheck,
-    image:
-      "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Youth Loan",
     description: "Take the next step in your financial journey.",
     icon: Users,
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Water Tank Loan",
     description: "Invest in reliable water storage.",
     icon: Droplets,
-    image:
-      "https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Milk Advance",
     description: "Access support for dairy-related needs.",
     icon: Milk,
-    image:
-      "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Thau Mbau Loan",
     description: "Explore financing for your personal needs.",
     icon: Coins,
-    image:
-      "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Float Advance",
     description: "Support your short-term cash flow.",
     icon: Wallet,
-    image:
-      "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Asset Financing",
     description: "Finance eligible assets for your goals.",
     icon: Tractor,
-    image:
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "LPO Financing",
     description: "Support eligible local purchase orders.",
     icon: FileText,
-    image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
@@ -140,29 +127,25 @@ const savings = [
     name: "Ordinary Account",
     description: "Build a consistent savings habit for everyday goals.",
     icon: PiggyBank,
-    image:
-      "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Golden Account",
     description: "Save towards your long-term financial plans.",
     icon: Coins,
-    image:
-      "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1610375461246-83df859d849d?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Junior Account",
     description: "Help children start their financial journey early.",
     icon: GraduationCap,
-    image:
-      "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80",
   },
   {
     name: "Super Saver",
     description: "Work towards your bigger savings goals.",
     icon: HandCoins,
-    image:
-      "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=900&q=80",
   },
 ];
 
@@ -172,6 +155,17 @@ const savings = [
 
 const slides = [
   {
+    type: "app",
+    eyebrow: "BANKING MADE EASY",
+    title: "Your SACCO In Your Pocket.",
+    description:
+      "Access MUKI SACCO services anytime, anywhere. Check balances, apply for loans, make payments and manage your account with ease.",
+    image: "/slides/MUKI SACCO Mobile Banking App.png",
+    button: "Explore MUKI App",
+    link: "/digital-banking",
+  },
+  {
+    type: "photo",
     eyebrow: "YOUR PARTNER IN PROGRESS",
     title: "Empowering Members For Life.",
     description:
@@ -182,6 +176,7 @@ const slides = [
     link: "/loans",
   },
   {
+    type: "photo",
     eyebrow: "SAVE. GROW. PROSPER.",
     title: "Your Goals Deserve A Plan.",
     description:
@@ -192,6 +187,7 @@ const slides = [
     link: "/savings",
   },
   {
+    type: "photo",
     eyebrow: "TOGETHER WE GROW",
     title: "A Stronger Future Starts Today.",
     description:
@@ -223,7 +219,7 @@ function SectionHeading({
 }
 
 /* =========================================
-   HERO SLIDER
+   HERO SECTION
 ========================================= */
 
 function Hero() {
@@ -238,20 +234,59 @@ function Hero() {
   }, []);
 
   const slide = slides[active];
+  const isAppSlide = slide.type === "app";
+
+  const previousSlide = () => {
+    setActive((current) => (current - 1 + slides.length) % slides.length);
+  };
+
+  const nextSlide = () => {
+    setActive((current) => (current + 1) % slides.length);
+  };
 
   return (
     <section
-      className="hero"
+      className={`hero ${
+        isAppSlide ? "hero-app-slide" : "hero-photo-slide"
+      }`}
       id="home"
-      style={{
-        backgroundImage: `linear-gradient(90deg, rgba(4, 44, 78, .96) 0%, rgba(4, 59, 100, .82) 45%, rgba(4, 59, 100, .18) 100%), url("${slide.image}")`,
-      }}
+      aria-label="MUKI SACCO homepage highlights"
     >
+      {/* HERO BACKGROUND IMAGE */}
+
+      <img
+        key={slide.image}
+        className={`hero-background-image ${
+          isAppSlide ? "hero-app-image" : "hero-photo-image"
+        }`}
+        src={slide.image}
+        alt={
+          isAppSlide
+            ? "MUKI SACCO mobile banking application"
+            : ""
+        }
+        aria-hidden={!isAppSlide}
+      />
+
+      {/* DARK OVERLAY ON PHOTOGRAPHIC SLIDES */}
+
+      {!isAppSlide && (
+        <div
+          className="hero-overlay"
+          aria-hidden="true"
+        />
+      )}
+
+      {/* HERO CONTENT */}
+
       <div className="container hero-inner">
         <div className="hero-content" key={active}>
-          <span className="eyebrow hero-eyebrow">{slide.eyebrow}</span>
+          <span className="eyebrow hero-eyebrow">
+            {slide.eyebrow}
+          </span>
 
           <h1>{slide.title}</h1>
+
           <p>{slide.description}</p>
 
           <div className="hero-actions">
@@ -279,14 +314,13 @@ function Hero() {
         </div>
       </div>
 
+      {/* SLIDER CONTROLS */}
+
       <div className="hero-controls">
         <button
+          type="button"
           aria-label="Previous slide"
-          onClick={() =>
-            setActive(
-              (current) => (current - 1 + slides.length) % slides.length
-            )
-          }
+          onClick={previousSlide}
         >
           <ChevronLeft size={21} />
         </button>
@@ -295,18 +329,21 @@ function Hero() {
           {slides.map((item, index) => (
             <button
               key={item.title}
-              className={active === index ? "hero-dot active" : "hero-dot"}
+              type="button"
+              className={
+                active === index ? "hero-dot active" : "hero-dot"
+              }
               onClick={() => setActive(index)}
-              aria-label={`Show slide ${index + 1}`}
+              aria-label={`Show slide ${index + 1}: ${item.title}`}
+              aria-current={active === index ? "true" : undefined}
             />
           ))}
         </div>
 
         <button
+          type="button"
           aria-label="Next slide"
-          onClick={() =>
-            setActive((current) => (current + 1) % slides.length)
-          }
+          onClick={nextSlide}
         >
           <ChevronRight size={21} />
         </button>
@@ -802,7 +839,6 @@ function Partners() {
       ref={partnersRef}
     >
       <div className="container">
-
         <div className="partners-heading">
           <span className="partners-eyebrow">
             OUR TRUSTED PARTNERS
@@ -841,13 +877,10 @@ function Partners() {
 
           <span className="partners-line"></span>
         </div>
-
       </div>
     </section>
   );
 }
-
-
 
 /* =========================================
    BRANCHES
