@@ -1106,3 +1106,25 @@
     animation-duration: 0.01ms !important;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
+#board,
+#management {
+  scroll-margin-top: 120px;
+}
+.team-tabs button.active {
+  background: #60B4AC !important;
+  color: #FFFFFF !important;
+  border-color: #60B4AC !important;
+  font-weight: 700 !important;
+}
+
+.team-tabs button.active small {
+  color: #FFFFFF !important;
+}
+
+#leadership-directory {
+  scroll-margin-top: 110px;
+}

@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 import {
   Menu,
@@ -21,15 +21,21 @@ import {
   FileText,
   Users,
   UserPlus,
+  Eye,
 } from "lucide-react";
 
 import "./navbar.css";
 
 const Navbar = () => {
+  const location = useLocation();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [loansOpen, setLoansOpen] = useState(false);
   const [digitalOpen, setDigitalOpen] = useState(false);
   const [membershipOpen, setMembershipOpen] = useState(false);
+  const [teamOpen, setTeamOpen] = useState(false);
+
+  const isTeamPage = location.pathname === "/team";
 
   // CLOSE ALL MENUS
   const closeMenu = () => {
@@ -37,6 +43,7 @@ const Navbar = () => {
     setLoansOpen(false);
     setDigitalOpen(false);
     setMembershipOpen(false);
+    setTeamOpen(false);
   };
 
   // MAIN NAVIGATION
@@ -49,6 +56,28 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
     { name: "Insurance", path: "/insurance" },
     { name: "App Self Registration", path: "/AppSelfRegistration" },
+  ];
+
+  // TEAM DROPDOWN LINKS
+  const teamLinks = [
+    {
+      name: "Management",
+      description: "Meet the MUKI SACCO management team.",
+      path: "/team#management",
+      icon: BriefcaseBusiness,
+    },
+    {
+      name: "Board of Directors",
+      description: "Meet the elected Board of Directors.",
+      path: "/team#directors",
+      icon: Building2,
+    },
+    {
+      name: "Supervisory Committee",
+      description: "Meet the SACCO supervisory committee.",
+      path: "/team#supervisory",
+      icon: Eye,
+    },
   ];
 
   // LOANS DROPDOWN LINKS
@@ -186,14 +215,16 @@ const Navbar = () => {
       }
 
       return (
-        <Link
+        <NavLink
           key={item.name}
           to={item.path}
           onClick={closeMenu}
-          className="muki-dropdown-item"
+          className={({ isActive }) =>
+            `muki-dropdown-item ${isActive ? "active" : ""}`
+          }
         >
           {content}
-        </Link>
+        </NavLink>
       );
     });
 
@@ -203,7 +234,6 @@ const Navbar = () => {
       {/* TOP BAR */}
       <div className="muki-topbar">
         <div className="muki-container muki-topbar-inner">
-
           <div className="muki-topbar-contact">
             <a href="tel:0711794957">
               <Phone size={14} />
@@ -219,7 +249,6 @@ const Navbar = () => {
           <span className="muki-topbar-message">
             Pamoja Twajenga
           </span>
-
         </div>
       </div>
 
@@ -252,11 +281,7 @@ const Navbar = () => {
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuOpen ? (
-              <X size={25} />
-            ) : (
-              <Menu size={25} />
-            )}
+            {menuOpen ? <X size={25} /> : <Menu size={25} />}
           </button>
 
           {/* NAVIGATION LINKS */}
@@ -266,8 +291,8 @@ const Navbar = () => {
             }`}
           >
 
-            {/* FIRST NAVIGATION ITEMS */}
-            {navItems.slice(0, 3).map((item) => (
+            {/* HOME AND ABOUT */}
+            {navItems.slice(0, 2).map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
@@ -281,9 +306,35 @@ const Navbar = () => {
               </NavLink>
             ))}
 
-            {/* =================================
-                LOANS DROPDOWN
-            ================================= */}
+            {/* TEAM DROPDOWN */}
+            <div
+              className={`muki-nav-dropdown ${
+                teamOpen ? "dropdown-open" : ""
+              }`}
+            >
+              <button
+                type="button"
+                className={`muki-nav-link muki-dropdown-trigger ${
+                  isTeamPage ? "active" : ""
+                }`}
+                aria-expanded={teamOpen}
+                onClick={() => {
+                  setTeamOpen(!teamOpen);
+                  setLoansOpen(false);
+                  setDigitalOpen(false);
+                  setMembershipOpen(false);
+                }}
+              >
+                Our Team
+                <ChevronDown size={15} />
+              </button>
+
+              <div className="muki-dropdown-menu">
+                {renderDropdownItems(teamLinks)}
+              </div>
+            </div>
+
+            {/* LOANS DROPDOWN */}
             <div
               className={`muki-nav-dropdown ${
                 loansOpen ? "dropdown-open" : ""
@@ -297,6 +348,7 @@ const Navbar = () => {
                   setLoansOpen(!loansOpen);
                   setDigitalOpen(false);
                   setMembershipOpen(false);
+                  setTeamOpen(false);
                 }}
               >
                 Loans
@@ -308,9 +360,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* =================================
-                MEMBERSHIP DROPDOWN
-            ================================= */}
+            {/* MEMBERSHIP DROPDOWN */}
             <div
               className={`muki-nav-dropdown ${
                 membershipOpen ? "dropdown-open" : ""
@@ -324,6 +374,7 @@ const Navbar = () => {
                   setMembershipOpen(!membershipOpen);
                   setLoansOpen(false);
                   setDigitalOpen(false);
+                  setTeamOpen(false);
                 }}
               >
                 Membership
@@ -335,9 +386,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* =================================
-                DIGITAL BANKING DROPDOWN
-            ================================= */}
+            {/* DIGITAL BANKING DROPDOWN */}
             <div
               className={`muki-nav-dropdown ${
                 digitalOpen ? "dropdown-open" : ""
@@ -351,6 +400,7 @@ const Navbar = () => {
                   setDigitalOpen(!digitalOpen);
                   setLoansOpen(false);
                   setMembershipOpen(false);
+                  setTeamOpen(false);
                 }}
               >
                 Digital Banking
