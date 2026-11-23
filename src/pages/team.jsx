@@ -1,6 +1,6 @@
 
-import { useMemo, useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 import {
   Users,
@@ -51,35 +51,7 @@ const management = [
 ];
 
 // ==========================================
-// 4. CATEGORIES
-// ==========================================
-
-const categories = [
-  {
-    id: "directors",
-    label: "Board of Directors",
-    icon: Users,
-    people: directors,
-    count: "09",
-  },
-  {
-    id: "supervisory",
-    label: "Supervisory Committee",
-    icon: Eye,
-    people: supervisoryMembers,
-    count: "03",
-  },
-  {
-    id: "management",
-    label: "Management Team",
-    icon: BriefcaseBusiness,
-    people: management,
-    count: "06",
-  },
-];
-
-// ==========================================
-// 5. REUSABLE PROFILE CARD
+// 4. REUSABLE PROFILE CARD
 // ==========================================
 
 function ProfileCard({ person }) {
@@ -128,17 +100,18 @@ function ProfileCard({ person }) {
 }
 
 // ==========================================
-// 6. CEO SECTION
+// 5. CEO SECTION
 // ==========================================
 
 function CEOSection() {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <section className="team-ceo-section">
+    <section className="team-ceo-section" id="ceo-message">
       <div className="team-container">
         <div className="team-ceo-heading">
           <span className="team-section-label">OUR LEADERSHIP</span>
+
           <h1>
             Leading with purpose.
             <span> Serving with commitment.</span>
@@ -151,7 +124,7 @@ function CEOSection() {
               {!imageError ? (
                 <img
                   src="/leadership/management/CEO.png"
-                  alt="CEO profile illustration"
+                  alt="Violet Ndung'u - Chief Executive Officer"
                   className="team-ceo-image"
                   onError={() => setImageError(true)}
                   style={{
@@ -179,7 +152,9 @@ function CEOSection() {
 
           <div className="team-ceo-message">
             <div className="team-message-heading">
-              <span className="team-section-label">MESSAGE FROM THE CEO</span>
+              <span className="team-section-label">
+                MESSAGE FROM THE CEO
+              </span>
               <Quote size={34} />
             </div>
 
@@ -243,8 +218,8 @@ function CEOSection() {
                 We recognize you have a choice on where you do business and we
                 will continue to work to maintain your trust as your Sacco of
                 choice with better rates on loans and deposits, with lower fees
-                for services, and by treating people the way we would like to
-                be treated.
+                for services, and by treating people the way we would like
+                to be treated.
               </p>
 
               <p>
@@ -259,7 +234,9 @@ function CEOSection() {
                 Sacco is your local advantage!
               </p>
 
-              <p>Thanks for visiting. We hope to serve you soon.</p>
+              <p>
+                Thanks for visiting. We hope to serve you soon.
+              </p>
             </div>
 
             <div className="team-message-signature">
@@ -275,21 +252,21 @@ function CEOSection() {
 }
 
 // ==========================================
-// 7. CHAIRMAN SECTION
+// 6. CHAIRMAN SECTION
 // ==========================================
 
 function ChairmanSection() {
   const [imageError, setImageError] = useState(false);
 
   return (
-    <section className="team-chairman-section">
+    <section className="team-chairman-section" id="chairman-message">
       <div className="team-container">
         <div className="team-chairman-layout">
           <div className="team-chairman-image">
             {!imageError ? (
               <img
                 src="/leadership/chairman.png"
-                alt="Chairman profile"
+                alt="John Gichigi - SACCO Chairman"
                 loading="lazy"
                 onError={() => setImageError(true)}
                 style={{
@@ -313,7 +290,10 @@ function ChairmanSection() {
           </div>
 
           <div className="team-chairman-message">
-            <span className="team-section-label">MESSAGE FROM THE CHAIRMAN</span>
+            <span className="team-section-label">
+              MESSAGE FROM THE CHAIRMAN
+            </span>
+
             <Quote size={34} className="team-chairman-quote" />
 
             <h2>Working together for our members.</h2>
@@ -351,7 +331,7 @@ function ChairmanSection() {
 }
 
 // ==========================================
-// 8. GOVERNANCE SECTION
+// 7. GOVERNANCE SECTION
 // ==========================================
 
 function GovernanceSection() {
@@ -359,7 +339,9 @@ function GovernanceSection() {
     <section className="team-governance-section" id="board">
       <div className="team-container">
         <div className="team-governance-heading">
-          <span className="team-section-label">HOW WE ARE GOVERNED</span>
+          <span className="team-section-label">
+            HOW WE ARE GOVERNED
+          </span>
 
           <h2>Strong governance. Shared responsibility.</h2>
 
@@ -373,23 +355,33 @@ function GovernanceSection() {
 
         <div className="team-governance-grid">
           <article className="team-governance-card">
-            <div className="team-governance-icon"><Users size={25} /></div>
+            <div className="team-governance-icon">
+              <Users size={25} />
+            </div>
+
             <span>GOVERNANCE</span>
             <h3>Board of Directors</h3>
+
             <p>
               Provides leadership and direction, acting in the best interests
               of members and the SACCO.
             </p>
+
             <strong>09 elected officials</strong>
           </article>
 
           <article className="team-governance-card">
-            <div className="team-governance-icon"><Eye size={25} /></div>
+            <div className="team-governance-icon">
+              <Eye size={25} />
+            </div>
+
             <span>OVERSIGHT</span>
             <h3>Supervisory Committee</h3>
+
             <p>
               Provides oversight in line with its supervisory responsibilities.
             </p>
+
             <strong>03 committee members</strong>
           </article>
 
@@ -397,12 +389,15 @@ function GovernanceSection() {
             <div className="team-governance-icon">
               <BriefcaseBusiness size={25} />
             </div>
+
             <span>OPERATIONS</span>
             <h3>Management Team</h3>
+
             <p>
               Handles the day-to-day operations and service delivery of the
               SACCO under the CEO.
             </p>
+
             <strong>Led by the CEO</strong>
           </article>
         </div>
@@ -412,79 +407,53 @@ function GovernanceSection() {
 }
 
 // ==========================================
-// 9. LEADERSHIP DIRECTORY
+// 8. LEADERSHIP DIRECTORY
 // ==========================================
 
 function LeadershipDirectory() {
   const location = useLocation();
-  const navigate = useNavigate();
-
-  const getCategoryFromHash = (hash) => {
-    const category = hash.replace("#", "").toLowerCase();
-
-    return categories.some((item) => item.id === category)
-      ? category
-      : "directors";
-  };
-
-  const [activeTab, setActiveTab] = useState(() =>
-    getCategoryFromHash(location.hash)
-  );
-
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Synchronize selected tab with Navbar URL
-  useEffect(() => {
-    const selectedCategory = getCategoryFromHash(location.hash);
-
-    setActiveTab(selectedCategory);
-    setSearchTerm("");
-
-    if (!location.hash) return;
-
-    const timer = window.setTimeout(() => {
-      document
-        .getElementById("leadership-directory")
-        ?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-    }, 200);
-
-    return () => window.clearTimeout(timer);
-  }, [location.pathname, location.hash]);
-
-  const activeCategory = categories.find(
-    (category) => category.id === activeTab
+  const filteredDirectors = directors.filter((person) =>
+    `${person.name} ${person.role}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
   );
 
-  const filteredPeople = useMemo(() => {
-    if (!activeCategory) return [];
+  const filteredManagement = management.filter((person) =>
+    `${person.name} ${person.role}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
 
-    return activeCategory.people.filter((person) =>
-      `${person.name} ${person.role}`
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase())
-    );
-  }, [activeCategory, searchTerm]);
+  const filteredSupervisory = supervisoryMembers.filter((person) =>
+    `${person.name} ${person.role}`
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
+  );
 
-  const handleTabChange = (categoryId) => {
-    setActiveTab(categoryId);
-    setSearchTerm("");
+  const handleNavigation = (sectionId) => {
+    const target = document.getElementById(sectionId);
 
-    navigate(`/team#${categoryId}`);
+    target?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    window.history.replaceState(null, "", `${location.pathname}#${sectionId}`);
   };
 
   return (
-    <section
-      className="team-directory-section"
-      id="leadership-directory"
-    >
+    <section className="team-directory-section" id="leadership-directory">
       <div className="team-container">
         <div className="team-directory-heading">
           <div>
-            <span className="team-section-label">MEET OUR PEOPLE</span>
+            <span className="team-section-label">
+              MEET OUR PEOPLE
+            </span>
+
             <h2>The people behind MUKI SACCO</h2>
+
             <p>
               Meet the individuals entrusted with guiding governance,
               oversight and daily operations.
@@ -493,6 +462,7 @@ function LeadershipDirectory() {
 
           <div className="team-search">
             <Search size={19} />
+
             <input
               type="search"
               placeholder="Search name or position..."
@@ -503,93 +473,145 @@ function LeadershipDirectory() {
           </div>
         </div>
 
-        {/* CATEGORY TABS */}
+        {/* SIMPLE NAVIGATION LINKS */}
 
-        <div className="team-tabs" role="tablist">
-          {categories.map((category) => {
-            const Icon = category.icon;
-            const isActive = activeTab === category.id;
+        <nav className="team-navigation-links" aria-label="Leadership sections">
+          <a
+            href="#directors"
+            onClick={(event) => {
+              event.preventDefault();
+              handleNavigation("directors");
+            }}
+          >
+            <Users size={18} />
+            Board of Directors
+          </a>
 
-            return (
-              <button
-                key={category.id}
-                type="button"
-                role="tab"
-                aria-selected={isActive}
-                aria-controls="leadership-results"
-                className={isActive ? "active" : ""}
-                onClick={() => handleTabChange(category.id)}
-                style={{
-                  background: isActive ? "#60B4AC" : "#FFFFFF",
-                  color: isActive ? "#FFFFFF" : "#263F4A",
-                  borderColor: isActive ? "#60B4AC" : "#E1EAEA",
-                  fontWeight: isActive ? 700 : 500,
-                }}
-              >
-                <Icon size={18} />
-                <span>{category.label}</span>
-                <small>{category.count}</small>
-              </button>
-            );
-          })}
-        </div>
+          <a
+            href="#supervisory"
+            onClick={(event) => {
+              event.preventDefault();
+              handleNavigation("supervisory");
+            }}
+          >
+            <Eye size={18} />
+            Supervisory Committee
+          </a>
 
-        {/* RESULTS HEADING */}
+          <a
+            href="#management"
+            onClick={(event) => {
+              event.preventDefault();
+              handleNavigation("management");
+            }}
+          >
+            <BriefcaseBusiness size={18} />
+            Management Team
+          </a>
+        </nav>
 
-        <div className="team-results-heading">
-          <div>
-            <h3>{activeCategory?.label}</h3>
+        {/* BOARD OF DIRECTORS */}
 
-            <p>
-              {activeTab === "directors"
-                ? "The elected leadership responsible for the SACCO's direction."
-                : activeTab === "supervisory"
-                ? "Members entrusted with supervisory responsibilities."
-                : "Professionals responsible for the SACCO's daily operations."}
-            </p>
+        <section className="team-directory-group" id="directors">
+          <div className="team-results-heading">
+            <div>
+              <h3>Board of Directors</h3>
+              <p>
+                The elected leadership responsible for the SACCO's direction.
+              </p>
+            </div>
+
+            <span className="team-profile-count">
+              {filteredDirectors.length} profiles
+            </span>
           </div>
 
-          <span className="team-profile-count">
-            {filteredPeople.length} profiles
-          </span>
-        </div>
-
-        {/* PROFILE GRID */}
-
-        <div id="leadership-results">
-          {filteredPeople.length > 0 ? (
+          {filteredDirectors.length > 0 ? (
             <div className="team-grid">
-              {filteredPeople.map((person) => (
+              {filteredDirectors.map((person) => (
                 <ProfileCard key={person.name} person={person} />
               ))}
             </div>
           ) : (
             <div className="team-empty">
-              <div className="team-empty-icon">
-                <Users size={30} />
-              </div>
+              <Users size={30} />
+              <h3>No matching directors</h3>
+              <p>Try searching with another name or position.</p>
+            </div>
+          )}
+        </section>
 
-              <h3>
-                {activeCategory?.people.length === 0
-                  ? "Profiles coming soon"
-                  : "No matching team members"}
-              </h3>
+        {/* SUPERVISORY COMMITTEE */}
 
+        <section className="team-directory-group" id="supervisory">
+          <div className="team-results-heading">
+            <div>
+              <h3>Supervisory Committee</h3>
               <p>
-                {activeCategory?.people.length === 0
-                  ? "The official member details for this section have not yet been added."
-                  : "Try searching with another name or position."}
+                Members entrusted with supervisory responsibilities.
+              </p>
+            </div>
+
+            <span className="team-profile-count">
+              {filteredSupervisory.length} profiles
+            </span>
+          </div>
+
+          {filteredSupervisory.length > 0 ? (
+            <div className="team-grid">
+              {filteredSupervisory.map((person) => (
+                <ProfileCard key={person.name} person={person} />
+              ))}
+            </div>
+          ) : (
+            <div className="team-empty">
+              <Eye size={30} />
+              <h3>Profiles coming soon</h3>
+              <p>
+                The official member details for this section have not yet
+                been added.
               </p>
             </div>
           )}
-        </div>
+        </section>
+
+        {/* MANAGEMENT TEAM */}
+
+        <section className="team-directory-group" id="management">
+          <div className="team-results-heading">
+            <div>
+              <h3>Management Team</h3>
+              <p>
+                Professionals responsible for the SACCO's daily operations.
+              </p>
+            </div>
+
+            <span className="team-profile-count">
+              {filteredManagement.length} profiles
+            </span>
+          </div>
+
+          {filteredManagement.length > 0 ? (
+            <div className="team-grid">
+              {filteredManagement.map((person) => (
+                <ProfileCard key={person.name} person={person} />
+              ))}
+            </div>
+          ) : (
+            <div className="team-empty">
+              <BriefcaseBusiness size={30} />
+              <h3>No matching management members</h3>
+              <p>Try searching with another name or position.</p>
+            </div>
+          )}
+        </section>
       </div>
     </section>
   );
 }
 
 // ==========================================
-// 10. CLOSING SECTION
+// 9. CLOSING SECTION
 // ==========================================
 
 function TeamClosingSection() {
@@ -603,7 +625,11 @@ function TeamClosingSection() {
 
           <div>
             <span>MEMBER OWNED. MEMBER FOCUSED.</span>
-            <h2>Working together for a stronger future.</h2>
+
+            <h2>
+              Working together for a stronger future.
+            </h2>
+
             <p>
               Our commitment remains to serve our members with
               professionalism, accountability and care.
@@ -616,7 +642,7 @@ function TeamClosingSection() {
 }
 
 // ==========================================
-// 11. MAIN TEAM PAGE
+// 10. MAIN TEAM PAGE
 // ==========================================
 
 export default function Team() {
