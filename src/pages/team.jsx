@@ -1,45 +1,116 @@
+
 import { useMemo, useState } from "react";
 import {
   Users,
   BriefcaseBusiness,
   Search,
   ShieldCheck,
-
   UserRound,
   Building2,
   Eye,
-  
   Quote,
 } from "lucide-react";
 
 import "./team.css";
 
-// --------------------------------------------------
-// 1. LEADERSHIP DATA
-// --------------------------------------------------
+// ==========================================
+// 1. BOARD OF DIRECTORS
+// ==========================================
 
 const directors = [
-  { name: "John Gichigi", role: "Chairman" },
-  { name: "John Migwi", role: "Vice Chairman" },
-  { name: "John Wanyeki Theuri", role: "Honorable Secretary" },
-  { name: "Elijah Kirogo", role: "Treasurer" },
-  { name: "George Matu", role: "Director" },
-  { name: "Jane Wandurua", role: "Director" },
-  { name: "Monicah Wahu Njonge", role: "Director" },
-  { name: "Joseph Maina", role: "Director" },
-  { name: "Daniel Wamathai", role: "Director" },
+  {
+    name: "John Gichigi",
+    role: "Chairman",
+    image: "/leadership/chairman.png",
+  },
+  {
+    name: "John Migwi",
+    role: "Vice Chairman",
+    image: "/leadership/vice chair.png",
+  },
+  {
+    name: "John Wanyeki Theuri",
+    role: "Honorable Secretary",
+    image: "/leadership/honorable secretary.png",
+  },
+  {
+    name: "Elijah Kirogo",
+    role: "Treasurer",
+    image: "/leadership/treasurer.png",
+  },
+  {
+    name: "George Matu",
+    role: "Director",
+    image: "/leadership/matu.png",
+  },
+  {
+    name: "Jane Wandurua",
+    role: "Director",
+    image: "/leadership/jane.png",
+  },
+  {
+    name: "Monicah Wahu Njonge",
+    role: "Director",
+    image: "/leadership/monica.png",
+  },
+  {
+    name: "Joseph Maina",
+    role: "Director",
+    image: "/leadership/joseph.png",
+  },
+  {
+    name: "Daniel Wamathai",
+    role: "Director",
+    image: "/leadership/daniel.png",
+  },
 ];
+
+// ==========================================
+// 2. SUPERVISORY COMMITTEE
+// ==========================================
 
 const supervisoryMembers = [];
 
+// ==========================================
+// 3. MANAGEMENT TEAM
+// ==========================================
+
 const management = [
-  { name: "Violet Ndung'u", role: "Chief Executive Officer" },
-  { name: "Zipporah Chege", role: "Credit Manager" },
-  { name: "Janet Mutuku", role: "ICT Manager" },
-  { name: "Nathan Mbogo", role: "Internal Audit" },
-  { name: "Philip Munyoro", role: "Marketing Manager" },
-  { name: "Elizabeth Kamau", role: "Operations Manager" },
+  {
+    name: "Violet Ndung'u",
+    role: "Chief Executive Officer",
+    image: "/leadership/management/CEO.png",
+  },
+  {
+    name: "Zipporah Chege",
+    role: "Credit Manager",
+    image: "/leadership/management/zipporah.png",
+  },
+  {
+    name: "Janet Mutuku",
+    role: "ICT Manager",
+    image: "/leadership/management/janet.png",
+  },
+  {
+    name: "Nathan Mbogo",
+    role: "Internal Audit",
+    image: "/leadership/management/nathan.png",
+  },
+  {
+    name: "Philip Munyoro",
+    role: "Marketing Manager",
+    image: "/leadership/management/philip.png",
+  },
+  {
+    name: "Elizabeth Kamau",
+    role: "Operations Manager",
+    image: "/leadership/management/elizabeth.png",
+  },
 ];
+
+// ==========================================
+// 4. CATEGORIES
+// ==========================================
 
 const categories = [
   {
@@ -65,11 +136,13 @@ const categories = [
   },
 ];
 
-// --------------------------------------------------
-// 2. REUSABLE PROFILE CARD
-// --------------------------------------------------
+// ==========================================
+// 5. REUSABLE PROFILE CARD
+// ==========================================
 
 function ProfileCard({ person }) {
+  const [imageError, setImageError] = useState(false);
+
   const initials = person.name
     .split(" ")
     .map((part) => part[0])
@@ -80,11 +153,19 @@ function ProfileCard({ person }) {
   return (
     <article className="team-card">
       <div className="team-card-visual">
-        {person.image ? (
+
+        {person.image && !imageError ? (
           <img
             src={person.image}
-            alt={person.name}
+            alt={`${person.name} - ${person.role}`}
             loading="lazy"
+            onError={() => setImageError(true)}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center top",
+            }}
           />
         ) : (
           <div className="team-avatar">
@@ -95,10 +176,13 @@ function ProfileCard({ person }) {
         <span className="team-card-icon">
           <UserRound size={18} />
         </span>
+
       </div>
 
       <div className="team-card-info">
-        <span className="team-card-role">{person.role}</span>
+        <span className="team-card-role">
+          {person.role}
+        </span>
 
         <h3>{person.name}</h3>
       </div>
@@ -106,15 +190,19 @@ function ProfileCard({ person }) {
   );
 }
 
-// --------------------------------------------------
-// 3. CEO SECTION
-// --------------------------------------------------
+// ==========================================
+// 6. CEO SECTION
+// ==========================================
 
 function CEOSection() {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section className="team-ceo-section">
       <div className="team-container">
+
         <div className="team-ceo-heading">
+
           <span className="team-section-label">
             OUR LEADERSHIP
           </span>
@@ -123,37 +211,68 @@ function CEOSection() {
             Leading with purpose.
             <span> Serving with commitment.</span>
           </h1>
+
         </div>
 
         <div className="team-ceo-layout">
+
+          {/* CEO PROFILE */}
+
           <div className="team-ceo-profile">
+
             <div className="team-ceo-photo">
-              <div className="team-ceo-initials">VN</div>
+
+              {!imageError ? (
+                <img
+                  src="/leadership/management/CEO.png"
+                  alt="CEO profile illustration"
+                  className="team-ceo-image"
+                  onError={() => setImageError(true)}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center top",
+                  }}
+                />
+              ) : (
+                <div className="team-ceo-initials">
+                  VN
+                </div>
+              )}
 
               <div className="team-ceo-photo-caption">
                 <span>CHIEF EXECUTIVE OFFICER</span>
                 <strong>Violet Ndung'u</strong>
               </div>
+
             </div>
 
             <div className="team-ceo-profile-bottom">
               <ShieldCheck size={19} />
               <span>Day-to-day SACCO management</span>
             </div>
+
           </div>
 
+          {/* CEO MESSAGE */}
+
           <div className="team-ceo-message">
+
             <div className="team-message-heading">
+
               <span className="team-section-label">
                 MESSAGE FROM THE CEO
               </span>
 
               <Quote size={34} />
+
             </div>
 
             <h2>Welcome to MUKI SACCO.</h2>
 
             <div className="team-message-content">
+
               <p>
                 Thank you for visiting our website to learn more
                 about Muki Sacco. We feel honored that you have
@@ -241,6 +360,7 @@ function CEOSection() {
               <p>
                 Thanks for visiting. We hope to serve you soon.
               </p>
+
             </div>
 
             <div className="team-message-signature">
@@ -248,44 +368,71 @@ function CEOSection() {
               <strong>Violet Ndung'u</strong>
               <small>Chief Executive Officer</small>
             </div>
+
           </div>
+
         </div>
       </div>
     </section>
   );
 }
 
-// --------------------------------------------------
-// 4. CHAIRMAN SECTION
-// --------------------------------------------------
+// ==========================================
+// 7. CHAIRMAN SECTION
+// ==========================================
 
 function ChairmanSection() {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section className="team-chairman-section">
       <div className="team-container">
+
         <div className="team-chairman-layout">
+
           <div className="team-chairman-image">
-            <img
-              src="#"
-              alt="John Gichigi"
-              loading="lazy"
-            />
+
+            {!imageError ? (
+              <img
+                src="/leadership/chairman.png"
+                alt="Chairman profile"
+                loading="lazy"
+                onError={() => setImageError(true)}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                }}
+              />
+            ) : (
+              <div className="team-avatar">
+                <span>JG</span>
+              </div>
+            )}
 
             <div className="team-chairman-image-caption">
               <span>BOARD OF DIRECTORS</span>
               <strong>John Gichigi</strong>
               <small>SACCO Chairman</small>
             </div>
+
           </div>
 
           <div className="team-chairman-message">
+
             <span className="team-section-label">
               MESSAGE FROM THE CHAIRMAN
             </span>
 
-            <Quote size={34} className="team-chairman-quote" />
+            <Quote
+              size={34}
+              className="team-chairman-quote"
+            />
 
-            <h2>Working together for our members.</h2>
+            <h2>
+              Working together for our members.
+            </h2>
 
             <p>
               On behalf of my fellow directors, I welcome you to
@@ -316,27 +463,33 @@ function ChairmanSection() {
               <strong>John Gichigi</strong>
               <small>SACCO Chairman</small>
             </div>
+
           </div>
+
         </div>
       </div>
     </section>
   );
 }
 
-// --------------------------------------------------
-// 5. GOVERNANCE SECTION
-// --------------------------------------------------
+// ==========================================
+// 8. GOVERNANCE SECTION
+// ==========================================
 
 function GovernanceSection() {
   return (
     <section className="team-governance-section">
       <div className="team-container">
+
         <div className="team-governance-heading">
+
           <span className="team-section-label">
             HOW WE ARE GOVERNED
           </span>
 
-          <h2>Strong governance. Shared responsibility.</h2>
+          <h2>
+            Strong governance. Shared responsibility.
+          </h2>
 
           <p>
             The Board of directors is the top management organ
@@ -345,10 +498,13 @@ function GovernanceSection() {
             management of the SACCO is under the Chief Executive
             Officer (CEO) who is an ex-officio member of the board.
           </p>
+
         </div>
 
         <div className="team-governance-grid">
+
           <article className="team-governance-card">
+
             <div className="team-governance-icon">
               <Users size={25} />
             </div>
@@ -362,9 +518,11 @@ function GovernanceSection() {
             </p>
 
             <strong>09 elected officials</strong>
+
           </article>
 
           <article className="team-governance-card">
+
             <div className="team-governance-icon">
               <Eye size={25} />
             </div>
@@ -378,9 +536,11 @@ function GovernanceSection() {
             </p>
 
             <strong>03 committee members</strong>
+
           </article>
 
           <article className="team-governance-card">
+
             <div className="team-governance-icon">
               <BriefcaseBusiness size={25} />
             </div>
@@ -394,16 +554,18 @@ function GovernanceSection() {
             </p>
 
             <strong>Led by the CEO</strong>
+
           </article>
+
         </div>
       </div>
     </section>
   );
 }
 
-// --------------------------------------------------
-// 6. LEADERSHIP DIRECTORY
-// --------------------------------------------------
+// ==========================================
+// 9. LEADERSHIP DIRECTORY
+// ==========================================
 
 function LeadershipDirectory() {
   const [activeTab, setActiveTab] = useState("directors");
@@ -426,8 +588,11 @@ function LeadershipDirectory() {
   return (
     <section className="team-directory-section">
       <div className="team-container">
+
         <div className="team-directory-heading">
+
           <div>
+
             <span className="team-section-label">
               MEET OUR PEOPLE
             </span>
@@ -438,9 +603,11 @@ function LeadershipDirectory() {
               Meet the individuals entrusted with guiding
               governance, oversight and daily operations.
             </p>
+
           </div>
 
           <div className="team-search">
+
             <Search size={19} />
 
             <input
@@ -452,10 +619,15 @@ function LeadershipDirectory() {
               }
               aria-label="Search leadership"
             />
+
           </div>
+
         </div>
 
+        {/* CATEGORY TABS */}
+
         <div className="team-tabs" role="tablist">
+
           {categories.map((category) => {
             const Icon = category.icon;
 
@@ -481,11 +653,17 @@ function LeadershipDirectory() {
               </button>
             );
           })}
+
         </div>
 
+        {/* RESULTS HEADING */}
+
         <div className="team-results-heading">
+
           <div>
+
             <h3>{activeCategory?.label}</h3>
+
             <p>
               {activeTab === "directors"
                 ? "The elected leadership responsible for the SACCO's direction."
@@ -493,24 +671,34 @@ function LeadershipDirectory() {
                 ? "Members entrusted with supervisory responsibilities."
                 : "Professionals responsible for the SACCO's daily operations."}
             </p>
+
           </div>
 
           <span className="team-profile-count">
             {filteredPeople.length} profiles
           </span>
+
         </div>
 
+        {/* PROFILE GRID */}
+
         {filteredPeople.length > 0 ? (
+
           <div className="team-grid">
+
             {filteredPeople.map((person) => (
               <ProfileCard
                 key={person.name}
                 person={person}
               />
             ))}
+
           </div>
+
         ) : (
+
           <div className="team-empty">
+
             <div className="team-empty-icon">
               <Users size={30} />
             </div>
@@ -526,54 +714,70 @@ function LeadershipDirectory() {
                 ? "The official member details for this section have not yet been added."
                 : "Try searching with another name or position."}
             </p>
+
           </div>
+
         )}
+
       </div>
     </section>
   );
 }
 
-// --------------------------------------------------
-// 7. CLOSING SECTION
-// --------------------------------------------------
+// ==========================================
+// 10. CLOSING SECTION
+// ==========================================
 
 function TeamClosingSection() {
   return (
     <section className="team-closing-section">
       <div className="team-container">
+
         <div className="team-closing-content">
+
           <div className="team-closing-icon">
             <Building2 size={27} />
           </div>
 
           <div>
+
             <span>MEMBER OWNED. MEMBER FOCUSED.</span>
-            <h2>Working together for a stronger future.</h2>
+
+            <h2>
+              Working together for a stronger future.
+            </h2>
+
             <p>
               Our commitment remains to serve our members
               with professionalism, accountability and care.
             </p>
+
           </div>
 
-        
         </div>
       </div>
     </section>
   );
 }
 
-// --------------------------------------------------
-// 8. MAIN TEAM PAGE
-// --------------------------------------------------
+// ==========================================
+// 11. MAIN TEAM PAGE
+// ==========================================
 
 export default function Team() {
   return (
     <main className="team-page">
+
       <CEOSection />
+
       <ChairmanSection />
+
       <GovernanceSection />
+
       <LeadershipDirectory />
+
       <TeamClosingSection />
+
     </main>
   );
 }
