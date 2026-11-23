@@ -1404,11 +1404,11 @@
 }
 
 .partner-image-one {
-  animation: slideFirst 10s infinite ease-in-out;
+  animation: slideFirst 20s infinite ease-in-out;
 }
 
 .partner-image-two {
-  animation: slideSecond 10s infinite ease-in-out;
+  animation: slideSecond 20s infinite ease-in-out;
 }
 
 .partners-visible .partner-image {
