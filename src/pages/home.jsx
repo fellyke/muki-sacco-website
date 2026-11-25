@@ -193,7 +193,7 @@ const slides = [
     description:
       "Discover member-focused financial services that help you take your next step with confidence.",
     image:
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1800&q=85",
+      "/slides/Community.png",
     button: "Become A Member",
     link: "/membership",
   },
@@ -462,7 +462,7 @@ function Services() {
       link: "/loans",
       label: "Explore loans",
       image:
-        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80",
+        "/slides/Loans and Coins.png",
       alt: "Financial planning documents and calculator",
     },
     {
