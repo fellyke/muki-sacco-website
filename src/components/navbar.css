@@ -115,6 +115,28 @@
   letter-spacing: 0.4px;
 }
 
+/* TOPBAR SOCIAL MEDIA */
+
+.muki-topbar-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.muki-topbar-socials a {
+  color: #ffffff;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.muki-topbar-socials a:hover {
+  color: #60b4ac;
+  transform: translateY(-2px);
+}
+
 /* =========================================
    MAIN NAVBAR
 ========================================= */
@@ -124,6 +146,7 @@
 }
 
 .muki-navbar-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -250,7 +273,6 @@
 
 /* =========================================
    ICON DROPDOWN MENUS
-   LOANS, MEMBERSHIP & DIGITAL BANKING
 ========================================= */
 
 .muki-dropdown-menu:has(.muki-dropdown-item) {
@@ -258,8 +280,6 @@
   min-width: 335px;
   padding: 10px;
 }
-
-/* Dropdown item */
 
 .muki-dropdown-item {
   display: flex;
@@ -270,12 +290,8 @@
   border-radius: 9px;
   color: inherit;
   text-decoration: none;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
-
-/* Icon container */
 
 .dropdown-icon {
   display: flex;
@@ -290,8 +306,6 @@
   transition: all 0.25s ease;
 }
 
-/* Dropdown text wrapper */
-
 .dropdown-item-content {
   display: flex;
   flex: 1;
@@ -299,8 +313,6 @@
   gap: 5px;
   min-width: 0;
 }
-
-/* Dropdown title */
 
 .dropdown-item-name {
   color: #263f4a;
@@ -310,8 +322,6 @@
   transition: color 0.2s ease;
 }
 
-/* Dropdown description */
-
 .dropdown-description {
   display: block;
   color: #657b84;
@@ -319,8 +329,6 @@
   font-weight: 400;
   line-height: 1.5;
 }
-
-/* Dropdown hover effects */
 
 .muki-dropdown-item:hover {
   background: #f2f9f8;
@@ -337,7 +345,7 @@
   color: #2196c7;
 }
 
-/* Keyboard accessibility */
+/* ACCESSIBILITY */
 
 .muki-dropdown-item:focus-visible,
 .muki-dropdown-trigger:focus-visible {
@@ -374,9 +382,7 @@
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease;
+  transition: background 0.25s ease, transform 0.25s ease;
 }
 
 .muki-login-button:hover {
@@ -400,6 +406,7 @@
   color: #2196c7;
   cursor: pointer;
   transition: all 0.2s ease;
+  z-index: 1301;
 }
 
 .muki-menu-toggle:hover {
@@ -423,8 +430,18 @@
   }
 }
 
+@keyframes muki-drawer-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 /* =========================================
-   TABLET AND MOBILE NAVIGATION
+   TABLET AND MOBILE SIDE NAVIGATION
 ========================================= */
 
 @media (max-width: 1100px) {
@@ -437,40 +454,106 @@
     min-height: 75px;
   }
 
+  /* SIDE DRAWER */
+
   .muki-nav-links {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     right: 0;
-    left: 0;
-    display: none;
+    left: auto;
+
+    display: flex;
     align-items: stretch;
     flex-direction: column;
+    justify-content: flex-start;
+
     gap: 5px;
-    max-height: calc(100vh - 110px);
+
+    width: min(380px, 88vw);
+    height: 100vh;
+    height: 100dvh;
+    max-height: 100vh;
+
     overflow-y: auto;
-    padding: 18px 5%;
-    border-top: 1px solid #e7efef;
+    overscroll-behavior: contain;
+
+    padding: 80px 24px 35px;
+
+    border-left: 1px solid #e4efef;
     background: #ffffff;
-    box-shadow: 0 16px 24px rgba(20, 65, 80, 0.1);
+
+    box-shadow: -15px 0 45px rgba(20, 65, 80, 0.16);
+
+    z-index: 1200;
+
+    transform: translateX(100%);
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      transform 0.35s ease,
+      visibility 0.35s ease;
   }
+
+  /* OPEN DRAWER */
 
   .muki-nav-links.is-open {
     display: flex;
-    animation: muki-menu-appear 0.2s ease;
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
   }
+
+  /* DARK OVERLAY BEHIND DRAWER */
+
+  .muki-nav-links.is-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 100%;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(20, 45, 55, 0.48);
+    pointer-events: none;
+  }
+
+  /* KEEP CLOSE BUTTON VISIBLE */
+
+  .muki-navbar-inner:has(.muki-nav-links.is-open) .muki-menu-toggle {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: #f5fafa;
+    border-color: #dcebea;
+    color: #2196c7;
+  }
+
+  /* NAVIGATION LINKS */
 
   .muki-nav-link {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 0;
+
+    padding: 14px 5px;
+
     white-space: normal;
+    font-size: 15px;
+    border-bottom: 1px solid #edf2f2;
   }
 
   .muki-nav-link::after {
     display: none;
   }
+
+  .muki-nav-link:hover,
+  .muki-nav-link.active {
+    color: #2196c7;
+  }
+
+  /* DROPDOWN CONTAINER */
 
   .muki-nav-dropdown {
     position: relative;
@@ -484,18 +567,22 @@
     text-align: left;
   }
 
-  /* Mobile dropdown container */
+  /* MOBILE DROPDOWNS EXPAND DOWNWARDS */
 
   .muki-dropdown-menu {
     position: static;
     display: none;
+
     width: 100%;
     min-width: 0;
-    padding: 5px 0 5px 12px;
+
+    padding: 6px 0 8px 12px;
+
     border: none;
     border-radius: 0;
     background: #f5fafa;
     box-shadow: none;
+
     animation: none;
   }
 
@@ -506,8 +593,6 @@
     border-radius: 10px;
     background: #f5fafa;
   }
-
-  /* Show dropdown only when opened */
 
   .muki-nav-dropdown.dropdown-open .muki-dropdown-menu {
     display: flex;
@@ -521,7 +606,7 @@
     white-space: normal;
   }
 
-  /* Mobile icon dropdown items */
+  /* ICON DROPDOWN ITEMS */
 
   .muki-dropdown-item {
     padding: 12px 9px;
@@ -531,7 +616,7 @@
     transform: none;
   }
 
-  /* Prevent hover from opening closed menus on mobile */
+  /* PREVENT HOVER FROM OPENING CLOSED MENUS */
 
   .muki-nav-dropdown:hover .muki-dropdown-menu {
     display: none;
@@ -541,9 +626,12 @@
     display: flex;
   }
 
+  /* MEMBER LOGIN */
+
   .muki-login-button {
     align-self: flex-start;
-    margin-top: 8px;
+    margin-top: 15px;
+    margin-bottom: 10px;
   }
 }
 
@@ -558,8 +646,10 @@
   }
 
   .muki-topbar-inner {
+    flex-wrap: wrap;
     justify-content: center;
     padding: 8px 0;
+    gap: 8px 15px;
   }
 
   .muki-topbar-contact {
@@ -569,6 +659,12 @@
 
   .muki-topbar-message {
     display: none;
+  }
+
+  .muki-topbar-socials {
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 5px;
   }
 
   .muki-brand-logo {
@@ -591,7 +687,8 @@
   }
 
   .muki-nav-links {
-    padding: 15px 4%;
+    width: min(360px, 88vw);
+    padding: 75px 20px 30px;
   }
 
   .dropdown-icon {
@@ -607,6 +704,16 @@
   .dropdown-description {
     font-size: 12px;
   }
+
+  .muki-menu-toggle {
+    width: 41px;
+    height: 41px;
+  }
+
+  .muki-navbar-inner:has(.muki-nav-links.is-open) .muki-menu-toggle {
+    top: 13px;
+    right: 15px;
+  }
 }
 
 /* =========================================
@@ -620,41 +727,5 @@
     scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
-  }
-}
-
-/* TOPBAR SOCIAL MEDIA ICONS */
-.muki-topbar-socials {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  flex-shrink: 0;
-}
-
-.muki-topbar-socials a {
-  color: #FFFFFF;
-  font-size: 14px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.muki-topbar-socials a:hover {
-  color: #60B4AC;
-  transform: translateY(-2px);
-}
-
-/* MOBILE RESPONSIVENESS */
-@media (max-width: 768px) {
-  .muki-topbar-inner {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px 15px;
-  }
-
-  .muki-topbar-socials {
-    width: 100%;
-    justify-content: center;
-    padding-bottom: 5px;
   }
 }
