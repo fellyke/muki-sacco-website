@@ -171,7 +171,7 @@ const slides = [
     description:
       "Save with purpose, access financing and build a stronger financial future with MUKI SACCO.",
     image:
-      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1800&q=85",
+      "slides/Loans and Coins.png",
     button: "Explore Our Loans",
     link: "/loans",
   },
