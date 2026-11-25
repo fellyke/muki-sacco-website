@@ -622,3 +622,39 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* TOPBAR SOCIAL MEDIA ICONS */
+.muki-topbar-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.muki-topbar-socials a {
+  color: #FFFFFF;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.muki-topbar-socials a:hover {
+  color: #60B4AC;
+  transform: translateY(-2px);
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+  .muki-topbar-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 15px;
+  }
+
+  .muki-topbar-socials {
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 5px;
+  }
+}

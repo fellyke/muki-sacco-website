@@ -1,6 +1,12 @@
 
 import { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebookF,
+  faInstagram,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
 import {
   Menu,
@@ -234,6 +240,7 @@ const Navbar = () => {
       {/* TOP BAR */}
       <div className="muki-topbar">
         <div className="muki-container muki-topbar-inner">
+
           <div className="muki-topbar-contact">
             <a href="tel:0711794957">
               <Phone size={14} />
@@ -249,6 +256,40 @@ const Navbar = () => {
           <span className="muki-topbar-message">
             Pamoja Twajenga
           </span>
+
+          {/* TOPBAR SOCIAL MEDIA LINKS */}
+          <div className="muki-topbar-socials">
+            <a
+              href="https://www.facebook.com/mukisacco"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="MUKI SACCO Facebook"
+              title="Facebook"
+            >
+              <FontAwesomeIcon icon={faFacebookF} />
+            </a>
+
+            <a
+              href="https://www.instagram.com/mukisacco"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="MUKI SACCO Instagram"
+              title="Instagram"
+            >
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+
+            <a
+              href="https://x.com/mukisacco"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="MUKI SACCO X"
+              title="X"
+            >
+              <FontAwesomeIcon icon={faXTwitter} />
+            </a>
+          </div>
+
         </div>
       </div>
 
