@@ -470,7 +470,7 @@ const Navbar = () => {
             {/* MEMBER LOGIN */}
             <a
               className="muki-login-button"
-              href="#"
+              href="https://portal.mukisacco.co.ke/"
               target="_blank"
               rel="noopener noreferrer"
             >
