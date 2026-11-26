@@ -355,11 +355,10 @@
 
 /* =========================================
    DESKTOP DROPDOWN INTERACTION
+   CLICK TO OPEN AND CLOSE
 ========================================= */
 
 @media (min-width: 1101px) {
-  .muki-nav-dropdown:hover .muki-dropdown-menu,
-  .muki-nav-dropdown:focus-within .muki-dropdown-menu,
   .muki-nav-dropdown.dropdown-open .muki-dropdown-menu {
     display: block;
   }
@@ -614,16 +613,6 @@
 
   .muki-dropdown-item:hover {
     transform: none;
-  }
-
-  /* PREVENT HOVER FROM OPENING CLOSED MENUS */
-
-  .muki-nav-dropdown:hover .muki-dropdown-menu {
-    display: none;
-  }
-
-  .muki-nav-dropdown.dropdown-open:hover .muki-dropdown-menu {
-    display: flex;
   }
 
   /* MEMBER LOGIN */

@@ -1,7 +1,8 @@
 
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faFacebookF,
   faInstagram,
@@ -35,22 +36,54 @@ import "./navbar.css";
 const Navbar = () => {
   const location = useLocation();
 
+  // NAVBAR STATES
   const [menuOpen, setMenuOpen] = useState(false);
-  const [loansOpen, setLoansOpen] = useState(false);
-  const [digitalOpen, setDigitalOpen] = useState(false);
-  const [membershipOpen, setMembershipOpen] = useState(false);
-  const [teamOpen, setTeamOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
+  const navbarRef = useRef(null);
 
   const isTeamPage = location.pathname === "/team";
 
   // CLOSE ALL MENUS
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     setMenuOpen(false);
-    setLoansOpen(false);
-    setDigitalOpen(false);
-    setMembershipOpen(false);
-    setTeamOpen(false);
+    setActiveDropdown(null);
+  }, []);
+
+  // TOGGLE DROPDOWNS
+  const toggleDropdown = (name) => {
+    setActiveDropdown((current) =>
+      current === name ? null : name
+    );
   };
+
+  // CLOSE DROPDOWNS WHEN CLICKING OUTSIDE OR PRESSING ESCAPE
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        navbarRef.current &&
+        !navbarRef.current.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    };
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [closeMenu]);
 
   // MAIN NAVIGATION
   const navItems = [
@@ -61,7 +94,10 @@ const Navbar = () => {
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
     { name: "Insurance", path: "/insurance" },
-    { name: "App Self Registration", path: "/AppSelfRegistration" },
+    {
+      name: "App Self Registration",
+      path: "/AppSelfRegistration",
+    },
   ];
 
   // TEAM DROPDOWN LINKS
@@ -183,7 +219,7 @@ const Navbar = () => {
     },
   ];
 
-  // REUSABLE DROPDOWN ITEM
+  // REUSABLE DROPDOWN ITEMS
   const renderDropdownItems = (items) =>
     items.map((item) => {
       const Icon = item.icon;
@@ -235,13 +271,14 @@ const Navbar = () => {
     });
 
   return (
-    <header className="muki-header">
+    <header className="muki-header" ref={navbarRef}>
 
       {/* TOP BAR */}
       <div className="muki-topbar">
         <div className="muki-container muki-topbar-inner">
 
           <div className="muki-topbar-contact">
+
             <a href="tel:0711794957">
               <Phone size={14} />
               <span>0711 794 957</span>
@@ -251,14 +288,16 @@ const Navbar = () => {
               <Mail size={14} />
               <span>info@mukisacco.co.ke</span>
             </a>
+
           </div>
 
           <span className="muki-topbar-message">
             Pamoja Twajenga
           </span>
 
-          {/* TOPBAR SOCIAL MEDIA LINKS */}
+          {/* SOCIAL MEDIA */}
           <div className="muki-topbar-socials">
+
             <a
               href="https://www.facebook.com/mukisacco"
               target="_blank"
@@ -288,6 +327,7 @@ const Navbar = () => {
             >
               <FontAwesomeIcon icon={faXTwitter} />
             </a>
+
           </div>
 
         </div>
@@ -320,7 +360,10 @@ const Navbar = () => {
                 : "Open navigation menu"
             }
             aria-expanded={menuOpen}
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={() => {
+              setMenuOpen((current) => !current);
+              setActiveDropdown(null);
+            }}
           >
             {menuOpen ? <X size={25} /> : <Menu size={25} />}
           </button>
@@ -347,10 +390,10 @@ const Navbar = () => {
               </NavLink>
             ))}
 
-            {/* TEAM DROPDOWN */}
+            {/* OUR TEAM DROPDOWN */}
             <div
               className={`muki-nav-dropdown ${
-                teamOpen ? "dropdown-open" : ""
+                activeDropdown === "team" ? "dropdown-open" : ""
               }`}
             >
               <button
@@ -358,16 +401,14 @@ const Navbar = () => {
                 className={`muki-nav-link muki-dropdown-trigger ${
                   isTeamPage ? "active" : ""
                 }`}
-                aria-expanded={teamOpen}
-                onClick={() => {
-                  setTeamOpen(!teamOpen);
-                  setLoansOpen(false);
-                  setDigitalOpen(false);
-                  setMembershipOpen(false);
-                }}
+                aria-expanded={activeDropdown === "team"}
+                onClick={() => toggleDropdown("team")}
               >
                 Our Team
-                <ChevronDown size={15} />
+                <ChevronDown
+                  size={15}
+                  className="dropdown-chevron"
+                />
               </button>
 
               <div className="muki-dropdown-menu">
@@ -378,22 +419,20 @@ const Navbar = () => {
             {/* LOANS DROPDOWN */}
             <div
               className={`muki-nav-dropdown ${
-                loansOpen ? "dropdown-open" : ""
+                activeDropdown === "loans" ? "dropdown-open" : ""
               }`}
             >
               <button
                 type="button"
                 className="muki-nav-link muki-dropdown-trigger"
-                aria-expanded={loansOpen}
-                onClick={() => {
-                  setLoansOpen(!loansOpen);
-                  setDigitalOpen(false);
-                  setMembershipOpen(false);
-                  setTeamOpen(false);
-                }}
+                aria-expanded={activeDropdown === "loans"}
+                onClick={() => toggleDropdown("loans")}
               >
                 Loans
-                <ChevronDown size={15} />
+                <ChevronDown
+                  size={15}
+                  className="dropdown-chevron"
+                />
               </button>
 
               <div className="muki-dropdown-menu">
@@ -404,22 +443,20 @@ const Navbar = () => {
             {/* MEMBERSHIP DROPDOWN */}
             <div
               className={`muki-nav-dropdown ${
-                membershipOpen ? "dropdown-open" : ""
+                activeDropdown === "membership" ? "dropdown-open" : ""
               }`}
             >
               <button
                 type="button"
                 className="muki-nav-link muki-dropdown-trigger"
-                aria-expanded={membershipOpen}
-                onClick={() => {
-                  setMembershipOpen(!membershipOpen);
-                  setLoansOpen(false);
-                  setDigitalOpen(false);
-                  setTeamOpen(false);
-                }}
+                aria-expanded={activeDropdown === "membership"}
+                onClick={() => toggleDropdown("membership")}
               >
                 Membership
-                <ChevronDown size={15} />
+                <ChevronDown
+                  size={15}
+                  className="dropdown-chevron"
+                />
               </button>
 
               <div className="muki-dropdown-menu">
@@ -430,22 +467,20 @@ const Navbar = () => {
             {/* DIGITAL BANKING DROPDOWN */}
             <div
               className={`muki-nav-dropdown ${
-                digitalOpen ? "dropdown-open" : ""
+                activeDropdown === "digital" ? "dropdown-open" : ""
               }`}
             >
               <button
                 type="button"
                 className="muki-nav-link muki-dropdown-trigger"
-                aria-expanded={digitalOpen}
-                onClick={() => {
-                  setDigitalOpen(!digitalOpen);
-                  setLoansOpen(false);
-                  setMembershipOpen(false);
-                  setTeamOpen(false);
-                }}
+                aria-expanded={activeDropdown === "digital"}
+                onClick={() => toggleDropdown("digital")}
               >
                 Digital Banking
-                <ChevronDown size={15} />
+                <ChevronDown
+                  size={15}
+                  className="dropdown-chevron"
+                />
               </button>
 
               <div className="muki-dropdown-menu">
@@ -473,6 +508,7 @@ const Navbar = () => {
               href="https://portal.mukisacco.co.ke/"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={closeMenu}
             >
               Member Login
               <ExternalLink size={14} />
