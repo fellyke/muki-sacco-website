@@ -493,7 +493,7 @@ export default function Loans() {
 
              
 
-              <Link to="./contact" className="loan-modal-cta">
+              <Link to="/contact" className="loan-modal-cta">
   Contact Us
 </Link>
                 
