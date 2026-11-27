@@ -436,44 +436,45 @@ function Statistics() {
 ========================================= */
 
 function PromoAd() {
-  const promotions = [
-    {
-      title: "MAKE YOUR DREAMS POSSIBLE",
-      subtitle: "MUKI LOANS",
-      text: "Access financing solutions for education, farming, business and personal development.",
-      image: "/slides/muki-loans-ad.png",
-      link: "/loans",
-      button: "Explore Our Loans",
-      label: "FINANCING YOUR FUTURE",
-    },
-    {
-      title: "SAVE TODAY. SECURE TOMORROW.",
-      subtitle: "GROW YOUR SAVINGS",
-      text: "Build financial security and work towards your future goals with MUKI SACCO.",
-      image: "/slides/muki-savings-ad.png",
-      link: "/savings",
-      button: "Explore Savings",
-      label: "SAVE. GROW. PROSPER.",
-    },
-    {
-      title: "YOUR SACCO. YOUR PHONE.",
-      subtitle: "MOBILE BANKING",
-      text: "Enjoy convenient access to MUKI SACCO digital banking services wherever you are.",
-      image: "/slides/muki-mobile-banking-ad.png",
-      link: "/digital-banking",
-      button: "Explore Mobile Banking",
-      label: "BANKING MADE EASY",
-    },
-    {
-      title: "MORE SERVICES. MORE POSSIBILITIES.",
-      subtitle: "DISCOVER MUKI SERVICES",
-      text: "Explore insurance, agency banking, payments and other member-focused services.",
-      image: "/slides/muki-other-services-ad.png",
-      link: "/insurance",
-      button: "Explore Our Services",
-      label: "YOUR FINANCIAL PARTNER",
-    },
-  ];
+ const promotions = [
+  {
+    title: "TURN YOUR DREAMS INTO REALITY",
+    subtitle: "MUKI LOANS",
+    text: "From school fees and farming to business growth and personal development, find a financing solution that moves you forward.",
+    image: "/slides/muki-loans-ad.png",
+    link: "/loans",
+    button: "Explore Our Loans",
+    label: "YOUR DREAMS. OUR SUPPORT.",
+  },
+  {
+    title: "EVERY SHILLING SAVED COUNTS",
+    subtitle: "GROW YOUR SAVINGS",
+    text: "Build a strong financial future through consistent saving. Start today and give your dreams room to grow.",
+    image: "/slides/muki-savings-ad.png",
+    link: "/savings",
+    button: "Start Saving Today",
+    label: "SAVE TODAY. GROW TOMORROW.",
+  },
+  {
+    title: "BANKING THAT MOVES WITH YOU",
+    subtitle: "MUKI MOBILE BANKING",
+    text: "Enjoy convenient access to your SACCO services. Check your account and manage your finances wherever life takes you.",
+    image: "/slides/muki-mobile-banking-ad.png",
+    link: "/digital-banking",
+    button: "Explore Digital Banking",
+    label: "YOUR SACCO AT YOUR FINGERTIPS.",
+  },
+  {
+    title: "MORE THAN SAVINGS AND LOANS",
+    subtitle: "DISCOVER MUKI SERVICES",
+    text: "Enjoy more ways to access financial services, including insurance, agency banking and convenient payment solutions.",
+    image: "/slides/muki-other-services-ad.png",
+    link: "/insurance",
+    button: "Discover Our Services",
+    label: "ONE SACCO. MANY POSSIBILITIES.",
+  },
+  
+];
 
   const [activeAd, setActiveAd] = useState(0);
 
