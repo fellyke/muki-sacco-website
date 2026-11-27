@@ -611,7 +611,248 @@
   font-size: 0.79rem;
   line-height: 1.65;
 }
+/* =========================================
+   MUKI SACCO PROMOTIONAL ADVERTISEMENTS
+   Place directly below the hero slider
+========================================= */
 
+.home-page .home-promotions {
+  position: relative;
+  z-index: 4;
+  padding: 55px 0;
+  background: #ffffff;
+}
+
+.home-page .promotions-heading {
+  max-width: 720px;
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.home-page .promotions-heading span {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #2196c7;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.home-page .promotions-heading h2 {
+  margin: 0 0 12px;
+  color: #263f4a;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.home-page .promotions-heading p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #657b84;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.home-page .promotions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.home-page .promotion-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 310px;
+  padding: 25px 22px;
+  overflow: hidden;
+  border: 1px solid #e2efed;
+  border-radius: 14px;
+  background: #f5fafa;
+  box-shadow: 0 5px 18px rgba(38, 63, 74, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.home-page .promotion-card:hover {
+  transform: translateY(-6px);
+  border-color: #60b4ac;
+  box-shadow: 0 14px 30px rgba(38, 63, 74, 0.11);
+}
+
+.home-page .promotion-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #60b4ac, #2196c7);
+  content: "";
+}
+
+.home-page .promotion-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 20px;
+  border-radius: 13px;
+  color: #2196c7;
+  background: #e4f4f2;
+  transition: 0.3s ease;
+}
+
+.home-page .promotion-card:hover .promotion-icon {
+  color: #ffffff;
+  background: #2196c7;
+  transform: scale(1.05);
+}
+
+.home-page .promotion-icon svg {
+  width: 27px;
+  height: 27px;
+}
+
+.home-page .promotion-card h3 {
+  margin: 0 0 11px;
+  color: #263f4a;
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.home-page .promotion-card p {
+  flex: 1;
+  margin: 0 0 22px;
+  color: #657b84;
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.home-page .promotion-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 9px;
+  color: #2196c7;
+  font-size: 0.87rem;
+  font-weight: 800;
+  transition: gap 0.25s ease;
+}
+
+.home-page .promotion-link:hover {
+  gap: 14px;
+  color: #177da9;
+}
+
+.home-page .promotion-link svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* Individual advertisement accents */
+
+.home-page .promotion-card.digital-ad .promotion-icon {
+  color: #2196c7;
+  background: #e5f4fa;
+}
+
+.home-page .promotion-card.savings-ad .promotion-icon {
+  color: #218f88;
+  background: #e5f5f1;
+}
+
+.home-page .promotion-card.insurance-ad .promotion-icon {
+  color: #2196c7;
+  background: #eaf3f8;
+}
+
+.home-page .promotion-card.membership-ad .promotion-icon {
+  color: #218f88;
+  background: #e5f5f1;
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .home-page .home-promotions {
+    padding: 48px 0;
+  }
+
+  .home-page .promotions-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .home-page .promotion-card {
+    min-height: 285px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .home-page .home-promotions {
+    padding: 42px 0;
+  }
+
+  .home-page .promotions-heading {
+    width: 90%;
+    margin-bottom: 25px;
+  }
+
+  .home-page .promotions-heading h2 {
+    font-size: 1.8rem;
+  }
+
+  .home-page .promotions-heading p {
+    font-size: 0.9rem;
+  }
+
+  .home-page .promotions-grid {
+    width: 90%;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin: 0 auto;
+  }
+
+  .home-page .promotion-card {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .home-page .promotion-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 16px;
+  }
+
+  .home-page .promotion-card h3 {
+    font-size: 1.08rem;
+  }
+
+  .home-page .promotion-card p {
+    margin-bottom: 17px;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 380px) {
+  .home-page .promotions-heading h2 {
+    font-size: 1.6rem;
+  }
+
+  .home-page .promotion-card {
+    padding: 19px;
+  }
+}
 /* =========================================
    STATISTICS
 ========================================= */

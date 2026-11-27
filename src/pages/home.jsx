@@ -23,6 +23,7 @@ import {
   Coins,
   Tractor,
   FileText,
+  Megaphone,
 } from "lucide-react";
 
 import "./home.css";
@@ -170,8 +171,7 @@ const slides = [
     title: "Empowering Members For Life.",
     description:
       "Save with purpose, access financing and build a stronger financial future with MUKI SACCO.",
-    image:
-      "slides/Loans and Coins.png",
+    image: "slides/Loans and Coins.png",
     button: "Explore Our Loans",
     link: "/loans",
   },
@@ -192,8 +192,7 @@ const slides = [
     title: "A Stronger Future Starts Today.",
     description:
       "Discover member-focused financial services that help you take your next step with confidence.",
-    image:
-      "/slides/Community.png",
+    image: "/slides/Community.png",
     button: "Become A Member",
     link: "/membership",
   },
@@ -252,8 +251,6 @@ function Hero() {
       id="home"
       aria-label="MUKI SACCO homepage highlights"
     >
-      {/* HERO BACKGROUND IMAGE */}
-
       <img
         key={slide.image}
         className={`hero-background-image ${
@@ -268,16 +265,9 @@ function Hero() {
         aria-hidden={!isAppSlide}
       />
 
-      {/* DARK OVERLAY ON PHOTOGRAPHIC SLIDES */}
-
       {!isAppSlide && (
-        <div
-          className="hero-overlay"
-          aria-hidden="true"
-        />
+        <div className="hero-overlay" aria-hidden="true" />
       )}
-
-      {/* HERO CONTENT */}
 
       <div className="container hero-inner">
         <div className="hero-content" key={active}>
@@ -313,8 +303,6 @@ function Hero() {
           </div>
         </div>
       </div>
-
-      {/* SLIDER CONTROLS */}
 
       <div className="hero-controls">
         <button
@@ -450,6 +438,86 @@ function Statistics() {
 }
 
 /* =========================================
+   SMALL ROTATING MUKI PROMOTIONAL ADVERT
+========================================= */
+
+function PromoAd() {
+  const promotions = [
+    {
+      title: "MUKI SCHOOL FEES LOAN",
+      text: "Supporting your family's education plans.",
+      link: "/loans",
+      button: "Explore Loans",
+    },
+    {
+      title: "GROW YOUR SAVINGS WITH MUKI",
+      text: "Start building towards your financial goals.",
+      link: "/savings",
+      button: "Explore Savings",
+    },
+    {
+      title: "BANKING MADE EASIER",
+      text: "Discover MUKI SACCO's digital banking services.",
+      link: "/digital-banking",
+      button: "Learn More",
+    },
+    {
+      title: "PROTECT WHAT MATTERS",
+      text: "Explore MUKI's insurance services.",
+      link: "/insurance",
+      button: "Explore Insurance",
+    },
+  ];
+
+  const [activeAd, setActiveAd] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveAd((current) => (current + 1) % promotions.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const promotion = promotions[activeAd];
+
+  return (
+    <section className="muki-promo-section" aria-label="MUKI promotions">
+      <div className="container">
+        <div className="muki-promo-banner" aria-live="polite">
+          <span className="muki-promo-icon">
+            <Megaphone size={21} />
+          </span>
+
+          <div className="muki-promo-content">
+            <strong>{promotion.title}</strong>
+            <span>{promotion.text}</span>
+          </div>
+
+          <Link to={promotion.link} className="muki-promo-link">
+            {promotion.button}
+            <ArrowRight size={15} />
+          </Link>
+
+          <div className="muki-promo-dots">
+            {promotions.map((item, index) => (
+              <button
+                key={item.title}
+                type="button"
+                className={activeAd === index ? "active" : ""}
+                onClick={() => setActiveAd(index)}
+                aria-label={`Show promotion ${index + 1}`}
+                aria-current={activeAd === index ? "true" : undefined}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================
    SERVICES WITH PHOTOGRAPHS
 ========================================= */
 
@@ -461,8 +529,7 @@ function Services() {
       text: "Explore financing options for your personal and business goals.",
       link: "/loans",
       label: "Explore loans",
-      image:
-        "/slides/Loans and Coins.png",
+      image: "/slides/Loans and Coins.png",
       alt: "Financial planning documents and calculator",
     },
     {
@@ -922,6 +989,7 @@ export default function Home() {
       <Hero />
       <Highlights />
       <Statistics />
+      <PromoAd />
       <Services />
       <LoanProducts />
       <Savings />
