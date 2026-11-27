@@ -473,7 +473,6 @@ function PromoAd() {
     button: "Discover Our Services",
     label: "ONE SACCO. MANY POSSIBILITIES.",
   },
-  
 ];
 
   const [activeAd, setActiveAd] = useState(0);
