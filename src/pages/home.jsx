@@ -171,7 +171,7 @@ const slides = [
     title: "Empowering Members For Life.",
     description:
       "Save with purpose, access financing and build a stronger financial future with MUKI SACCO.",
-    image: "slides/Loans and Coins.png",
+    image: "/slides/Loans and Coins.png",
     button: "Explore Our Loans",
     link: "/loans",
   },
@@ -257,11 +257,7 @@ function Hero() {
           isAppSlide ? "hero-app-image" : "hero-photo-image"
         }`}
         src={slide.image}
-        alt={
-          isAppSlide
-            ? "MUKI SACCO mobile banking application"
-            : ""
-        }
+        alt={isAppSlide ? "MUKI SACCO mobile banking application" : ""}
         aria-hidden={!isAppSlide}
       />
 
@@ -318,9 +314,7 @@ function Hero() {
             <button
               key={item.title}
               type="button"
-              className={
-                active === index ? "hero-dot active" : "hero-dot"
-              }
+              className={active === index ? "hero-dot active" : "hero-dot"}
               onClick={() => setActive(index)}
               aria-label={`Show slide ${index + 1}: ${item.title}`}
               aria-current={active === index ? "true" : undefined}
@@ -438,34 +432,46 @@ function Statistics() {
 }
 
 /* =========================================
-   SMALL ROTATING MUKI PROMOTIONAL ADVERT
+   MUKI SACCO IMAGE ADVERTISEMENT SLIDER
 ========================================= */
 
 function PromoAd() {
   const promotions = [
     {
-      title: "MUKI SCHOOL FEES LOAN",
-      text: "Supporting your family's education plans.",
+      title: "MAKE YOUR DREAMS POSSIBLE",
+      subtitle: "MUKI LOANS",
+      text: "Access financing solutions for education, farming, business and personal development.",
+      image: "/slides/muki-loans-ad.png",
       link: "/loans",
-      button: "Explore Loans",
+      button: "Explore Our Loans",
+      label: "FINANCING YOUR FUTURE",
     },
     {
-      title: "GROW YOUR SAVINGS WITH MUKI",
-      text: "Start building towards your financial goals.",
+      title: "SAVE TODAY. SECURE TOMORROW.",
+      subtitle: "GROW YOUR SAVINGS",
+      text: "Build financial security and work towards your future goals with MUKI SACCO.",
+      image: "/slides/muki-savings-ad.png",
       link: "/savings",
       button: "Explore Savings",
+      label: "SAVE. GROW. PROSPER.",
     },
     {
-      title: "BANKING MADE EASIER",
-      text: "Discover MUKI SACCO's digital banking services.",
+      title: "YOUR SACCO. YOUR PHONE.",
+      subtitle: "MOBILE BANKING",
+      text: "Enjoy convenient access to MUKI SACCO digital banking services wherever you are.",
+      image: "/slides/muki-mobile-banking-ad.png",
       link: "/digital-banking",
-      button: "Learn More",
+      button: "Explore Mobile Banking",
+      label: "BANKING MADE EASY",
     },
     {
-      title: "PROTECT WHAT MATTERS",
-      text: "Explore MUKI's insurance services.",
+      title: "MORE SERVICES. MORE POSSIBILITIES.",
+      subtitle: "DISCOVER MUKI SERVICES",
+      text: "Explore insurance, agency banking, payments and other member-focused services.",
+      image: "/slides/muki-other-services-ad.png",
       link: "/insurance",
-      button: "Explore Insurance",
+      button: "Explore Our Services",
+      label: "YOUR FINANCIAL PARTNER",
     },
   ];
 
@@ -474,44 +480,112 @@ function PromoAd() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveAd((current) => (current + 1) % promotions.length);
-    }, 5000);
+    }, 6000);
 
     return () => clearInterval(timer);
   }, []);
 
   const promotion = promotions[activeAd];
 
+  const previousAd = () => {
+    setActiveAd(
+      (current) => (current - 1 + promotions.length) % promotions.length
+    );
+  };
+
+  const nextAd = () => {
+    setActiveAd((current) => (current + 1) % promotions.length);
+  };
+
   return (
-    <section className="muki-promo-section" aria-label="MUKI promotions">
+    <section
+      className="muki-promo-section"
+      aria-label="MUKI SACCO advertisements"
+    >
       <div className="container">
-        <div className="muki-promo-banner" aria-live="polite">
-          <span className="muki-promo-icon">
-            <Megaphone size={21} />
+
+        <div className="muki-promo-header">
+          <div>
+            <span className="eyebrow">DISCOVER MUKI</span>
+            <h2>Explore Our Products & Services</h2>
+          </div>
+
+          <span className="muki-promo-count">
+            0{activeAd + 1} / 0{promotions.length}
           </span>
-
-          <div className="muki-promo-content">
-            <strong>{promotion.title}</strong>
-            <span>{promotion.text}</span>
-          </div>
-
-          <Link to={promotion.link} className="muki-promo-link">
-            {promotion.button}
-            <ArrowRight size={15} />
-          </Link>
-
-          <div className="muki-promo-dots">
-            {promotions.map((item, index) => (
-              <button
-                key={item.title}
-                type="button"
-                className={activeAd === index ? "active" : ""}
-                onClick={() => setActiveAd(index)}
-                aria-label={`Show promotion ${index + 1}`}
-                aria-current={activeAd === index ? "true" : undefined}
-              />
-            ))}
-          </div>
         </div>
+
+        <div className="muki-promo-slider">
+
+          <img
+            key={promotion.image}
+            className="muki-promo-image"
+            src={promotion.image}
+            alt={promotion.title}
+          />
+
+          <div className="muki-promo-overlay" />
+
+          <div className="muki-promo-content" key={activeAd}>
+
+            <span className="muki-promo-label">
+              <Megaphone size={15} />
+              {promotion.label}
+            </span>
+
+            <span className="muki-promo-subtitle">
+              {promotion.subtitle}
+            </span>
+
+            <h2>{promotion.title}</h2>
+
+            <p>{promotion.text}</p>
+
+            <Link
+              to={promotion.link}
+              className="muki-promo-link"
+            >
+              {promotion.button}
+              <ArrowRight size={17} />
+            </Link>
+
+          </div>
+
+          <div className="muki-promo-controls">
+
+            <button
+              type="button"
+              onClick={previousAd}
+              aria-label="Previous advertisement"
+            >
+              <ChevronLeft size={21} />
+            </button>
+
+            <div className="muki-promo-dots">
+              {promotions.map((item, index) => (
+                <button
+                  key={item.title}
+                  type="button"
+                  className={activeAd === index ? "active" : ""}
+                  onClick={() => setActiveAd(index)}
+                  aria-label={`Show ${item.subtitle} advertisement`}
+                  aria-current={activeAd === index ? "true" : undefined}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={nextAd}
+              aria-label="Next advertisement"
+            >
+              <ChevronRight size={21} />
+            </button>
+
+          </div>
+
+        </div>
+
       </div>
     </section>
   );

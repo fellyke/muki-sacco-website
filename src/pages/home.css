@@ -319,7 +319,6 @@
 
 /* =========================================
    HERO HEADING
-   Always visible — no animation or hover
 ========================================= */
 
 .home-page .hero h1 {
@@ -389,7 +388,7 @@
   line-height: 1.7;
 }
 
-/* Hero action buttons — always visible */
+/* Hero action buttons */
 
 .home-page .hero-actions {
   position: relative;
@@ -459,7 +458,7 @@
   color: #218f88;
 }
 
-/* Slider navigation controls */
+/* Hero slider navigation */
 
 .home-page .hero-controls {
   position: absolute;
@@ -611,248 +610,7 @@
   font-size: 0.79rem;
   line-height: 1.65;
 }
-/* =========================================
-   MUKI SACCO PROMOTIONAL ADVERTISEMENTS
-   Place directly below the hero slider
-========================================= */
 
-.home-page .home-promotions {
-  position: relative;
-  z-index: 4;
-  padding: 55px 0;
-  background: #ffffff;
-}
-
-.home-page .promotions-heading {
-  max-width: 720px;
-  margin: 0 auto 32px;
-  text-align: center;
-}
-
-.home-page .promotions-heading span {
-  display: inline-block;
-  margin-bottom: 12px;
-  color: #2196c7;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.home-page .promotions-heading h2 {
-  margin: 0 0 12px;
-  color: #263f4a;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 800;
-  line-height: 1.25;
-}
-
-.home-page .promotions-heading p {
-  max-width: 600px;
-  margin: 0 auto;
-  color: #657b84;
-  font-size: 0.95rem;
-  line-height: 1.8;
-}
-
-.home-page .promotions-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.home-page .promotion-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 310px;
-  padding: 25px 22px;
-  overflow: hidden;
-  border: 1px solid #e2efed;
-  border-radius: 14px;
-  background: #f5fafa;
-  box-shadow: 0 5px 18px rgba(38, 63, 74, 0.05);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.home-page .promotion-card:hover {
-  transform: translateY(-6px);
-  border-color: #60b4ac;
-  box-shadow: 0 14px 30px rgba(38, 63, 74, 0.11);
-}
-
-.home-page .promotion-card::before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, #60b4ac, #2196c7);
-  content: "";
-}
-
-.home-page .promotion-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 58px;
-  height: 58px;
-  margin-bottom: 20px;
-  border-radius: 13px;
-  color: #2196c7;
-  background: #e4f4f2;
-  transition: 0.3s ease;
-}
-
-.home-page .promotion-card:hover .promotion-icon {
-  color: #ffffff;
-  background: #2196c7;
-  transform: scale(1.05);
-}
-
-.home-page .promotion-icon svg {
-  width: 27px;
-  height: 27px;
-}
-
-.home-page .promotion-card h3 {
-  margin: 0 0 11px;
-  color: #263f4a;
-  font-size: 1.12rem;
-  font-weight: 800;
-  line-height: 1.4;
-}
-
-.home-page .promotion-card p {
-  flex: 1;
-  margin: 0 0 22px;
-  color: #657b84;
-  font-size: 0.88rem;
-  line-height: 1.8;
-}
-
-.home-page .promotion-link {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  gap: 9px;
-  color: #2196c7;
-  font-size: 0.87rem;
-  font-weight: 800;
-  transition: gap 0.25s ease;
-}
-
-.home-page .promotion-link:hover {
-  gap: 14px;
-  color: #177da9;
-}
-
-.home-page .promotion-link svg {
-  width: 17px;
-  height: 17px;
-}
-
-/* Individual advertisement accents */
-
-.home-page .promotion-card.digital-ad .promotion-icon {
-  color: #2196c7;
-  background: #e5f4fa;
-}
-
-.home-page .promotion-card.savings-ad .promotion-icon {
-  color: #218f88;
-  background: #e5f5f1;
-}
-
-.home-page .promotion-card.insurance-ad .promotion-icon {
-  color: #2196c7;
-  background: #eaf3f8;
-}
-
-.home-page .promotion-card.membership-ad .promotion-icon {
-  color: #218f88;
-  background: #e5f5f1;
-}
-
-/* Tablet */
-
-@media (max-width: 1024px) {
-  .home-page .home-promotions {
-    padding: 48px 0;
-  }
-
-  .home-page .promotions-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-  }
-
-  .home-page .promotion-card {
-    min-height: 285px;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 700px) {
-  .home-page .home-promotions {
-    padding: 42px 0;
-  }
-
-  .home-page .promotions-heading {
-    width: 90%;
-    margin-bottom: 25px;
-  }
-
-  .home-page .promotions-heading h2 {
-    font-size: 1.8rem;
-  }
-
-  .home-page .promotions-heading p {
-    font-size: 0.9rem;
-  }
-
-  .home-page .promotions-grid {
-    width: 90%;
-    grid-template-columns: 1fr;
-    gap: 15px;
-    margin: 0 auto;
-  }
-
-  .home-page .promotion-card {
-    min-height: 0;
-    padding: 22px;
-  }
-
-  .home-page .promotion-icon {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 16px;
-  }
-
-  .home-page .promotion-card h3 {
-    font-size: 1.08rem;
-  }
-
-  .home-page .promotion-card p {
-    margin-bottom: 17px;
-  }
-}
-
-/* Small mobile */
-
-@media (max-width: 380px) {
-  .home-page .promotions-heading h2 {
-    font-size: 1.6rem;
-  }
-
-  .home-page .promotion-card {
-    padding: 19px;
-  }
-}
 /* =========================================
    STATISTICS
 ========================================= */
@@ -921,6 +679,271 @@
   color: var(--home-muted);
   font-size: 0.83rem;
   line-height: 1.65;
+}
+
+/* =========================================
+   MUKI SACCO IMAGE ADVERTISEMENT SLIDER
+========================================= */
+
+.home-page .muki-promo-section {
+  position: relative;
+  padding: 75px 0;
+  background: #F5FAFA;
+}
+
+.home-page .muki-promo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.home-page .muki-promo-header .eyebrow {
+  display: inline-block;
+  color: #60B4AC;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.home-page .muki-promo-header h2 {
+  color: #263F4A;
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.home-page .muki-promo-count {
+  color: #657B84;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  padding-bottom: 5px;
+}
+
+/* Advertisement container */
+
+.home-page .muki-promo-slider {
+  position: relative;
+  width: 100%;
+  min-height: 410px;
+  height: clamp(410px, 42vw, 510px);
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 20px;
+  background: #263F4A;
+  box-shadow: 0 14px 40px rgba(38, 63, 74, 0.12);
+}
+
+/* Advertisement image */
+
+.home-page .muki-promo-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: mukiPromoImageIn 0.7s ease both;
+}
+
+/* Advertisement overlay */
+
+.home-page .muki-promo-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(24, 52, 62, 0.94) 0%,
+    rgba(24, 52, 62, 0.78) 38%,
+    rgba(24, 52, 62, 0.30) 75%,
+    rgba(24, 52, 62, 0.12) 100%
+  );
+}
+
+/* Advertisement text */
+
+.home-page .muki-promo-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 58%;
+  min-height: 410px;
+  height: 100%;
+  padding: 55px 65px 75px;
+  color: #FFFFFF;
+  animation: mukiPromoContentIn 0.65s ease both;
+}
+
+.home-page .muki-promo-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 15px;
+  margin-bottom: 22px;
+  border-radius: 30px;
+  background: rgba(96, 180, 172, 0.20);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+}
+
+.home-page .muki-promo-label svg {
+  color: #60B4AC;
+  flex-shrink: 0;
+}
+
+.home-page .muki-promo-subtitle {
+  color: #60B4AC;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.home-page .muki-promo-content h2 {
+  max-width: 600px;
+  color: #FFFFFF;
+  font-size: clamp(30px, 4.2vw, 51px);
+  font-weight: 900;
+  line-height: 1.12;
+  margin: 0 0 18px;
+}
+
+.home-page .muki-promo-content p {
+  max-width: 490px;
+  color: rgba(255, 255, 255, 0.90);
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 0 0 28px;
+}
+
+/* Advertisement button */
+
+.home-page .muki-promo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 49px;
+  padding: 13px 23px;
+  border-radius: 7px;
+  background: #60B4AC;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.home-page .muki-promo-link:hover {
+  background: #2196C7;
+  color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.home-page .muki-promo-link svg {
+  transition: transform 0.25s ease;
+}
+
+.home-page .muki-promo-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* Advertisement slider controls */
+
+.home-page .muki-promo-controls {
+  position: absolute;
+  z-index: 5;
+  right: 35px;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.home-page .muki-promo-controls > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.home-page .muki-promo-controls > button:hover {
+  background: #60B4AC;
+  border-color: #60B4AC;
+  transform: scale(1.06);
+}
+
+/* Advertisement slider dots */
+
+.home-page .muki-promo-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.home-page .muki-promo-dots button {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.home-page .muki-promo-dots button.active {
+  width: 27px;
+  background: #60B4AC;
+}
+
+/* Advertisement animations */
+
+@keyframes mukiPromoImageIn {
+  from {
+    opacity: 0.65;
+    transform: scale(1.035);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mukiPromoContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* =========================================
@@ -1896,6 +1919,40 @@
   .home-page .services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  /* Advertisement slider */
+
+  .home-page .muki-promo-section {
+    padding: 60px 0;
+  }
+
+  .home-page .muki-promo-slider {
+    height: 430px;
+    min-height: 430px;
+  }
+
+  .home-page .muki-promo-content {
+    width: 75%;
+    min-height: 430px;
+    padding: 45px 40px 85px;
+  }
+
+  .home-page .muki-promo-content h2 {
+    font-size: 40px;
+  }
+
+  .home-page .muki-promo-content p {
+    font-size: 15px;
+  }
+
+  .home-page .muki-promo-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(24, 52, 62, 0.94) 0%,
+      rgba(24, 52, 62, 0.78) 55%,
+      rgba(24, 52, 62, 0.35) 100%
+    );
+  }
 }
 
 /* =========================================
@@ -2044,7 +2101,7 @@
     font-size: 0.76rem;
   }
 
-  /* App slide phone — larger on mobile */
+  /* App slide phone */
 
   .home-page .hero-app-slide {
     min-height: 610px;
@@ -2081,7 +2138,7 @@
     padding: 18px;
   }
 
-  /* Slider controls */
+  /* Hero controls */
 
   .home-page .hero-controls {
     right: 5%;
@@ -2172,6 +2229,108 @@
 
   .home-page .stat-divider {
     margin: 10px 0 13px;
+  }
+
+  /* Advertisement slider */
+
+  .home-page .muki-promo-section {
+    padding: 45px 0;
+  }
+
+  .home-page .muki-promo-header {
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .home-page .muki-promo-header h2 {
+    font-size: 24px;
+  }
+
+  .home-page .muki-promo-header .eyebrow {
+    font-size: 10px;
+  }
+
+  .home-page .muki-promo-count {
+    font-size: 12px;
+  }
+
+  .home-page .muki-promo-slider {
+    min-height: 470px;
+    height: 470px;
+    border-radius: 13px;
+  }
+
+  .home-page .muki-promo-image {
+    object-position: center;
+  }
+
+  .home-page .muki-promo-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(24, 52, 62, 0.48) 0%,
+      rgba(24, 52, 62, 0.78) 35%,
+      rgba(24, 52, 62, 0.96) 100%
+    );
+  }
+
+  .home-page .muki-promo-content {
+    justify-content: flex-end;
+    width: 100%;
+    min-height: 470px;
+    padding: 35px 23px 100px;
+  }
+
+  .home-page .muki-promo-label {
+    font-size: 9px;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+  }
+
+  .home-page .muki-promo-subtitle {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .home-page .muki-promo-content h2 {
+    font-size: 31px;
+    line-height: 1.15;
+    margin-bottom: 13px;
+  }
+
+  .home-page .muki-promo-content p {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .home-page .muki-promo-link {
+    min-height: 45px;
+    padding: 11px 17px;
+    font-size: 13px;
+  }
+
+  .home-page .muki-promo-controls {
+    right: 18px;
+    bottom: 20px;
+    gap: 11px;
+  }
+
+  .home-page .muki-promo-controls > button {
+    width: 35px;
+    height: 35px;
+  }
+
+  .home-page .muki-promo-dots {
+    gap: 6px;
+  }
+
+  .home-page .muki-promo-dots button {
+    width: 7px;
+    height: 7px;
+  }
+
+  .home-page .muki-promo-dots button.active {
+    width: 21px;
   }
 
   /* Services */
@@ -2447,6 +2606,35 @@
 
   .partners-line {
     width: 20px;
+  }
+
+  /* Small mobile advertisement slider */
+
+  .home-page .muki-promo-header h2 {
+    font-size: 21px;
+  }
+
+  .home-page .muki-promo-slider {
+    min-height: 450px;
+    height: 450px;
+  }
+
+  .home-page .muki-promo-content {
+    min-height: 450px;
+    padding: 30px 18px 95px;
+  }
+
+  .home-page .muki-promo-content h2 {
+    font-size: 27px;
+  }
+
+  .home-page .muki-promo-content p {
+    font-size: 13px;
+  }
+
+  .home-page .muki-promo-controls {
+    right: 12px;
+    bottom: 17px;
   }
 }
 
