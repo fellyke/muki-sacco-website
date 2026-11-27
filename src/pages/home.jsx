@@ -480,7 +480,7 @@ function PromoAd() {
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveAd((current) => (current + 1) % promotions.length);
-    }, 6000);
+    }, 8000);
 
     return () => clearInterval(timer);
   }, []);
